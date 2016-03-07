@@ -1,7 +1,7 @@
 {
-    "name": "patient-dashboard-web",
+    "name": "react-redux-mui-boilerplate",
     "version": "1.0.0",
-    "description": "xG Health Patient Dashboard",
+    "description": "Boilerplate project for React, React-Redux, and Material UI.",
     "scripts": {
         "start": "npm run prod",
         "dev": "echo 'Launching Dev Environment' && npm run build && npm run start-dev-server",
@@ -16,7 +16,14 @@
         "start-server": "echo 'Starting Prod Server' && http-server -o -p 3040 dist"
     },
     "author": "Mike Chabot",
-    "license": "SEE LICENSE IN LICENSE",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mikechabot/react-redux-mui-boilerplate.git"
+    },
+    "bugs": {
+        "url": "https://github.com/mikechabot/react-redux-mui-boilerplate/issues"
+    },
     "dependencies": {
         "lodash": "^4.2.0",
         "material-ui": "^0.14.4",
