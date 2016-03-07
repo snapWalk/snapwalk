@@ -1,0 +1,12 @@
+@import 'common';
+
+body, html {
+    @include full-height;
+    @include margin(0px);
+    font: 100% $font-stack;
+}
+
+#patient-dashboard {
+    @include flex;
+    @include full-height;
+}
