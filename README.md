@@ -8,7 +8,7 @@ An opinionated setup for ReactJS projects
 * Supports ES6 via [Babel](https://babeljs.io/) transpiling
 * Utilizes [React Hot Loader](http://gaearon.github.io/react-hot-loader/) for live refresh
 * Utilizes [Redux](http://redux.js.org/index.html) for state management
-* Utilizes [React-Redux](https://github.com/reactjs/react-redux) stateful component bindings
+* Utilizes [React-Redux](https://github.com/reactjs/react-redux) for stateful component bindings
 * Supports [SCSS](http://sass-lang.com/) styling with [autoprefixing](https://github.com/postcss/autoprefixer)
 * Contains configurations for both Production and Development
 
