@@ -1,11 +1,11 @@
 import { DEFAULT_STATE } from '../../common/app-const';
 
-const defaultState = DEFAULT_STATE.model;
-
-const Model = (state = defaultState, action) => {
+const Model = (state = DEFAULT_STATE.model, action) => {
     switch(action.type) {
         default: {
             return state;
         }
     }
 }
+
+export default Model;
