@@ -6,6 +6,8 @@ An opinionated setup for ReactJS projects
 * Built with [Webpack](https://webpack.github.io/)
 * Tested with [Mocha](https://mochajs.org/)
 * Supports ES6 via [Babel](https://babeljs.io/) transpiling
+* View rendering via [ReactJS](https://facebook.github.io/react/)
+* HTTP support via [Axios](https://github.com/mzabriskie/axios)
 * Utilizes [React Hot Loader](http://gaearon.github.io/react-hot-loader/) for live refresh
 * Utilizes [Redux](http://redux.js.org/index.html) for state management
 * Utilizes [React-Redux](https://github.com/reactjs/react-redux) for stateful component bindings
