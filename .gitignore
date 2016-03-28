@@ -11,3 +11,4 @@ dist
 
 # IntelliJ WebStorm
 .idea
+.iml

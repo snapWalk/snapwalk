@@ -1,10 +1,9 @@
 var path = require('path');
 var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 
 module.exports = {
-  entry: './src/bootstrap',
+  entry: path.join(process.cwd(), 'src/bootstrap.js'),
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js'
@@ -13,10 +12,6 @@ module.exports = {
       extensions: ['', '.js', '.jsx']
   },
   plugins: [
-    new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, 'src/index.html'),
-        inject: 'body'
-    }),
     new webpack.DefinePlugin({
         'process.env.NODE_ENV': '"production"'
     })

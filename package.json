@@ -12,8 +12,8 @@
     "test": "echo 'Testing:' && mocha --compilers js:babel-core/register --recursive --colors",
     "test:watch": "npm test -- --watch ",
     "test:debug": "echo 'Debugging Tests:' && mocha --compilers js:babel-core/register --recursive --colors --debug-brk",
-    "start-dev-server": "echo 'Staring Dev Server' && node server.js",
-    "start-server": "echo 'Starting Prod Server' && http-server -o -p 3040 dist"
+    "start-dev-server": "echo 'Staring Dev Server' && node server.dev.js",
+    "start-server": "echo 'Starting Prod Server' && babel-node server.prod.js"
   },
   "author": "Mike Chabot",
   "license": "MIT",
@@ -26,6 +26,10 @@
   },
   "dependencies": {
     "axios": "^0.9.1",
+    "babel-cli": "^6.6.5",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "history": "^2.0.1",
     "lodash": "^4.2.0",
     "material-ui": "^0.14.4",
     "moment": "^2.11.1",

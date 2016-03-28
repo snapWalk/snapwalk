@@ -1,7 +1,6 @@
 import React from 'react';
 import CustomTheme from '../common/app-theme';
 import ThemeManager from 'material-ui/lib/styles/theme-manager';
-import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
 /**      Author: Mike Chabot
@@ -33,6 +32,6 @@ class Root extends React.Component {
 
 Root.childContextTypes = {
     muiTheme: React.PropTypes.object
-}
+};
 
-export default connect()(Root);
+export default Root;
