@@ -25,9 +25,6 @@ app.get('*', (req, res) => {
             // if we got props, that means we found a valid component to render
             // for the given route
             const markup = renderToString(<RouterContext {...props} />);
-
-            console.log(markup);
-
             // render `index.ejs`, but pass in the markup we want it to display
             res.render('index', { markup })
 

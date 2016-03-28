@@ -3,7 +3,7 @@ var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 
 module.exports = {
-  entry: path.join(process.cwd(), 'src/bootstrap.js'),
+  entry: path.join(__dirname, 'src/bootstrap'),
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js'

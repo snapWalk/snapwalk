@@ -7,8 +7,6 @@ import common from './scss/common.scss';
 import style from './scss/style.scss';
 import routes from './routes';
 
-
-
 ReactDOM.render(
     <Router routes={routes} history={createBrowserHistory()} />,
     document.getElementById('patient-dashboard')
