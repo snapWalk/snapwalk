@@ -1,12 +1,15 @@
-import { BASE_URL } from '../../common/app-const';
+import ConfigService from '../config-service';
 import axios from 'axios';
 
-/**      Author: Mike Chabot
- *  Description: Service for making AJAX requests.
- *               Uses Axios (https://github.com/mzabriskie/axios)
+/**
+ * Service for making AJAX requests.
+ * Uses Axios (https://github.com/mzabriskie/axios)
+ *
+ * @author  Mike Chabot
+ * @type    {AxiosInstance}
  */
 const instance = axios.create({
-    baseURL: BASE_URL,
+    baseURL: ConfigService.getBaseUrl(),
     timeout: 4000
 });
 
