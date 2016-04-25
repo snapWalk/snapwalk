@@ -9,7 +9,10 @@ node_modules
 # Build / Distribution
 dist
 
-# IntelliJ WebStorm
+# IntelliJ
 .idea
-.iml
+/*.iml
+
+# Coverage reports
 /coverage
+
