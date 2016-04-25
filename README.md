@@ -1,4 +1,4 @@
-# react-redux-mui-boilerplate
+# react-boilerplate
 A dead simple, yet slightly opinionated setup for ReactJS projects
 
 ### Project Structure
