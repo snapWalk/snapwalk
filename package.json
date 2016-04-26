@@ -1,7 +1,7 @@
 {
-  "name": "react-redux-mui-boilerplate",
+  "name": "react-boilerplate",
   "version": "1.0.0",
-  "description": "Boilerplate project for React, React-Redux, and Material UI.",
+  "description": "A slightly opinionated boilerplate project for ReactJS",
   "scripts": {
     "start": "npm run prod",
     "dev": "npm run build:dev && npm run start-dev-server",
@@ -20,10 +20,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mikechabot/react-redux-mui-boilerplate.git"
+    "url": "git+https://github.com/mikechabot/react-boilerplate.git"
   },
   "bugs": {
-    "url": "https://github.com/mikechabot/react-redux-mui-boilerplate/issues"
+    "url": "https://github.com/mikechabot/react-boilerplate/issues"
   },
   "dependencies": {
     "axios": "^0.9.1",
