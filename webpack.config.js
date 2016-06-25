@@ -36,7 +36,7 @@ const config = {
                 NODE_ENV: JSON.stringify(
                     process.env.NODE_ENV
                 ),
-                XG_CONFIG: JSON.stringify(
+                APP_CONFIG: JSON.stringify(
                     appConfig
                 )
             }

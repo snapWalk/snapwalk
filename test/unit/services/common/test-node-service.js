@@ -65,38 +65,6 @@ describe('NodeService', () => {
             ).toEqual('test');
         });
     });
-    describe('getXgConfig()', () => {
-        it('should return the xG configuration', () => {
-            const config = JSON.stringify({ "foo": "bar" });
-            process.env.XG_CONFIG = config;
-
-            expect(
-                NodeService.getXgConfig()
-            ).toEqual(config);
-        });
-        it('should return undefined if xG config is not present', () => {
-            delete process.env.XG_CONFIG;
-            expect(
-                NodeService.getXgConfig()
-            ).toBe(undefined);
-        });
-    });
-    describe('hasXgConfig()', () => {
-        it('should return true if xG configuration is present', () => {
-            const config = JSON.stringify({ "foo": "bar" });
-            process.env.XG_CONFIG = config;
-
-            expect(
-                NodeService.hasXgConfig()
-            ).toBe(true);
-        });
-        it('should return false if xG configuration is not present', () => {
-            delete process.env.XG_CONFIG;
-            expect(
-                NodeService.hasXgConfig()
-            ).toBe(false);
-        });
-    });
     describe('isProduction()', () => {
         it('should return true if NODE_ENV is production', () => {
             process.env.NODE_ENV = 'production';

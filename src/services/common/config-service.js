@@ -6,7 +6,7 @@ const config = require('../../config/config');
 
 module.exports = {
     getConfig() {
-        return config;
+        return process.env.APP_CONFIG;
     },
     getProperty(key) {
         if (!key) throw new Error('Key cannot be null/undefined');

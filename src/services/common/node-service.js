@@ -1,8 +1,8 @@
 var common = require('../../common/common');
 
 const CONFIG = {
-    NODE_ENV: 'NODE_ENV',           // Application mode
-    XG_CONFIG: 'XG_CONFIG'          // xG specific configs
+    NODE_ENV    : 'NODE_ENV',           // Application mode
+    APP_CONFIG  : 'APP_CONFIG'          // Application specific configs
 };
 
 const APP_MODE = {
@@ -28,14 +28,6 @@ module.exports = {
             process.env[CONFIG.NODE_ENV] = APP_MODE.TEST;
             return process.env[CONFIG.NODE_ENV];
         }
-    },
-    getXgConfig: function() {
-        return this.getNodeEnvByKey(CONFIG.XG_CONFIG);
-    },
-    hasXgConfig: function() {
-        return common.__hasValue(
-            this.getXgConfig()
-        );
     },
     isProduction: function() {
         return this.getNodeEnvMode() === APP_MODE.PRODUCTION;

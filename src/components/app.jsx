@@ -5,9 +5,7 @@ class Root extends React.Component {
     render() {
         return (
             <div>
-                <div>
-                    <h3>react-boilerplate</h3>
-                </div>
+                <h3>react-boilerplate</h3>
                 <ul>
                     <li><Link to='/'>Index route: <code>'/'</code></Link></li>
                     <li><Link to='/foo'>Foo route: <code>'/foo'</code></Link></li>

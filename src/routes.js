@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router'
-import RootContainer from './components/root';
+import RootContainer from './components/app';
 import IndexContainer from './components/index';
 import FooContainer from './components/foo';
 
