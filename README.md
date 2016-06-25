@@ -21,7 +21,7 @@ A dead simple, yet slightly opinionated setup for ReactJS projects
 
 
 ### Get Started
-1. git clone https://github.com/mikechabot/react-redux-mui-boilerplate.git
+1. git clone https://github.com/mikechabot/react-boilerplate.git
 2. `npm install`
 3. Launch environment:
   *  **Production**: `npm start`
