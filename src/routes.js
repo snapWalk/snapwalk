@@ -1,12 +1,16 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router'
-import RootContainer from './components/app';
-import IndexContainer from './components/index';
-import FooContainer from './components/foo';
+import App from './components/app';
+import Increment from './components/routes/increment';
+import Decrement from './components/routes/decrement';
+import Reset from './components/routes/reset';
+import NotFound from './components/routes/not-found';
 
 export default (
-    <Route path="/" component={RootContainer}>
-        <IndexRoute component={IndexContainer} />
-        <Route path="/foo" component={FooContainer} />
+    <Route path="/" component={App}>
+        <IndexRoute component={Increment} />
+        <Route path="/decrement" component={Decrement} />
+        <Route path="/reset" component={Reset} />
+        <Route path="*" component={NotFound} />
     </Route>
 )

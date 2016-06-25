@@ -1,21 +1,28 @@
 import React from 'react';
-import { Link } from 'react-router';
+import ReduxState from './redux-state';
+import Routes from './routes';
 
-class Root extends React.Component {
-    render() {
-        return (
-            <div>
-                <h3>react-boilerplate</h3>
-                <ul>
-                    <li><Link to='/'>Index route: <code>'/'</code></Link></li>
-                    <li><Link to='/foo'>Foo route: <code>'/foo'</code></Link></li>
-                </ul>
-                <div>
-                    {this.props.children}
-                </div>
-            </div>
-        );
-    }
+export default function App({
+    children,
+    location
+}) {
+    return (
+        <section style={style}>
+
+            <h1>react-boilerplate</h1>
+
+            { /* Render Redux state */ }
+            <ReduxState />
+
+            { /* Render route content */ }
+            <Routes activePath={location.pathname} >
+                { children }
+            </Routes>
+
+        </section>
+    )
 }
 
-export default Root;
+const style = {
+    width: '100%'
+};

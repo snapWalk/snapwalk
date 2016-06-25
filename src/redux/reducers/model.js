@@ -1,12 +1,11 @@
-import { DEFAULT_STATE } from '../../common/app-const';
-import { __hasValue } from '../../common/common';
+import { INITIAL_STATE } from '../../common/app-const';
 import {
     FETCH_REQUEST,
     FETCH_SUCCESS,
     FETCH_FAILURE
 } from '../actions/types';
 
-const Model = (state = DEFAULT_STATE.model, action) => {
+const model = (state = INITIAL_STATE.model, action) => {
     switch(action.type) {
         case FETCH_SUCCESS:
         case FETCH_FAILURE:
@@ -61,4 +60,4 @@ const entity = (
 };
 
 
-export default Model
+export default model;

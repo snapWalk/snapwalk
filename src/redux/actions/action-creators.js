@@ -1,7 +1,10 @@
 import {
     FETCH_REQUEST,
     FETCH_SUCCESS,
-    FETCH_FAILURE
+    FETCH_FAILURE,
+    INCREMENT_COUNTER,
+    DECREMENT_COUNTER,
+    RESET_COUNTER
 } from './types';
 
 /**
@@ -85,3 +88,23 @@ export const apiFailure = (entity) => {
         'lastUpdated'
     );
 };
+
+export const increment = (value) => (
+    makeActionCreator(
+        INCREMENT_COUNTER,
+        'value'
+    )(value)
+);
+
+export const decrement = (value) => (
+    makeActionCreator(
+        DECREMENT_COUNTER,
+        'value'
+    )(value)
+);
+
+export const reset = () => (
+    makeActionCreator(
+        RESET_COUNTER
+    )()
+);

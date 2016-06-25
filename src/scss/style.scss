@@ -1,12 +1,39 @@
 @import 'common';
 
 body, html {
-    @include full-height;
-    @include margin(0px);
-    font: 100% $font-stack;
+  @include full-height;
+  @include margin(0px);
+  font: $font-stack;
 }
 
 #example-app {
-    @include flex;
-    @include full-height;
+  @include flex;
+  @include full-height;
+}
+
+code {
+   font-size: 133%;
+}
+
+.button.button-primary,
+button.button-primary,
+input[type="submit"].button-primary,
+input[type="reset"].button-primary,
+input[type="button"].button-primary {
+  color: #000000;
+  background-color: #9CCC65;
+  border-color: #8BC34A; }
+.button.button-primary:hover,
+button.button-primary:hover,
+input[type="submit"].button-primary:hover,
+input[type="reset"].button-primary:hover,
+input[type="button"].button-primary:hover,
+.button.button-primary:focus,
+button.button-primary:focus,
+input[type="submit"].button-primary:focus,
+input[type="reset"].button-primary:focus,
+input[type="button"].button-primary:focus {
+  color: #FFFFFF;
+  background-color: #689F38;
+  border-color: #558B2F;
 }

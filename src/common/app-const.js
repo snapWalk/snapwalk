@@ -1,4 +1,5 @@
-export const DEFAULT_STATE = {
-    model: {}
+export const INITIAL_STATE = {
+    model: {},
+    counter: 0
 };
 

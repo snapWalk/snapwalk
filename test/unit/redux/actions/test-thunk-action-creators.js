@@ -3,7 +3,7 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import moment from 'moment';
 import * as actionCreators from '../../../../src/redux/actions/thunk-action-creators';
-import { DEFAULT_STATE } from '../../../../src/common/app-const';
+import { INITIAL_STATE } from '../../../../src/common/app-const';
 import {
     FETCH_REQUEST,
     FETCH_SUCCESS,
@@ -19,7 +19,7 @@ describe('Thunk Action Creators', () => {
     let store, getState, entity;
     beforeEach(() => {
         entity = 'mockEntity';
-        getState = DEFAULT_STATE;
+        getState = INITIAL_STATE;
         store = mockStore(getState)
     });
 

@@ -6,9 +6,9 @@ const CONFIG = {
 };
 
 const APP_MODE = {
-    PRODUCTION: 'production',
-    DEVELOPMENT: 'development',
-    TEST: 'test'
+    PRODUCTION  : 'production',
+    DEVELOPMENT : 'development',
+    TEST        : 'test'
 };
 
 module.exports = {

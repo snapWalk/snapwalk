@@ -1,8 +1,8 @@
 import expect from 'expect';
 import reducer from '../../../../src/redux/reducers/model';
-import { DEFAULT_STATE } from '../../../../src/common/app-const';
+import { INITIAL_STATE } from '../../../../src/common/app-const';
 
-const defaultState = DEFAULT_STATE.model;
+const defaultState = INITIAL_STATE.model;
 
 describe('Model Reducer', () => {
     describe('a call to the reducer', () => {
