@@ -1,6 +1,9 @@
 # react-boilerplate
 A slightly opinionated setup for ReactJS projects
 
+### Live Demo
+http://ec2-52-91-0-209.compute-1.amazonaws.com:3060/
+
 ### Project Structure
 
 * Built with [Webpack](https://webpack.github.io/)
