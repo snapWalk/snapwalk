@@ -12,7 +12,7 @@ A slightly opinionated setup for ReactJS projects
 * Utilizes [React Hot Loader](http://gaearon.github.io/react-hot-loader/) for live refresh
 * Utilizes [redux](http://redux.js.org/index.html) for state management
 * Utilizes [react-redux](https://github.com/reactjs/react-redux) for stateful component bindings
-* Utilized [redux-logger](https://github.com/theaqua/redux-logger) for capturing Redux actions 
+* Utilizes [redux-logger](https://github.com/theaqua/redux-logger) for capturing Redux actions 
 * Utilizes [react-router](https://github.com/reactjs/react-router) for client-side routing
 * Supports [SCSS](http://sass-lang.com/) styling with [autoprefixing](https://github.com/postcss/autoprefixer)
 * Contains out-of-the-box Redux and Webpack configurations for both production and development. 
