@@ -1,5 +1,5 @@
 # react-boilerplate
-A dead simple, yet slightly opinionated setup for ReactJS projects
+A slightly opinionated setup for ReactJS projects
 
 ### Project Structure
 
