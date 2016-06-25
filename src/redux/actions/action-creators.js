@@ -89,22 +89,6 @@ export const apiFailure = (entity) => {
     );
 };
 
-export const increment = (value) => (
-    makeActionCreator(
-        INCREMENT_COUNTER,
-        'value'
-    )(value)
-);
-
-export const decrement = (value) => (
-    makeActionCreator(
-        DECREMENT_COUNTER,
-        'value'
-    )(value)
-);
-
-export const reset = () => (
-    makeActionCreator(
-        RESET_COUNTER
-    )()
-);
+export const increment = makeActionCreator(INCREMENT_COUNTER);
+export const decrement = makeActionCreator(DECREMENT_COUNTER);
+export const reset = makeActionCreator(RESET_COUNTER);

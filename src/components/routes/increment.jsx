@@ -2,13 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { increment } from '../../redux/actions/action-creators';
 
-function Index ({
+function Increment ({
     increment
 }) {
     return (
         <div>
             <h6>
-                You are at the <strong>Index</strong> component:&nbsp; 
+                You are at the <strong>Increment</strong> route component:&nbsp; 
                 <code>('/')</code>
             </h6>
             <button
@@ -22,5 +22,5 @@ function Index ({
 
 export default connect(
     null,
-    { increment: () => increment(1)}
-)(Index)
+    { increment }
+)(Increment)

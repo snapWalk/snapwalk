@@ -12,6 +12,7 @@ export default function MenuContent({
 
 const style = {
     marginTop: 5,
+    padding: 5,
     backgroundColor: '#E8F5E9',
     paddingTop: 10,
     height: '100%'

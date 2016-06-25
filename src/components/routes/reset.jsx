@@ -2,14 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { reset } from '../../redux/actions/action-creators';
 
-function Bar ({
+function Reset ({
     reset
 }) {
     return (
         <div>
             <h6>
-                You are at the <strong>Bar</strong> component:&nbsp;
-                <code>('/bar')</code>
+                You are at the <strong>Reset</strong> route component:&nbsp;
+                <code>('/reset')</code>
             </h6>
             <button
                 className="button-primary"
@@ -22,5 +22,5 @@ function Bar ({
 
 export default connect(
     null,
-    { reset: () => reset() }
-)(Bar)
+    { reset }
+)(Reset)
