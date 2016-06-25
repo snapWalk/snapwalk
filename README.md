@@ -26,3 +26,9 @@ A dead simple, yet slightly opinionated setup for ReactJS projects
 3. Launch environment:
   *  **Production**: `npm start`
   *  **Development**: `npm run dev`
+
+### Test Commands
+* `npm test`: Shortcut for test coverage command
+* `npm run test:unit`: Run unit tests in location test/unit/**/*.js
+* `npm run test:integration`: Run integration tests in location test/integration/**/*.js
+* `npm run test:coverage`: Run test coverage for unit and integration tests
