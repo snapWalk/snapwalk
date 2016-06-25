@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-function CounterAction({
+function GenericCounterAction({
     label,
     path,
-    counter,
-    action
+    action,
+    counter
 }) {
     return (
         <section>
@@ -13,7 +13,8 @@ function CounterAction({
                 You are at the <em>{label}</em> component:&nbsp;
                 <code>('{path}')</code>
             </h6>
-            <h6>Counter:
+            <h6>
+                Counter:&nbsp;
                 <code>{ counter }</code>
             </h6>
             <button
@@ -32,4 +33,4 @@ export default connect(
         label: ownProps.label
     }),
     null
-)(CounterAction);
+)(GenericCounterAction);

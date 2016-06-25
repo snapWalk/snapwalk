@@ -12,6 +12,13 @@ body, html {
   @include full-height;
 }
 
+h1,h2,h3,h4,h5,h6 {
+  small {
+     font-size: 40%;
+     opacity: .7;
+  }
+}
+
 h6 {
   font-size: 110%;
   margin-bottom: 10px;

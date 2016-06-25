@@ -11,19 +11,25 @@ function App({
     location
 }) {
     return (
-        <section style={style}>
+        <section style={style.container}>
 
-            <h1>react-boilerplate</h1>
+            <h1>react-boilerplate&nbsp;
+                <small>A slightly opinionated setup for ReactJS </small>
+            </h1>
 
-            { /* Render Redux state */ }
-            <Panel title="Redux State" >
-                <CodeBlock code={state} />
-            </Panel>
+            <section style={style.flexRow}>
 
-            { /* Render AJAX example */ }
-            <Panel title="Ajax Example">
-                <AjaxRequest />
-            </Panel>
+                { /* Render AJAX example */ }
+                <Panel style={{width: '50%'}} title="Ajax Example">
+                    <AjaxRequest />
+                </Panel>
+
+                { /* Render Redux state */ }
+                <Panel style={{width: '50%'}} title="Redux State" >
+                    <CodeBlock code={state} />
+                </Panel>
+
+            </section>
 
             <Panel title="Router Example">
                 <Tabs activePath={location.pathname} >
@@ -36,7 +42,14 @@ function App({
 }
 
 const style = {
-    width: '100%'
+    container: {
+        width: '100%',
+        margin: 5
+    },
+    flexRow: {
+        width: '100%',
+        display: 'flex'
+    }
 };
 
 export default connect(

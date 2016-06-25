@@ -23,8 +23,9 @@ function link (path) {
 const style = {
     tab: {
         float: 'left',
-        margin: '0 5px',
-        padding: '.25em',
+        margin: 0,
+        marginRight: 10,
+        padding: '.30em',
         fontSize: '1.2em',
         fontWeight: 300,
         cursor: 'pointer',

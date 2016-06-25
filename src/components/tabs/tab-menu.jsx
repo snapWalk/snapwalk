@@ -29,7 +29,10 @@ function _renderTab (activePath) {
 const style = {
     tabs: {
         display: 'flex',
+        backgroundColor: '#DCEDC8',
         listStyleType: 'none',
+        borderTopRightRadius: 10,
+        borderBottomLeftRadius: 10,
         margin: 0,
         padding: 0
     }

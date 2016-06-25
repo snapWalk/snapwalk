@@ -4,32 +4,22 @@ import { fetchFakeData } from '../redux/actions/thunk-action-creators';
 
 class AjaxRequest extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {}
-        this.fetchData = this.fetchData.bind(this);
-    }
-
     componentDidMount() {
-        this.fetchData();
-    }
-
-    fetchData() {
-        const { dispatch } = this.props;
-        dispatch(fetchFakeData());
+        this.props.fetchFakeData();
     }
 
     render() {
-        const { fooEntity } = this.props;
-        return fooEntity.isFetching
+        const { fooEntity, fetchFakeData } = this.props;
+
+        return fooEntity.isFetching || !fooEntity.data
             ? <div className="loader" />
             : (
                 <section>
-                    <h6 style={style}>{ fooEntity.data }</h6>
+                    <h6 style={style}>{ fooEntity.data.message }</h6>
                     <button
                         className="button-primary"
-                        onClick={this.fetchData}>
-                        Fetch Fake Data
+                        onClick={fetchFakeData}>
+                        Fetch Fake Foo
                     </button>
                 </section>
             )
@@ -37,7 +27,9 @@ class AjaxRequest extends React.Component {
 }
 
 export default connect(
-    (state) => ({ fooEntity : _getFooEntity(state)})
+    (state) => ({ fooEntity : _getFooEntity(state)}),
+    { fetchFakeData }
+
 )(AjaxRequest);
 
 function _getFooEntity(state) {

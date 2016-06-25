@@ -55,17 +55,26 @@ export const loadEntity = (
  */
 export function fetchFakeData() {
     return loadEntity(
+
+        // The domain/entity/object name (e.g. orders)
         'fooEntity',
+
+        // Data promise (e.g. OrderService.getOrders())
         new Promise(resolve => {
-            const delay = _getRandomDelay();
+            const delay = _getRandomDelayBetween(1, 3, 2);
             setTimeout(() => {
                 resolve(`Simulated ${delay}s delay for fake API call`)
             }, delay * 1000)
         }),
+
+        // Disable silent loading. This means loadEntity() will toggle
+        // the 'isFetching' property on `fooEntity` during the promise
+        // request. The UI can then hook into the store to obtain this
+        // property to optionally display a spinner / load indicator.
         false
     );
 }
 
-function _getRandomDelay() {
-    return Number(Math.random() * (3 - 1) + 1).toFixed(2);
+function _getRandomDelayBetween(min, max, roundTo) {
+    return Number(Math.random() * (max - min) + min).toFixed(roundTo);
 }

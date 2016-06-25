@@ -2,19 +2,20 @@ import React from 'react';
 
 export default function Panel({
     title,
+    style,
     children
 }) {
     return (
-        <section style={style.container}>
-            <h5 style={style.heading}>{ title }</h5>
-            <section style={style.content}>
+        <section style={{...styles.container, ...style}}>
+            <h5 style={styles.heading}>{ title }</h5>
+            <section style={styles.content}>
                 { children }
             </section>
         </section>
     )
 }
 
-const style = {
+const styles = {
     container: {
         margin: 5,
         padding: 5,
