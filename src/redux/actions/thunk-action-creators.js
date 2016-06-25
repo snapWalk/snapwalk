@@ -12,24 +12,39 @@ import {
  *
  * More on Redux Thunk: https://github.com/gaearon/redux-thunk
  *
- * @param  {string}     entity              Entity name. Consumed by the Reducer
- * @param  {Promise}    dataPromise         Promise that loads data from an external source
- * @param  {boolean}    isLoadedSilently    Disable the FETCH_REQUEST action
- * @return {function}                       A function that loads data from an external
- *                                          source, and dispatches event actions
+ * @param  {string}     entity                      Entity name. Consumed by the Reducer            (e.g `orders`, `todos`)
+ * @param  {Promise}    dataPromise                 Promise that loads data from an external source (e.g. OrderService.getOrders())
+ * @param  {boolean}    loadInBackground            Disable the FETCH_REQUEST action
+ * @return {function}                               A function that loads data from an external
+ *                                                  source, and dispatches event actions
  */
 export const loadEntity = (
     entity,
     dataPromise,
-    isLoadedSilently
+    loadInBackground = false
 ) => {
     if (!dataPromise || !dataPromise.then)
         throw new Error('dataPromise must be a Promise, and cannot be null/undefined');
 
     return (dispatch) => {
 
-        // Notify the UI of fetching
-        if (!isLoadedSilently) {
+        if (!loadInBackground) {
+            /**
+             * Set the `isFetching` property on the entity to `true`.
+             * The UI can hook into the store to obtain this property
+             * from the entity, and optionally display a spinner or loading
+             * indicator to the end-user.
+             *
+             * A reason to pass `loadInBackground` as true would be to
+             * inhibit this loading indicator, if configured. For instance,
+             * perhaps only the spinner should show when the component is
+             * mounting, but subsequent updates to the entity are done
+             * silently in the background.
+             *
+             * Regardless of whether the promise resolves or rejects,
+             * `isFetching` is always set back to false in the reducer
+             * via apiSuccess or apiFailure.
+             */
             dispatch(apiRequest(entity)());
         }
 
@@ -50,29 +65,41 @@ export const loadEntity = (
 };
 
 /**
- * Simulate an API request using loadEntity() and setTimeout()
- * @returns {Function}
+ * Thunk action that simulates ad delayed API call
+ * @returns {Function}  thunk
  */
-export function fetchFakeData() {
+export function fetchFoo() {
     return loadEntity(
-
-        // The domain/entity/object name (e.g. orders)
         'fooEntity',
-
-        // Data promise (e.g. OrderService.getOrders())
-        new Promise(resolve => {
-            const delay = _getRandomDelayBetween(1, 3, 2);
-            setTimeout(() => {
-                resolve(`Simulated ${delay}s delay for fake API call`)
-            }, delay * 1000)
-        }),
-
-        // Disable silent loading. This means loadEntity() will toggle
-        // the 'isFetching' property on `fooEntity` during the promise
-        // request. The UI can then hook into the store to obtain this
-        // property to optionally display a spinner / load indicator.
-        false
+        fakePromise('fooEntity')
     );
+}
+
+/**
+ * Thunk action that simulates ad delayed API call
+ * @returns {Function}  thunk
+ */
+export function fetchBar() {
+    return loadEntity(
+        'barEntity',
+        fakePromise('barEntity')
+    );
+}
+
+/**
+ * For demonstration purposes only. Normally this promise would
+ * do something cool, like fetch data from a remote API.
+ *
+ * @param entity
+ * @returns {Promise}
+ */
+function fakePromise(entity) {
+    return new Promise(resolve => {
+        const delay = _getRandomDelayBetween(1, 3, 2);
+        setTimeout(() => {
+            resolve(`Simulated ${delay}s delay for fake API call for ${entity}`)
+        }, delay * 1000)
+    });
 }
 
 function _getRandomDelayBetween(min, max, roundTo) {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function CodeBlock({
+export default function CodeBlock ({
     code
 }) {
 

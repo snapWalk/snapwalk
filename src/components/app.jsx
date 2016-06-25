@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import AjaxRequest from './ajax-request';
+import AjaxRequest from './ajax/ajax-request';
 import CodeBlock from './common/code-block';
 import Tabs from './tabs/tabs';
 import Panel from './common/panel';
+import Footer from './common/footer';
 
-function App({
+function App ({
     children,
     state,
     location
@@ -36,6 +37,8 @@ function App({
                     { children }
                 </Tabs>
             </Panel>
+
+            <Footer />
 
         </section>
     )

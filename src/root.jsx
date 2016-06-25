@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router'
 import routes from './routes';
 
-export default function Root({
+export default function Root ({
     store
 }) {
     return (

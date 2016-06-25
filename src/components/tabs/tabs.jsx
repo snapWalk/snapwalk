@@ -2,7 +2,7 @@ import React from 'react';
 import TabMenu from './tab-menu'
 import TabContent from './tab-content';
 
-export default function Routes({
+export default function Tabs ({
     activePath,
     children
 }) {

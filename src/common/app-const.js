@@ -1,6 +1,7 @@
 export const INITIAL_STATE = {
     model: {
-        fooEntity: {}
+        fooEntity: {},
+        barEntity: {}
     },
     counter: 0
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Panel({
+export default function Panel ({
     title,
     style,
     children
