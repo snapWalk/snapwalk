@@ -1,5 +1,5 @@
 # react-boilerplate
-A dead simple, yet slightly opinionated setup for ReactJS projects
+A slightly opinionated setup for ReactJS projects
 
 ### Project Structure
 
@@ -12,8 +12,8 @@ A dead simple, yet slightly opinionated setup for ReactJS projects
 * Utilizes [React Hot Loader](http://gaearon.github.io/react-hot-loader/) for live refresh
 * Utilizes [redux](http://redux.js.org/index.html) for state management
 * Utilizes [react-redux](https://github.com/reactjs/react-redux) for stateful component bindings
-* Utilized [redux-logger](https://github.com/theaqua/redux-logger) for capturing Redux actions 
-* Utilizes [react-router](https://github.com/reactjs/react-router) for application routing
+* Utilizes [redux-logger](https://github.com/theaqua/redux-logger) for capturing Redux actions 
+* Utilizes [react-router](https://github.com/reactjs/react-router) for client-side routing
 * Supports [SCSS](http://sass-lang.com/) styling with [autoprefixing](https://github.com/postcss/autoprefixer)
 * Contains out-of-the-box Redux and Webpack configurations for both production and development. 
   * **Production:** Express server with `redux-logger` disabled.
@@ -21,8 +21,14 @@ A dead simple, yet slightly opinionated setup for ReactJS projects
 
 
 ### Get Started
-1. git clone https://github.com/mikechabot/react-redux-mui-boilerplate.git
+1. git clone https://github.com/mikechabot/react-boilerplate.git
 2. `npm install`
 3. Launch environment:
   *  **Production**: `npm start`
   *  **Development**: `npm run dev`
+
+### Test Commands
+* `npm test`: Shortcut for test coverage command
+* `npm run test:unit`: Run unit tests located in `test/unit/**/*.js`
+* `npm run test:integration`: Run integration tests location in `test/integration/**/*.js`
+* `npm run test:coverage`: Run coverage for unit and integration tests
