@@ -49,6 +49,10 @@ export function makeEntityActionCreator(type, entity, ...keys) {
     }
 }
 
+export const increment = makeActionCreator(INCREMENT_COUNTER);
+export const decrement = makeActionCreator(DECREMENT_COUNTER);
+export const reset = makeActionCreator(RESET_COUNTER);
+
 /**
  * Action creator for API fetch request
  * @param  {string} entity      Entity name (e.g. 'labs', 'meds')
@@ -88,7 +92,3 @@ export const apiFailure = (entity) => {
         'lastUpdated'
     );
 };
-
-export const increment = makeActionCreator(INCREMENT_COUNTER);
-export const decrement = makeActionCreator(DECREMENT_COUNTER);
-export const reset = makeActionCreator(RESET_COUNTER);

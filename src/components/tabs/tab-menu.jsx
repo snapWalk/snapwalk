@@ -1,22 +1,22 @@
 import React from 'react';
-import MenuItem from './menu-item';
+import Tab from './tab';
 import map from 'lodash/map';
 
-export default function Menu({
+export default function TabMenu({
     items,
     activePath
 }) {
     return (
         <ul style={style.tabs}>
-            { map(items, _renderMenuItem(activePath)) }
+            { map(items, _renderTab(activePath)) }
         </ul>
     );
 }
 
-function _renderMenuItem (activePath) {
+function _renderTab (activePath) {
     return function (itemPath, label) {
         return (
-            <MenuItem
+            <Tab
                 active={activePath === itemPath}
                 key={label}
                 path={itemPath}

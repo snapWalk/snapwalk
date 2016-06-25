@@ -1,9 +1,13 @@
 import React from 'react';
-import ReduxState from './redux-state';
-import Routes from './routes';
+import { connect } from 'react-redux';
+import AjaxRequest from './ajax-request';
+import CodeBlock from './common/code-block';
+import Tabs from './tabs/tabs';
+import Panel from './common/panel';
 
-export default function App({
+function App({
     children,
+    state,
     location
 }) {
     return (
@@ -12,12 +16,20 @@ export default function App({
             <h1>react-boilerplate</h1>
 
             { /* Render Redux state */ }
-            <ReduxState />
+            <Panel title="Redux State" >
+                <CodeBlock code={state} />
+            </Panel>
 
-            { /* Render route content */ }
-            <Routes activePath={location.pathname} >
-                { children }
-            </Routes>
+            { /* Render AJAX example */ }
+            <Panel title="Ajax Example">
+                <AjaxRequest />
+            </Panel>
+
+            <Panel title="Router Example">
+                <Tabs activePath={location.pathname} >
+                    { children }
+                </Tabs>
+            </Panel>
 
         </section>
     )
@@ -26,3 +38,7 @@ export default function App({
 const style = {
     width: '100%'
 };
+
+export default connect(
+    (state) => ({ state })
+)(App)

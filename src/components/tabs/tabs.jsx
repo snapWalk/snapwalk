@@ -1,18 +1,16 @@
 import React from 'react';
-import Menu from './menu/menu'
-import MenuContent from './menu/menu-content';
+import TabMenu from './tab-menu'
+import TabContent from './tab-content';
 
 export default function Routes({
     activePath,
     children
 }) {
     return (
-        <section style={style.container}>
-
-            <h5 style={style.heading}>Routes</h5>
+        <section>
 
             { /* Render the link menu */ }
-            <Menu
+            <TabMenu
                 activePath={activePath}
                 items={{
                     increment   : '/',
@@ -22,20 +20,10 @@ export default function Routes({
             />
 
             { /* Render the active route */ }
-            <MenuContent>
+            <TabContent>
                 { children }
-            </MenuContent>
+            </TabContent>
 
         </section>
     )
 }
-
-const style = {
-    container: {
-        margin: 5,
-        height: '100%'
-    },
-    heading: {
-        margin: '5px 0'
-    }
-};

@@ -1,5 +1,7 @@
 export const INITIAL_STATE = {
-    model: {},
+    model: {
+        fooEntity: {}
+    },
     counter: 0
 };
 

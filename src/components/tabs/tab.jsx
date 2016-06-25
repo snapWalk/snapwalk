@@ -1,7 +1,7 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
 
-export default function MenuItem ({
+export default function Tab ({
     label,
     path,
     active
@@ -24,10 +24,11 @@ const style = {
     tab: {
         float: 'left',
         margin: '0 5px',
-        padding: 10,
+        padding: '.25em',
         fontSize: '1.2em',
         fontWeight: 300,
         cursor: 'pointer',
+        color: '#212121',
         backgroundColor: '#9CCC65',
         borderTopRightRadius: 10,
         borderBottomLeftRadius: 10,

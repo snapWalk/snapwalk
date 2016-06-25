@@ -1,5 +1,3 @@
-import { browserHistory } from 'react-router';
-import { __hasValue } from '../../common/common';
 import {
     apiRequest,
     apiSuccess,
@@ -52,14 +50,22 @@ export const loadEntity = (
 };
 
 /**
- * Redux thunk action creator for linking to a route and setting the
- * active workflow
- *
- * @param  {string} path    Path to link to
- * @return {function}       Thunk action creator
+ * Simulate an API request using loadEntity() and setTimeout()
+ * @returns {Function}
  */
-export const linkTo = (path) => {
-    return (dispatch, getState) => {
-        browserHistory.push(path);
-    }
-};
+export function fetchFakeData() {
+    return loadEntity(
+        'fooEntity',
+        new Promise(resolve => {
+            const delay = _getRandomDelay();
+            setTimeout(() => {
+                resolve(`Simulated ${delay}s delay for fake API call`)
+            }, delay * 1000)
+        }),
+        false
+    );
+}
+
+function _getRandomDelay() {
+    return Number(Math.random() * (3 - 1) + 1).toFixed(2);
+}
