@@ -13,7 +13,7 @@ A slightly opinionated setup for ReactJS projects
 * Utilizes [redux](http://redux.js.org/index.html) for state management
 * Utilizes [react-redux](https://github.com/reactjs/react-redux) for stateful component bindings
 * Utilized [redux-logger](https://github.com/theaqua/redux-logger) for capturing Redux actions 
-* Utilizes [react-router](https://github.com/reactjs/react-router) for application routing
+* Utilizes [react-router](https://github.com/reactjs/react-router) for client-side routing
 * Supports [SCSS](http://sass-lang.com/) styling with [autoprefixing](https://github.com/postcss/autoprefixer)
 * Contains out-of-the-box Redux and Webpack configurations for both production and development. 
   * **Production:** Express server with `redux-logger` disabled.
