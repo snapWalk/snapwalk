@@ -3,6 +3,8 @@ A slightly opinionated setup for ReactJS projects
 
 #### http://mikechabot.github.io/react-boilerplate/
 
+## Features
+
 ### Build Process
  * Built with [Webpack](https://webpack.github.io/)
  * Supports ES6 via [Babel](https://babeljs.io/) transpiling
@@ -35,14 +37,14 @@ A slightly opinionated setup for ReactJS projects
 * [redux-mock-store](https://github.com/arnaudbenard/redux-mock-store) for Redux state testing
 * [Sinon.JS](http://sinonjs.org/) for mocking, stubbing & spying
 
-### Get Started
+## Get Started
 1. git clone https://github.com/mikechabot/react-boilerplate.git
 2. `npm install`
 3. Launch environment:
   *  **Production**: `npm start`
   *  **Development**: `npm run dev`
 
-### Test Commands
+## Test Commands
 * `npm test`: Shortcut for test coverage command
 * `npm run test:unit`: Run unit tests located in `test/unit/**/*.js`
 * `npm run test:integration`: Run integration tests location in `test/integration/**/*.js`
