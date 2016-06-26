@@ -14,19 +14,18 @@ function App ({
     return (
         <section style={style.container}>
 
-            <h1>react-boilerplate&nbsp;
-                <small>A slightly opinionated setup for ReactJS </small>
-            </h1>
+            <h1>react-boilerplate&nbsp;</h1>
+            <small>A slightly opinionated setup for ReactJS </small>
 
             <section style={style.flexRow}>
 
                 { /* Render AJAX example */ }
-                <Panel style={{width: '50%'}} title="Ajax Example">
+                <Panel style={style.panel} title="Ajax Example">
                     <AjaxRequest />
                 </Panel>
 
                 { /* Render Redux state */ }
-                <Panel style={{width: '50%'}} title="Redux State" >
+                <Panel style={style.panel} title="Redux State" >
                     <CodeBlock code={state} />
                 </Panel>
 
@@ -51,7 +50,12 @@ const style = {
     },
     flexRow: {
         width: '100%',
-        display: 'flex'
+        display: 'flex',
+        flexWrap: 'wrap'
+    },
+    panel: {
+        flex: 1,
+        minWidth: 300
     }
 };
 
