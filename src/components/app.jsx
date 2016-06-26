@@ -54,7 +54,7 @@ const style = {
         flexWrap: 'wrap'
     },
     panel: {
-        flex: 1,
+        flexGrow: 1,
         minWidth: 300
     }
 };
