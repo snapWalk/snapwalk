@@ -28,7 +28,7 @@ A slightly opinionated setup for ReactJS projects
   * **Production** // [Express](http://expressjs.com/) server with `redux-logger` disabled.
   * **Development** // WebpackDevServer with [React Hot Loader](http://gaearon.github.io/react-hot-loader/), and `redux-logger` enabled.
 
-## Testing
+### Testing
 * Tested with [Mocha](https://mochajs.org/)
 * Coverage support via [Istanbul](https://gotwarlost.github.io/istanbul/)
 * [react-addons-test-utils](https://facebook.github.io/react/docs/test-utils.html) for component testing
