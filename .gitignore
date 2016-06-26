@@ -1,3 +1,11 @@
+.jekyll-metadata
+.htaccess
+.DS_Store
+.sass-cache
+Gemfile.lock
+_site/
+_drafts/
+
 # Logs
 logs
 *.log
@@ -15,4 +23,3 @@ dist
 
 # Coverage reports
 /coverage
-
