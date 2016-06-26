@@ -14,7 +14,7 @@ function App ({
     return (
         <section style={style.container}>
 
-            <h1>react-boilerplate&nbsp;</h1>
+            <h1 style={style.heading}>react-boilerplate&nbsp;</h1>
             <small>A slightly opinionated setup for ReactJS </small>
 
             <section style={style.flexRow}>
@@ -47,6 +47,9 @@ const style = {
     container: {
         width: '100%',
         margin: 5
+    },
+    heading: {
+        fontSize: '4.5rem'
     },
     flexRow: {
         width: '100%',
