@@ -14,8 +14,8 @@ export default function Tabs ({
                 activePath={activePath}
                 items={{
                     increment   : '/react-boilerplate/dist',
-                    decrement   : 'decrement',
-                    reset       : 'reset'
+                    decrement   : '/decrement',
+                    reset       : '/reset'
                 }}
             />
 
