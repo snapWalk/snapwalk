@@ -1,11 +1,11 @@
-import production from './configure-store.prod';
-import development from './configure-store.dev';
+import NodeService from '../../services/common/node-service';
 
 /**
  * Determine which Redux store to provide based on the
  * Environment Type of Node.js
  * @return {object}    Redux store
  */
-export default process.env.NODE_ENV === 'production'
-    ? production
-    : development
+
+export default NodeService.isProduction()
+    ? require('./configure-store.prod').default
+    : require('./configure-store.dev').default;
