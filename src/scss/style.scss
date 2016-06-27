@@ -22,7 +22,7 @@ h6 {
 };
 
 code {
-   font-size: 133%;
+   font-size: 115%;
 }
 
 .button.button-primary,
@@ -52,10 +52,20 @@ input[type="button"].button-primary:focus {
   margin: 5px 5px 0 0;
 }
 
+code {
+  color: #558B2F;
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+
 pre {
   font-size: 90%;
   margin: 0;
-  background-color: #F5F5F5;
+  background-color: #F1F1F1;
   counter-reset: line-numbering;
   font-family: Consolas, Menlo, Monaco, monospace;
   padding: 5px;

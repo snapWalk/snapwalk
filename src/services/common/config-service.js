@@ -2,7 +2,7 @@
 
 const DomainObjectService = require('./domain-object-service');
 const NodeUtils = require('./node-service');
-const config = require('../../config/config');
+const config = require('../../../config/config');
 
 module.exports = {
     getConfig() {

@@ -1,7 +1,8 @@
 import React from 'react';
 
 export default function CodeBlock ({
-    code
+    code,
+    isString
 }) {
 
     // Check for empty prop
@@ -9,8 +10,10 @@ export default function CodeBlock ({
         return <p className="text-danger">Nothing to display</p>
     }
 
-    // Get formatted JSON
-    const json = JSON.stringify(code, null, 2);
+    let json = code;
+    if (!isString) {
+        json = JSON.stringify(code, null, 2); // Get formatted JSON
+    }
 
     // Split on new line
     const lines = json.split('\n');

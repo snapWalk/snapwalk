@@ -6,10 +6,17 @@ import moment from 'moment';
 import { isEmpty } from 'lodash';
 
 class Entity extends React.Component {
-    componentWillMount() {
-        this.props.update();
+
+    constructor(props) {
+        super(props);
         this.reset = this.reset.bind(this);
         this.delete = this.delete.bind(this);
+    }
+
+    componentWillMount() {
+        if (this.props.init) {
+            this.props.update();
+        }
     }
 
     delete() {
@@ -74,11 +81,16 @@ class Entity extends React.Component {
                 this._renderFetch(),
                 this._renderReset(),
                 this._renderDelete()
-            ].map(button => (
-                <span>{button}</span>
+            ].map((button, index) => (
+                <span key={index}>{button}</span>
             ))
         } else {
-            return this._renderFetch();
+            return [
+                this._renderFetch(),
+                this._renderDelete()
+            ].map((button, index) => (
+                <span key={index}>{button}</span>
+            ))
         }
     }
 
@@ -100,9 +112,9 @@ class Entity extends React.Component {
         if (!isEmpty(data)) {
             content = (
                 <div style={isFetching ? style.fetching : {}}>
-                    Fake call for <code>{ name }</code>&nbsp;
-                    took <code>{ data.delay }</code> sec&nbsp;
-                    @ { moment(lastUpdated).format('LTS') }
+                    Call for <code>{ name }</code>&nbsp;
+                    took <code>{ data.delay }</code> sec @&nbsp;
+                    <code>{ moment(lastUpdated).format('LTS') }</code>
                 </div>
             )
         } else {
@@ -110,7 +122,7 @@ class Entity extends React.Component {
                 <div style={isFetching ? style.fetching : {}}>
                     {
                         isFetching
-                            ? <span />
+                            ? <span>Fetching fresh data!</span>
                             : <span>Entity <code>{name}</code> is clear.</span>
                     }
                 </div>
@@ -129,7 +141,7 @@ class Entity extends React.Component {
 
 const style = {
     container: {
-        marginBottom: 10
+        marginBottom: 20
     },
     fetching: {
         color: '#BDBDBD',

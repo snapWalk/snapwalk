@@ -14,6 +14,7 @@ export default function HeroHeading ({
 
 const style = {
     header: {
+        margin: '10px 0',
         justifyContent: 'center',
         display: 'flex',
         flexWrap: 'wrap',

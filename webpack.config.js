@@ -69,7 +69,7 @@ const config = {
 if (NodeUtils.isProduction()) {
     config.entry = './src/bootstrap';
 } else {
-    config.devtools = 'eval';
+    config.devtool = 'eval';
     config.entry = [
         `webpack-dev-server/client?http://localhost:${appConfig.example.port}`,
         'webpack/hot/only-dev-server',

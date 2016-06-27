@@ -1,5 +1,5 @@
 import React from 'react';
-import common from '../../common/common';
+import RouterService from '../../services/common/router-service'
 
 export default function Tab ({
     label,
@@ -8,7 +8,7 @@ export default function Tab ({
 }) {
     return (
         <li style={{...style.tab, ...active ? style.active : '' }}
-            onClick={common.__goToPath(path)} >
+            onClick={RouterService.goToPath(path)} >
             { label }
         </li>
     )

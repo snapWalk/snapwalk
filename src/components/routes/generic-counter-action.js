@@ -20,7 +20,7 @@ function GenericCounterAction ({
             <button
                 className="button-primary"
                 onClick={action}>
-                {label} counter
+                {label}
             </button>
         </section>
     )

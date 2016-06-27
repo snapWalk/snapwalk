@@ -21,15 +21,16 @@ function App ({
             />
 
             <section style={style.container}>
-                <section style={style.column}>
 
-                    { /* Render AJAX example */ }
-                    <Panel
-                        faIcon="globe"
-                        style={style.panel}
-                        title="Ajax Example">
-                        <AjaxRequest />
-                    </Panel>
+                { /* Render AJAX example */ }
+                <Panel
+                    faIcon="globe"
+                    style={style.panel}
+                    title="Ajax Example">
+                    <AjaxRequest />
+                </Panel>
+
+                <section style={style.column}>
 
                     { /* Render router example */ }
                     <Panel
@@ -41,19 +42,20 @@ function App ({
                         </Tabs>
                     </Panel>
 
-                </section>
+                    { /* Render Redux state */ }
+                    <Panel
+                        faIcon="tree"
+                        style={style.panel}
+                        title="Redux State" >
+                        <CodeBlock code={state} />
+                    </Panel>
 
-                { /* Render Redux state */ }
-                <Panel
-                    faIcon="tree"
-                    style={style.panel}
-                    title="Redux State" >
-                    <CodeBlock code={state} />
-                </Panel>
+                </section>
 
             </section>
 
             { /* Render footer */ }
+            
 
         </section>
     )

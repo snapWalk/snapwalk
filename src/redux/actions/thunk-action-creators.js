@@ -52,13 +52,13 @@ export const loadEntity = (
             .then(data => {
                 // Dispatch success to update model state
                 dispatch(
-                    apiSuccess(entity)(data, Date.now())
+                    apiSuccess(entity)(data)
                 )
             })
             .catch(error => {
                 // Dispatch failure to notify UI
                 dispatch(
-                    apiFailure(entity)(error, Date.now())
+                    apiFailure(entity)(error)
                 )
             })
     }
@@ -95,11 +95,15 @@ export function fetchBar() {
  */
 function fakePromise() {
     return new Promise(resolve => {
-        const delay = _getRandomDelayBetween(1, 3, 2);
+        const delay = _getShortDelay();
         setTimeout(() => {
             resolve({delay})
         }, delay * 1000)
     });
+}
+
+function _getShortDelay() {
+    return _getRandomDelayBetween(1, 3, 2);
 }
 
 function _getRandomDelayBetween(min, max, roundTo) {

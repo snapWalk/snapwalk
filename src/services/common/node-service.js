@@ -1,8 +1,8 @@
 var common = require('../../common/common');
 
 const CONFIG = {
-    NODE_ENV    : 'NODE_ENV',           // Application mode
-    APP_CONFIG  : 'APP_CONFIG'          // Application specific configs
+    NODE_ENV    : 'NODE_ENV',       // Application mode
+    APP_CONFIG  : 'APP_CONFIG'      // Application specific configs
 };
 
 const APP_MODE = {
