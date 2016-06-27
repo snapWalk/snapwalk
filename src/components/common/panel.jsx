@@ -10,7 +10,7 @@ export default function Panel ({
         <section style={{...styles.container, ...style}}>
             <h5 style={styles.heading}>
                 <i className={`fa fa-${faIcon}`} aria-hidden="true"></i>
-                <span style={{marginLeft: 5}}>{ title }</span>
+                <span style={styles.title}>{ title }</span>
             </h5>
             <section style={styles.content}>
                 { children }
@@ -32,6 +32,9 @@ const styles = {
         color: '#558B2F',
         margin: 0,
         marginBottom: 5
+    },
+    title: {
+        marginLeft: 8
     },
     content: {
         padding: 5

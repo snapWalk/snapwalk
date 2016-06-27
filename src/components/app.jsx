@@ -24,7 +24,7 @@ function App ({
 
                 { /* Render AJAX example */ }
                 <Panel
-                    faIcon="globe"
+                    faIcon="download"
                     style={style.panel}
                     title="Ajax Example">
                     <AjaxRequest />
