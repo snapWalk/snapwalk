@@ -1,5 +1,5 @@
 import React from 'react';
-import { browserHistory } from 'react-router';
+import common from '../../common/common';
 
 export default function Tab ({
     label,
@@ -8,16 +8,10 @@ export default function Tab ({
 }) {
     return (
         <li style={{...style.tab, ...active ? style.active : '' }}
-            onClick={link(path)} >
+            onClick={common.__goToPath(path)} >
             { label }
         </li>
     )
-}
-
-function link (path) {
-    return function () {
-        browserHistory.push(path);
-    }
 }
 
 const style = {

@@ -71,7 +71,7 @@ export const loadEntity = (
 export function fetchFoo() {
     return loadEntity(
         'fooEntity',
-        fakePromise('fooEntity')
+        fakePromise()
     );
 }
 
@@ -82,7 +82,7 @@ export function fetchFoo() {
 export function fetchBar() {
     return loadEntity(
         'barEntity',
-        fakePromise('barEntity')
+        fakePromise()
     );
 }
 
@@ -93,11 +93,11 @@ export function fetchBar() {
  * @param entity
  * @returns {Promise}
  */
-function fakePromise(entity) {
+function fakePromise() {
     return new Promise(resolve => {
         const delay = _getRandomDelayBetween(1, 3, 2);
         setTimeout(() => {
-            resolve(`Simulated ${delay}s delay for fake API call for ${entity}`)
+            resolve({delay})
         }, delay * 1000)
     });
 }

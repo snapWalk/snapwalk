@@ -1,13 +1,17 @@
 import React from 'react';
 
 export default function Panel ({
+    faIcon,
     title,
     style,
     children
 }) {
     return (
         <section style={{...styles.container, ...style}}>
-            <h5 style={styles.heading}>{ title }</h5>
+            <h5 style={styles.heading}>
+                <i className={`fa fa-${faIcon}`} aria-hidden="true"></i>
+                <span style={{marginLeft: 5}}>{ title }</span>
+            </h5>
             <section style={styles.content}>
                 { children }
             </section>
@@ -28,5 +32,8 @@ const styles = {
         color: '#558B2F',
         margin: 0,
         marginBottom: 5
+    },
+    content: {
+        padding: 5
     }
 };

@@ -9,14 +9,14 @@ function GenericCounterAction ({
 }) {
     return (
         <section>
-            <h6>
-                You are at the <em>{label}</em> component:&nbsp;
-                <code>('{path}')</code>
-            </h6>
-            <h6>
+            <div>
                 Counter:&nbsp;
                 <code>{ counter }</code>
-            </h6>
+            </div>
+            <div>
+                You are at the <em>{label}</em> component:&nbsp;
+                <code>('{path}')</code>
+            </div>
             <button
                 className="button-primary"
                 onClick={action}>

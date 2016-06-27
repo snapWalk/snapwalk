@@ -2,6 +2,8 @@ import {
     FETCH_REQUEST,
     FETCH_SUCCESS,
     FETCH_FAILURE,
+    RESET_ENTITY,
+    DELETE_ENTITY,
     INCREMENT_COUNTER,
     DECREMENT_COUNTER,
     RESET_COUNTER
@@ -49,9 +51,11 @@ export function makeEntityActionCreator(type, entity, ...keys) {
     }
 }
 
-export const increment = makeActionCreator(INCREMENT_COUNTER);
-export const decrement = makeActionCreator(DECREMENT_COUNTER);
-export const reset = makeActionCreator(RESET_COUNTER);
+export const resetEntity    = makeActionCreator(RESET_ENTITY, 'entity');
+export const deleteEntity   = makeActionCreator(DELETE_ENTITY, 'entity');
+export const increment      = makeActionCreator(INCREMENT_COUNTER);
+export const decrement      = makeActionCreator(DECREMENT_COUNTER);
+export const reset          = makeActionCreator(RESET_COUNTER);
 
 /**
  * Action creator for API fetch request

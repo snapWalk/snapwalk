@@ -2,13 +2,22 @@ import { INITIAL_STATE } from '../../common/app-const';
 import {
     FETCH_REQUEST,
     FETCH_SUCCESS,
-    FETCH_FAILURE
+    FETCH_FAILURE,
+    RESET_ENTITY,
+    DELETE_ENTITY
 } from '../actions/types';
 
 const model = (state = INITIAL_STATE.model, action) => {
     switch(action.type) {
-        case FETCH_SUCCESS:
-        case FETCH_FAILURE:
+        case DELETE_ENTITY: {
+            delete state[action.entity];
+            return {
+                ...state
+            }
+        }
+        case RESET_ENTITY:  // fall through
+        case FETCH_SUCCESS: // fall through
+        case FETCH_FAILURE: // fall through
         case FETCH_REQUEST: {
             return {
                 ...state,
@@ -24,12 +33,14 @@ const model = (state = INITIAL_STATE.model, action) => {
     }
 };
 
+const INITIAL_ENTITY_STATE = {
+    isFetching: false,
+    lastUpdated: undefined,
+    data: {}
+};
+
 const entity = (
-    state = {
-        isFetching: false,
-        lastUpdated: undefined,
-        data: {}
-    },
+    state = INITIAL_ENTITY_STATE,
     action
 ) => {
     switch(action.type) {
@@ -55,8 +66,13 @@ const entity = (
                 lastUpdated: action.lastUpdated
             }
         }
+        case RESET_ENTITY: {
+            return INITIAL_ENTITY_STATE;
+        }                
+        default: {
+            return state;
+        }
     }
-    return state;
 };
 
 

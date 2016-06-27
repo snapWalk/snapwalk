@@ -24,6 +24,9 @@ module.exports = {
     getPort() {
         return this.getRequiredProperty('example.port');
     },
+    getBasePath() {
+        return this.getRequiredProperty('example.basePath');
+    },
     getBaseUrl() {
         return this.getRequiredProperty('example.baseUrl');
     }

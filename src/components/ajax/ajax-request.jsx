@@ -7,12 +7,18 @@ function AjaxExample({
     fooEntity,
     barEntity,
     fetchBar,
-    fetchFoo
+    fetchFoo,
 }) {
     return (
         <section>
-            <Entity name="Foo" entity={fooEntity} update={fetchFoo} />
-            <Entity name="Bar" entity={barEntity} update={fetchBar} />
+            <Entity
+                name="fooEntity"
+                entity={fooEntity}
+                update={fetchFoo} />
+            <Entity
+                name="barEntity"
+                entity={barEntity}
+                update={fetchBar}/>
         </section>
     )
 }

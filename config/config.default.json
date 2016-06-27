@@ -1,6 +1,7 @@
 {
   "example": {
     "port": 3060,
+    "basePath": "/react-boilerplate",
     "baseUrl": "http://localhost:3020"
   }
 }
