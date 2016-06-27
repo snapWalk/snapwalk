@@ -1,5 +1,4 @@
 import { browserHistory } from 'react-router';
-import ConfigService from './config-service';
 
 const PREFIX = '/';
 
@@ -19,7 +18,7 @@ export default {
         if (!path) return;
 
         return function() {
-            browserHistory.push(`${ConfigService.getBasePath()}${_removePrefix(path)}`);
+            browserHistory.push(path);
         }
     }
 }

@@ -1,7 +1,6 @@
 {
   "example": {
     "port": 3060,
-    "basePath": "/",
     "baseUrl": "http://localhost:3020/"
   }
 }
