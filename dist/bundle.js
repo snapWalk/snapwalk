@@ -27004,7 +27004,7 @@
 
 	exports.default = _react2.default.createElement(
 	    _reactRouter.Route,
-	    { path: '/', component: _app2.default },
+	    { path: '/dist', component: _app2.default },
 	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _increment2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: '/decrement', component: _decrement2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: '/reset', component: _reset2.default }),
@@ -58186,7 +58186,7 @@
 	        _react2.default.createElement(_tabMenu2.default, {
 	            activePath: activePath,
 	            items: {
-	                increment: '',
+	                increment: 'dist',
 	                decrement: 'decrement',
 	                reset: 'reset'
 	            }

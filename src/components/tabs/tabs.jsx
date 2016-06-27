@@ -13,7 +13,7 @@ export default function Tabs ({
             <TabMenu
                 activePath={activePath}
                 items={{
-                    increment   : '',
+                    increment   : 'dist',
                     decrement   : 'decrement',
                     reset       : 'reset'
                 }}
