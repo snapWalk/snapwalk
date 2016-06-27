@@ -55,7 +55,7 @@ function App ({
             </section>
 
             { /* Render footer */ }
-            
+            <Footer />
 
         </section>
     )
