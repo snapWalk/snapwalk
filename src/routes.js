@@ -7,10 +7,10 @@ import Reset from './components/routes/reset';
 import NotFound from './components/routes/not-found';
 
 export default (
-    <Route path="/dist" component={App}>
+    <Route path="/" component={App}>
         <IndexRoute component={Increment} />
-        <Route path="/decrement" component={Decrement} />
-        <Route path="/reset" component={Reset} />
+        <Route path="decrement" component={Decrement} />
+        <Route path="reset" component={Reset} />
         <Route path="*" component={NotFound} />
     </Route>
 )
