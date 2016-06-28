@@ -13,9 +13,9 @@ export default function Tabs ({
             <TabMenu
                 activePath={activePath}
                 items={{
-                    increment   : '/react-boilerplate/dist',
-                    decrement   : '/react-boilerplate/dist/decrement',
-                    reset       : '/react-boilerplate/dist/reset'
+                    increment   : '/',
+                    decrement   : '/decrement',
+                    reset       : '/reset'
                 }}
             />
 
