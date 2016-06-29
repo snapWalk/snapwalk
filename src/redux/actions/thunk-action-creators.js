@@ -12,11 +12,11 @@ import {
  *
  * More on Redux Thunk: https://github.com/gaearon/redux-thunk
  *
- * @param  {string}     entity                      Entity name. Consumed by the Reducer            (e.g `orders`, `todos`)
- * @param  {Promise}    dataPromise                 Promise that loads data from an external source (e.g. OrderService.getOrders())
- * @param  {boolean}    loadInBackground            Disable the FETCH_REQUEST action
- * @return {function}                               A function that loads data from an external
- *                                                  source, and dispatches event actions
+ * @param  {string}     entity              Entity name. Consumed by the Reducer            (e.g `orders`, `todos`)
+ * @param  {Promise}    dataPromise         Promise that loads data from an external source (e.g. OrderService.getOrders())
+ * @param  {boolean}    loadInBackground    Disable the FETCH_REQUEST action
+ * @return {function}                       A function that loads data from an external
+ *                                          source, and dispatches event actions
  */
 export const loadEntity = (
     entity,
