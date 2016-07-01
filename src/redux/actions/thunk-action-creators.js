@@ -52,13 +52,13 @@ export const loadEntity = (
             .then(data => {
                 // Dispatch success to update model state
                 dispatch(
-                    apiSuccess(entity)(data)
+                    apiSuccess(entity)(data, Date.now())
                 )
             })
             .catch(error => {
                 // Dispatch failure to notify UI
                 dispatch(
-                    apiFailure(entity)(error)
+                    apiFailure(entity)(error, Date.now())
                 )
             })
     }

@@ -55,7 +55,7 @@ const entity = (
                 ...state,
                 isFetching: false,
                 data: action.data,
-                lastUpdated: Date.now()
+                lastUpdated: action.lastUpdated
             }
         }
         case FETCH_FAILURE: {
@@ -63,13 +63,13 @@ const entity = (
                 ...state,
                 isFetching: false,
                 error: action.error,
-                lastUpdated: Date.now()
+                lastUpdated: action.lastUpdated
             }
         }
         case RESET_ENTITY: {
             return {
                 ...INITIAL_ENTITY_STATE,
-                lastUpdated: Date.now()
+                lastUpdated: action.lastUpdated
             }
         }                
         default: {

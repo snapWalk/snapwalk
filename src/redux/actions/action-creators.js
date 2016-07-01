@@ -9,7 +9,7 @@ import {
     RESET_COUNTER
 } from './types';
 
-export const resetEntity    = makeActionCreator(RESET_ENTITY, 'entity');
+export const resetEntity    = makeActionCreator(RESET_ENTITY, 'entity', 'lastUpdated');
 export const deleteEntity   = makeActionCreator(DELETE_ENTITY, 'entity');
 export const increment      = makeActionCreator(INCREMENT_COUNTER);
 export const decrement      = makeActionCreator(DECREMENT_COUNTER);
@@ -78,7 +78,8 @@ export const apiSuccess = (entity) => {
     return makeEntityActionCreator(
         FETCH_SUCCESS,
         entity,
-        'data'
+        'data',
+        'lastUpdated'
     );
 };
 
@@ -91,6 +92,7 @@ export const apiFailure = (entity) => {
     return makeEntityActionCreator(
         FETCH_FAILURE,
         entity,
-        'error'
+        'error',
+        'lastUpdated'
     );
 };

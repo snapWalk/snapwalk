@@ -26,7 +26,7 @@ class Entity extends React.Component {
 
     reset() {
         const { name, resetEntity } = this.props;
-        resetEntity(name);
+        resetEntity(name, Date.now());
     }
 
     _renderButton(label, onClick) {
