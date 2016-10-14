@@ -1,5 +1,5 @@
 import React from 'react';
-import GithubButton from './github-button';
+import GithubButton from './GithubButton';
 
 export default function Footer () {
     return (

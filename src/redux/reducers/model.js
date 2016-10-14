@@ -47,29 +47,32 @@ const entity = (
         case FETCH_REQUEST: {
             return {
                 ...state,
-                isFetching: true
+                isFetching: true,
+                error: undefined
             }
         }
         case FETCH_SUCCESS: {
             return {
                 ...state,
                 isFetching: false,
+                lastUpdated: action.lastUpdated,
                 data: action.data,
-                lastUpdated: Date.now()
+                error: undefined
             }
         }
         case FETCH_FAILURE: {
             return {
                 ...state,
                 isFetching: false,
-                error: action.error,
-                lastUpdated: Date.now()
+                lastUpdated: action.lastUpdated,
+                data: undefined,
+                error: action.error
             }
         }
         case RESET_ENTITY: {
             return {
                 ...INITIAL_ENTITY_STATE,
-                lastUpdated: Date.now()
+                lastUpdated: action.lastUpdated
             }
         }                
         default: {

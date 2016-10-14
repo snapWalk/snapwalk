@@ -1,13 +1,13 @@
 import React from 'react';
-import CounterAction from './generic-counter-action';
+import RouteContent from './RouteContent';
+import { decrement } from '../../../redux/actions/action-creators';
 import { connect } from 'react-redux';
-import { decrement } from '../../redux/actions/action-creators';
 
 function Decrement ({
     decrement
 }) {
     return (
-        <CounterAction
+        <RouteContent
             label="Decrement"
             path="/decrement"
             action={decrement}

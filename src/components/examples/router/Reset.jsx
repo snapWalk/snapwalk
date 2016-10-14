@@ -1,13 +1,14 @@
 import React from 'react';
-import CounterAction from './generic-counter-action';
+import RouteContent from './RouteContent';
+import { reset } from '../../../redux/actions/action-creators';
 import { connect } from 'react-redux';
-import { reset } from '../../redux/actions/action-creators';
+
 
 function Reset ({
     reset
 }) {
     return (
-        <CounterAction
+        <RouteContent
             label="Reset"
             path="/reset"
             action={reset}

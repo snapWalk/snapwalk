@@ -52,13 +52,13 @@ export const loadEntity = (
             .then(data => {
                 // Dispatch success to update model state
                 dispatch(
-                    apiSuccess(entity)(data)
+                    apiSuccess(entity)(data, Date.now())
                 )
             })
             .catch(error => {
                 // Dispatch failure to notify UI
                 dispatch(
-                    apiFailure(entity)(error)
+                    apiFailure(entity)(error, Date.now())
                 )
             })
     }
@@ -87,17 +87,30 @@ export function fetchBar() {
 }
 
 /**
+ * Thunk action that simulates ad delayed, failed API call
+ * @returns {Function}  thunk
+ */
+export function fetchFail() {
+    return loadEntity(
+        'failEntity',
+        fakePromise(true)
+    );
+}
+
+/**
  * For demonstration purposes only. Normally this promise would
  * do something cool, like fetch data from a remote API.
  *
  * @param entity
  * @returns {Promise}
  */
-function fakePromise() {
-    return new Promise(resolve => {
+function fakePromise(doReject) {
+    return new Promise((resolve, reject) => {
         const delay = _getShortDelay();
         setTimeout(() => {
-            resolve({delay})
+            doReject
+                ? reject({message: 'Error fetching data!'})
+                : resolve({delay});
         }, delay * 1000)
     });
 }

@@ -3,15 +3,27 @@ import React from 'react';
 export default function Panel ({
     faIcon,
     title,
+    subtitle,
     style,
     children
 }) {
     return (
         <section style={{...styles.container, ...style}}>
-            <h5 style={styles.heading}>
-                <i className={`fa fa-${faIcon}`} aria-hidden="true"></i>
-                <span style={styles.title}>{ title }</span>
-            </h5>
+            {
+                title
+                    ? (
+                        <h5 style={styles.heading}>
+                            <i className={`fa fa-${faIcon}`} aria-hidden="true"></i>
+                            <span style={styles.title}>{ title }</span>
+                        </h5>
+                      )
+                    : <span />
+            }
+            {
+                subtitle
+                    ? <div style={styles.subtitle}><i className={`fa fa-${faIcon}`} /><em>{ subtitle }</em></div>
+                    : <span />
+            }
             <section style={styles.content}>
                 { children }
             </section>
@@ -35,6 +47,11 @@ const styles = {
     },
     title: {
         marginLeft: 8
+    },
+    subtitle: {
+        color: '#558B2F',
+        fontSize: 16,
+        marginBottom: 5
     },
     content: {
         padding: 5

@@ -51,7 +51,7 @@ export function makeEntityActionCreator(type, entity, ...keys) {
     }
 }
 
-export const resetEntity    = makeActionCreator(RESET_ENTITY, 'entity');
+export const resetEntity    = makeActionCreator(RESET_ENTITY, 'entity', 'lastUpdated');
 export const deleteEntity   = makeActionCreator(DELETE_ENTITY, 'entity');
 export const increment      = makeActionCreator(INCREMENT_COUNTER);
 export const decrement      = makeActionCreator(DECREMENT_COUNTER);

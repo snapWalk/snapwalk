@@ -1,13 +1,13 @@
 import React from 'react';
-import CounterAction from './generic-counter-action';
+import RouteContent from './RouteContent';
+import { increment } from '../../../redux/actions/action-creators';
 import { connect } from 'react-redux';
-import { increment } from '../../redux/actions/action-creators';
 
 function Increment ({
     increment
 }) {
     return (
-        <CounterAction
+        <RouteContent
             label="Increment"
             path="/"
             action={increment}
