@@ -1,5 +1,5 @@
 # react-boilerplate
-A slightly opinionated setup for ReactJS projects
+A slightly opinionated yet dead simple boilerplate for ReactJS
 
 #### http://mikechabot.github.io/react-boilerplate/
 
@@ -47,7 +47,7 @@ A slightly opinionated setup for ReactJS projects
   *  **Development**: `npm run dev`
 
 #### Test Commands
-* `npm test`: Shortcut for test coverage command
+* `npm test`: Shortcut for `test:coverage`
 * `npm run test:unit`: Run unit tests located in `test/unit/**/*.js`
 * `npm run test:integration`: Run integration tests location in `test/integration/**/*.js`
 * `npm run test:coverage`: Run coverage for unit and integration tests

@@ -9,6 +9,12 @@ import {
     RESET_COUNTER
 } from './types';
 
+export const resetEntity    = makeActionCreator(RESET_ENTITY, 'entity', 'lastUpdated');
+export const deleteEntity   = makeActionCreator(DELETE_ENTITY, 'entity');
+export const increment      = makeActionCreator(INCREMENT_COUNTER);
+export const decrement      = makeActionCreator(DECREMENT_COUNTER);
+export const reset          = makeActionCreator(RESET_COUNTER);
+
 /**
  * To reduce boilerplate code, we can utilize generic function to generate
  * action creators based on input arguments. The first argument is always
@@ -35,7 +41,7 @@ export function makeActionCreator(type, ...keys) {
  * argument to be the name of an entity.
  *
  * @param  {string} type        Redux action type
- * @param  {string} entity      Model entity name (e.g 'labs', 'meds')
+ * @param  {string} entity      Model entity name (e.g 'users', 'orders', 'foobar')
  * @param  {string} ...keys     Keys to be used in the action object
  * @return {function}           Action creator that contains an entity key
  */
@@ -58,9 +64,9 @@ export const decrement      = makeActionCreator(DECREMENT_COUNTER);
 export const reset          = makeActionCreator(RESET_COUNTER);
 
 /**
- * Action creator for API fetch request
- * @param  {string} entity      Entity name (e.g. 'labs', 'meds')
- * @return {function}           Thunk action creator
+ * Curried action creator for API fetch request
+ * @param  {string} entity      Entity name (e.g. 'users', 'orders', 'foobar')
+ * @return {function}           Action creator
  */
 export const apiRequest = (entity) => {
     return makeEntityActionCreator(
@@ -71,8 +77,8 @@ export const apiRequest = (entity) => {
 
 /**
  * Action creator for API fetch success
- * @param  {string} entity      Entity name (e.g. 'labs', 'meds')
- * @return {function}           Thunk action creator
+ * @param  {string} entity      Entity name (e.g. 'users', 'orders', 'foobar')
+ * @return {function}           Action creator
  */
 export const apiSuccess = (entity) => {
     return makeEntityActionCreator(
@@ -85,8 +91,8 @@ export const apiSuccess = (entity) => {
 
 /**
  * Action creator for API fetch failure
- * @param  {string} entity      Entity name (e.g. 'labs', 'meds')
- * @return {function}           Thunk action creator
+ * @param  {string} entity      Entity name (e.g. 'users', 'orders', 'foobar')
+ * @return {function}           Action creator
  */
 export const apiFailure = (entity) => {
     return makeEntityActionCreator(

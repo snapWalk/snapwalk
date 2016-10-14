@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, browserHistory  } from 'react-router'
-import routes from './Routes';
+import Routes from './Routes';
 
 export default function Root ({
     store
@@ -9,7 +9,7 @@ export default function Root ({
     return (
         <Provider store={store}>
             <Router
-                routes={routes}
+                routes={Routes}
                 history={browserHistory}
             />
         </Provider>
