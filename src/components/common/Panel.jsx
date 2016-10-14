@@ -8,7 +8,10 @@ export default function Panel ({
     children
 }) {
     return (
-        <section style={{...styles.container, ...style}}>
+        <section style={{
+            ...styles.container,
+            ...style
+        }}>
             {
                 title
                     ? (
@@ -21,7 +24,7 @@ export default function Panel ({
             }
             {
                 subtitle
-                    ? <div style={styles.subtitle}><i className={`fa fa-${faIcon}`} /><em>{ subtitle }</em></div>
+                    ? <div style={styles.subtitle}><em>{ subtitle }</em></div>
                     : <span />
             }
             <section style={styles.content}>

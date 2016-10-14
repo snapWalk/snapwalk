@@ -61,6 +61,7 @@ function App ({
                     { /* Render Redux state */ }
                     <Panel
                         title="Redux State"
+                        subtitle="Open the console to see the dispatched actions!"
                         faIcon="tree"
                         style={{width: 500}}>
                         <CodeBlock code={state} />
