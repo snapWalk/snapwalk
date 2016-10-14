@@ -8,5 +8,3 @@ export default function NotFound (props) {
         </section>
     );
 }
-
-export default NotFound;
