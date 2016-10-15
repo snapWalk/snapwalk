@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row } from '../common/container';
+import { Row } from '../flex';
 
 export default function HeroHeading ({
     title,

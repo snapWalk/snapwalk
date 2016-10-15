@@ -152,6 +152,23 @@ const style = {
     }
 };
 
+Entity.propTypes  = {
+    name: React.PropTypes.string.isRequired,
+    entity: React.PropTypes.shape({
+        isFetching: React.PropTypes.bool,
+        lastUpdated: React.PropTypes.number,
+        data: React.PropTypes.object,
+        error: React.PropTypes.oneOfType([
+            React.PropTypes.object,
+            React.PropTypes.string
+        ])
+    }),
+    runFetchEntityOnMount: React.PropTypes.bool,
+    fetchEntity: React.PropTypes.func.isRequired,
+    resetEntity: React.PropTypes.func.isRequired,
+    deleteEntity: React.PropTypes.func.isRequired
+};
+
 export default connect (null, {
     resetEntity,
     deleteEntity

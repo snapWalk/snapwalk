@@ -1,13 +1,13 @@
 import React from 'react';
-import GithubButton from './GithubButton';
+import { Row } from './common';
 
 export default function Footer () {
     return (
-        <div style={style.container}>
+        <div style={{textAlign: 'center'}}>
             <h6>Powered by <a href="https://github.com/mikechabot/react-boilerplate">react-boilerplate</a>.&nbsp;
                 Code licensed under <a href="https://github.com/mikechabot/react-boilerplate/blob/master/LICENSE">MIT</a>.
             </h6>
-            <div style={style.buttons} >
+            <Row hAlignCenter={true}>
                 <GithubButton
                     label="Star"
                     icon="octicon-star"
@@ -33,17 +33,41 @@ export default function Footer () {
                     countAriaLabel="# watchers on GitHub"
                     ariaLabel="Watch mikechabot/react-boilerplate on GitHub"
                 />
-            </div>
+            </Row>
         </div>
     )
 }
 
-const style = {
-    container: {
-        textAlign: 'center'
-    },
-    buttons: {
-        display: 'flex',
-        justifyContent: 'center'
-    }
+function GithubButton ({
+    label,
+    icon,
+    countHref,
+    countApi,
+    countAriaLabel,
+    ariaLabel
+}) {
+    return (
+        <div style={{margin: 5 }}>
+            <a
+                className="github-button"
+                href="https://github.com/mikechabot/react-boilerplate"
+                data-icon={icon}
+                data-style="mega"
+                data-count-href={countHref}
+                data-count-api={countApi}
+                data-count-aria-label={countAriaLabel}
+                aria-label={ariaLabel}>
+                { label }
+            </a>
+        </div>
+    )
+}
+
+GithubButton.propTypes = {
+    label: React.PropTypes.string.isRequired,
+    icon: React.PropTypes.string.isRequired,
+    countHref: React.PropTypes.string.isRequired,
+    countApi: React.PropTypes.string.isRequired,
+    countAriaLabel: React.PropTypes.string.isRequired,
+    ariaLabel: React.PropTypes.string.isRequired
 };

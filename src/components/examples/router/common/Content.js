@@ -1,30 +1,35 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-function GenericCounterAction ({
+function Content ({
     label,
     path,
     action,
     counter
 }) {
     return (
-        <section>
+        <div>
             <div>
-                Counter:&nbsp;
-                <code>{ counter }</code>
+                Counter: <code>{ counter }</code>
             </div>
             <div>
-                You are at the <em>{label}</em> component:&nbsp;
-                <code>('{path}')</code>
+                You are at the <em>{label}</em> component: <code>('{path}')</code>
             </div>
             <button
                 className="button-primary"
                 onClick={action}>
                 {label}
             </button>
-        </section>
+        </div>
     )
 }
+
+Content.propTypes = {
+    label: React.PropTypes.string.isRequired,
+    path: React.PropTypes.string.isRequired,
+    action: React.PropTypes.func.isRequired,
+    counter: React.PropTypes.number.isRequired
+};
 
 export default connect(
     (state, ownProps) => ({
@@ -33,4 +38,4 @@ export default connect(
         label: ownProps.label
     }),
     null
-)(GenericCounterAction);
+)(Content);

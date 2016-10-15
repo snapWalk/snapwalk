@@ -1,8 +1,7 @@
 import React from 'react';
-import RouteContent from './RouteContent';
+import RouteContent from './common/Content';
 import { reset } from '../../../redux/actions/action-creators';
 import { connect } from 'react-redux';
-
 
 function Reset ({
     reset
@@ -15,6 +14,10 @@ function Reset ({
         />
     );
 }
+
+Reset.propTypes = {
+    reset: React.PropTypes.func.isRequired
+};
 
 export default connect(
     null,

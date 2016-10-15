@@ -1,9 +1,9 @@
 import React from 'react';
 import App from './components/App';
-import Increment from './components/examples/router/Increment';
-import Decrement from './components/examples/router/Decrement';
-import Reset from './components/examples/router/Reset';
-import NotFound from './components/examples/router/NotFound';
+import Increment from './components/examples/router/IncrementRoute';
+import Decrement from './components/examples/router/DecrementRoute';
+import Reset from './components/examples/router/ResetRoute';
+import NotFound from './components/examples/router/common/NotFound';
 import { Route, IndexRoute } from 'react-router'
 
 export default (

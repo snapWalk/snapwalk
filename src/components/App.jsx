@@ -1,9 +1,12 @@
 import React from 'react';
-import AjaxRequest from './examples/ajax/AjaxRequest';
-import { TabMenu, TabContent } from './common/tabs';
-import { Panel, CodeBlock, HeroHeading, Footer } from './common';
-import { Container, Row, Column } from './common/container';
+import AjaxExample from './examples/ajax/AjaxExample';
 import { connect } from 'react-redux';
+import {
+    Panel, JsonBlock, HeroHeading,
+    Footer, TabMenu, TabContent,
+    Row, Column, Container } from './common';
+
+const width = 500;
 
 function App ({
     children,
@@ -15,14 +18,14 @@ function App ({
 
             <HeroHeading
                 title="react-boilerplate"
-                subtitle="A slightly opinionated setup for ReactJS" />
+                subtitle="A slightly opinionated yet dead simple boilerplate for ReactJS" />
 
             <Row
                 hAlignCenter={true}
                 width="100%"
                 style={{
                     flexWrap: 'wrap',
-                    minWidth: 500
+                    minWidth: width
                 }}>
 
                 { /* Render AJAX example */ }
@@ -31,7 +34,7 @@ function App ({
                         faIcon="download"
                         style={{width: 500}}
                         title="Ajax Example">
-                        <AjaxRequest />
+                        <AjaxExample />
                     </Panel>
                 </Column>
 
@@ -40,7 +43,7 @@ function App ({
                     <Panel
                         title="Router Example"
                         faIcon="link"
-                        style={{width: 500}}>
+                        style={{width}}>
 
                         <TabMenu
                             activePath={location.pathname}
@@ -63,8 +66,8 @@ function App ({
                         title="Redux State"
                         subtitle="Open the console to see the dispatched actions!"
                         faIcon="tree"
-                        style={{width: 500}}>
-                        <CodeBlock code={state} />
+                        style={{width}}>
+                        <JsonBlock content={state} />
                     </Panel>
 
                 </Column>
@@ -75,6 +78,12 @@ function App ({
         </Container>
     )
 }
+
+App.propTypes = {
+    children: React.PropTypes.node.isRequired,
+    state: React.PropTypes.object.isRequired,
+    location: React.PropTypes.object.isRequired
+};
 
 export default connect(
     (state) => ({ state })

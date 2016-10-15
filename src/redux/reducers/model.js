@@ -9,12 +9,6 @@ import {
 
 const model = (state = INITIAL_STATE.model, action) => {
     switch(action.type) {
-        case DELETE_ENTITY: {
-            delete state[action.entity];
-            return {
-                ...state
-            }
-        }
         case RESET_ENTITY:  // fall through
         case FETCH_SUCCESS: // fall through
         case FETCH_FAILURE: // fall through
@@ -25,6 +19,12 @@ const model = (state = INITIAL_STATE.model, action) => {
                     state[action.entity],
                     action
                 )
+            }
+        }
+        case DELETE_ENTITY: {
+            delete state[action.entity];
+            return {
+                ...state
             }
         }
         default: {

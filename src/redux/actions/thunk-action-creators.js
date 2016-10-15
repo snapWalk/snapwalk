@@ -12,30 +12,29 @@ import {
  *
  * More on Redux Thunk: https://github.com/gaearon/redux-thunk
  *
- * @param  {string}     entity              Entity name. Consumed by the Reducer            (e.g `orders`, `todos`)
- * @param  {Promise}    dataPromise         Promise that loads data from an external source (e.g. OrderService.getOrders())
- * @param  {boolean}    loadInBackground    Disable the FETCH_REQUEST action
- * @return {function}                       A function that loads data from an external
- *                                          source, and dispatches event actions
+ * @param  {string}     name        Entity name
+ * @param  {Promise}    promise     Promise that loads data from an external source (e.g. OrderService.getOrders())
+ * @param  {boolean}    silent      Disable the FETCH_REQUEST action,
+ * @return {function}               A function that loads data from an external source, and dispatches actions
  */
 export const loadEntity = (
-    entity,
-    dataPromise,
-    loadInBackground = false
+    name,
+    promise,
+    silent = false
 ) => {
-    if (!dataPromise || !dataPromise.then)
-        throw new Error('dataPromise must be a Promise, and cannot be null/undefined');
+    if (!promise || !promise.then)
+        throw new Error('promise must be a Promise, and cannot be null/undefined');
 
     return (dispatch) => {
 
-        if (!loadInBackground) {
+        if (!silent) {
             /**
              * Set the `isFetching` property on the entity to `true`.
              * The UI can hook into the store to obtain this property
              * from the entity, and optionally display a spinner or loading
              * indicator to the end-user.
              *
-             * A reason to pass `loadInBackground` as true would be to
+             * A reason to pass `silent` as true would be to
              * inhibit this loading indicator, if configured. For instance,
              * perhaps only the spinner should show when the component is
              * mounting, but subsequent updates to the entity are done
@@ -45,20 +44,20 @@ export const loadEntity = (
              * `isFetching` is always set back to false in the reducer
              * via apiSuccess or apiFailure.
              */
-            dispatch(apiRequest(entity)());
+            dispatch(apiRequest(name)());
         }
 
-        return dataPromise
+        return promise
             .then(data => {
                 // Dispatch success to update model state
                 dispatch(
-                    apiSuccess(entity)(data, Date.now())
+                    apiSuccess(name)(data, Date.now())
                 )
             })
             .catch(error => {
                 // Dispatch failure to notify UI
                 dispatch(
-                    apiFailure(entity)(error, Date.now())
+                    apiFailure(name)(error, Date.now())
                 )
             })
     }

@@ -1,9 +1,9 @@
 import React from 'react';
-import RouteContent from './RouteContent';
+import RouteContent from './common/Content';
 import { increment } from '../../../redux/actions/action-creators';
 import { connect } from 'react-redux';
 
-function Increment ({
+function IncrementRoute ({
     increment
 }) {
     return (
@@ -15,7 +15,11 @@ function Increment ({
     )
 }
 
+IncrementRoute.propTypes = {
+    increment: React.PropTypes.func.isRequired
+};
+
 export default connect(
     null,
     { increment: () => increment(1)}
-)(Increment);
+)(IncrementRoute);
