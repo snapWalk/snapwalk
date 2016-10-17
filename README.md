@@ -41,7 +41,7 @@ A slightly opinionated yet dead simple boilerplate for ReactJS
 
 ## Get Started
 1. git clone https://github.com/mikechabot/react-boilerplate.git
-2. `npm install`
+2. Run `yarn`
 3. Launch environment:
   *  **Production**: `npm start`
   *  **Development**: `npm run dev`
