@@ -13,19 +13,19 @@ export default function Tab ({
                 margin: 0,
                 marginRight: 10,
                 padding: '4px 10px',
-                fontSize: 20,
-                fontWeight: 300,
+                fontSize: 14,
+                fontWeight: 500,
                 cursor: 'pointer',
-                color: '#212121',
-                backgroundColor: '#9CCC65',
+                color: '#37474F',
+                backgroundColor: '#B0BEC5',
                 borderTopRightRadius: 10,
-                borderBottomLeftRadius: 10,
-                border: '1px solid #8BC34A'
+                borderTopLeftRadius: 10,
+                borderBottom: 0
             },
             ...active ? {
                 color: '#FFFFFF',
-                backgroundColor: '#689F38',
-                border: '1px solid #558B2F'
+                backgroundColor: '#607D8B',
+                borderBottom: 0
             } : {} }}>
             { label }
         </li>

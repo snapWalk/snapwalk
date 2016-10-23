@@ -5,11 +5,11 @@ export default function TabContent({
 }) {
     return (
         <div style={{
-            margin: 5,
+            border: '1px solid #B0BEC5',
             padding: 5,
-            height: '100%',
             borderTopRightRadius: 10,
-            borderBottomLeftRadius: 10 }}>
+            borderBottomLeftRadius: 10,
+            height: '100%'}}>
             { children }
         </div>
     );

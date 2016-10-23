@@ -1,8 +1,6 @@
 import React from 'react';
 import Entity from './Entity';
-import Description from './Description';
-import LoadEntity from './LoadEntity';
-import { Panel } from '../../common';
+import { Row, Bullet } from '../../common'
 import { fetchFoo, fetchBar, fetchFail } from '../../../redux/actions/thunk-action-creators';
 import { connect } from 'react-redux';
 
@@ -16,25 +14,26 @@ function AjaxExample({
 }) {
     return (
         <div>
-            <Description />
+            <Row vAlignCenter={true}>
+                <Bullet />
+                Utilizes&nbsp;
+                <a href="https://github.com/mikechabot/react-boilerplate">redux-entity</a>&nbsp;
+                for asynchronous state management.
+            </Row>
             <hr />
-            <Panel title="Dispatch Redux actions" faIcon="paper-plane-o">
-                <Entity
-                    name="fooEntity"
-                    runFetchEntityOnMount={true}
-                    entity={fooEntity}
-                    fetchEntity={fetchFoo} />
-                <Entity
-                    name="barEntity"
-                    entity={barEntity}
-                    fetchEntity={fetchBar}/>
-                <Entity
-                    name="failEntity"
-                    entity={failEntity}
-                    fetchEntity={fetchFail}/>
-            </Panel>
-            <hr />
-            <LoadEntity />
+            <Entity
+                name="fooEntity"
+                runFetchEntityOnMount={true}
+                entity={fooEntity}
+                fetchEntity={fetchFoo} />
+            <Entity
+                name="barEntity"
+                entity={barEntity}
+                fetchEntity={fetchBar}/>
+            <Entity
+                name="failEntity"
+                entity={failEntity}
+                fetchEntity={fetchFail}/>
         </div>
     )
 }

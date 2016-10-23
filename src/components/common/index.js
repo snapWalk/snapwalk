@@ -1,3 +1,4 @@
+export Bullet from './Bullet';
 export JsonBlock from './JsonBlock';
 export Footer from '../Footer';
 export HeroHeading from './display/HeroHeading';

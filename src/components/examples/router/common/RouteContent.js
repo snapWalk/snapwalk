@@ -1,4 +1,5 @@
 import React from 'react';
+import { Row, Column, Bullet } from '../../../common'
 import { connect } from 'react-redux';
 
 function Content ({
@@ -8,19 +9,21 @@ function Content ({
     counter
 }) {
     return (
-        <div>
-            <div>
-                Counter: <code>{ counter }</code>
-            </div>
-            <div>
-                You are at the <em>{label}</em> component: <code>('{path}')</code>
-            </div>
+        <Column style={{padding: '0 5px'}}>
+            <Row vAlignCenter={true}>
+                <Bullet/>
+                <code>counter</code>: <code>{ counter }</code>
+            </Row>
+            <Row vAlignCenter={true}>
+                <Bullet/>
+                You are at the <code>('{path}')</code> route
+            </Row>
             <button
                 className="button-primary"
                 onClick={action}>
                 {label}
             </button>
-        </div>
+        </Column>
     )
 }
 

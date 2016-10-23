@@ -2,7 +2,7 @@ import React from 'react';
 import AjaxExample from './examples/ajax/AjaxExample';
 import { connect } from 'react-redux';
 import {
-    Panel, JsonBlock, HeroHeading,
+    Bullet, Panel, JsonBlock, HeroHeading,
     Footer, TabMenu, TabContent,
     Row, Column, Container } from './common';
 
@@ -16,35 +16,31 @@ function App ({
     return (
         <Container>
 
-                    <HeroHeading
-                        title="react-boilerplate"
-                        subtitle="A slightly opinionated yet dead simple boilerplate for ReactJS" />
+            <HeroHeading
+                title="react-boilerplate"
+                subtitle="A slightly opinionated yet dead simple boilerplate for ReactJS" />
 
-                    <Row
-                        hAlignCenter={true}
-                        width="100%"
-                        style={{
-                            flexWrap: 'wrap',
-                            minWidth: width
-                        }}>
+            <Row
+                hAlignCenter={true}
+                width="100%"
+                style={{
+                    flexWrap: 'wrap',
+                    minWidth: width
+                }}>
 
-                        { /* Render AJAX example */ }
-                        <Column>
-                            <Panel
-                                faIcon="download"
-                                style={{width: 500}}
-                                title="Ajax Example">
-                                <AjaxExample />
-                            </Panel>
-                        </Column>
+                <Column>
 
-                        <Column>
-                            { /* Render router example */ }
-                            <Panel
-                                title="Router Example"
+                    { /* Render AJAX example */ }
+                    <Panel
+                        faIcon="download"
+                        title="Ajax Example">
+                        <AjaxExample />
+                    </Panel>
+
+                    { /* Render router example */ }
+                    <Panel
                         faIcon="link"
-                        style={{width}}>
-
+                        title="Router example">
                         <TabMenu
                             activePath={location.pathname}
                             items={[
@@ -53,7 +49,6 @@ function App ({
                                 { label: 'reset',       path: '/reset' },
                             ]}
                         />
-
                         { /* Render the active route */ }
                         { /* Check Routes.jsx along with your current URL to determine the rendered component! */ }
                         <TabContent>
@@ -61,21 +56,25 @@ function App ({
                         </TabContent>
                     </Panel>
 
-                    { /* Render Redux state */ }
-                    <Panel
-                        title="Redux State"
-                        subtitle="Open the console to see the dispatched actions!"
-                        faIcon="tree"
-                        style={{width}}>
-                        <JsonBlock content={state} />
-                    </Panel>
-
                 </Column>
 
-            </Row>
-            <Footer/>
+                <Column>
 
-        </Container>
+            { /* Render Redux state */ }
+            <Panel
+                faIcon="tree"
+                title="Redux State">
+                <Bullet />
+                Open the console to see the dispatched actions!
+                <JsonBlock content={state} />
+            </Panel>
+
+        </Column>
+
+        </Row>
+        <Footer/>
+
+    </Container>
     )
 }
 

@@ -9,10 +9,7 @@ export default function TabMenu({
     return (
         <ul style={{
             display: 'flex',
-            backgroundColor: '#DCEDC8',
             listStyleType: 'none',
-            borderTopRightRadius: 10,
-            borderBottomLeftRadius: 10,
             margin: 0,
             padding: 0 }}>
             { map(items, _renderTab(activePath)) }
