@@ -16,32 +16,32 @@ function App ({
     return (
         <Container>
 
-            <HeroHeading
-                title="react-boilerplate"
-                subtitle="A slightly opinionated yet dead simple boilerplate for ReactJS" />
+                    <HeroHeading
+                        title="react-boilerplate"
+                        subtitle="A slightly opinionated yet dead simple boilerplate for ReactJS" />
 
-            <Row
-                hAlignCenter={true}
-                width="100%"
-                style={{
-                    flexWrap: 'wrap',
-                    minWidth: width
-                }}>
+                    <Row
+                        hAlignCenter={true}
+                        width="100%"
+                        style={{
+                            flexWrap: 'wrap',
+                            minWidth: width
+                        }}>
 
-                { /* Render AJAX example */ }
-                <Column>
-                    <Panel
-                        faIcon="download"
-                        style={{width: 500}}
-                        title="Ajax Example">
-                        <AjaxExample />
-                    </Panel>
-                </Column>
+                        { /* Render AJAX example */ }
+                        <Column>
+                            <Panel
+                                faIcon="download"
+                                style={{width: 500}}
+                                title="Ajax Example">
+                                <AjaxExample />
+                            </Panel>
+                        </Column>
 
-                <Column>
-                    { /* Render router example */ }
-                    <Panel
-                        title="Router Example"
+                        <Column>
+                            { /* Render router example */ }
+                            <Panel
+                                title="Router Example"
                         faIcon="link"
                         style={{width}}>
 

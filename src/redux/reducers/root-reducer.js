@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import model from './model';
+import { reducer } from 'redux-entity';
 import counter from './counter';
 
 export default combineReducers({
-    model,
+    model: reducer,
     counter
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import RouteContent from './common/Content';
+import RouteContent from './common/RouteContent';
 import { increment } from '../../../redux/actions/action-creators';
 import { connect } from 'react-redux';
 

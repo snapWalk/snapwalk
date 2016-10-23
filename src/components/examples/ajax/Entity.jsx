@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { LoadingIndicator } from '../../common';
-import { resetEntity, deleteEntity } from '../../../redux/actions/action-creators';
+import { resetEntity, deleteEntity } from 'redux-entity';
 import moment from 'moment';
 
 class Entity extends React.Component {
