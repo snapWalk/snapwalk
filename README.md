@@ -10,8 +10,7 @@ A slightly opinionated yet dead simple boilerplate for ReactJS
  * Supports ES6 via [Babel](https://babeljs.io/) transpiling
 
 #### State Management
-* [redux](http://redux.js.org/index.html) for state management
-* [react-redux](https://github.com/reactjs/react-redux) for stateful component bindings
+* [redux-entity](https://github.com/mikechabot/redux-entity) for domain entity management
 * [redux-thunk](https://github.com/gaearon/redux-thunk) for [asynchronous actions](https://github.com/mikechabot/react-boilerplate/blob/master/src/redux/actions/thunk-action-creators.js#L21)
 * [redux-logger](https://github.com/theaqua/redux-logger) for capturing actions
 
@@ -28,9 +27,8 @@ A slightly opinionated yet dead simple boilerplate for ReactJS
 
 #### Develop & Deploy
 * Environmental configurations for both webpack and redux
-  * **Dev** // [webpack-dev-server](https://webpack.github.io/docs/webpack-dev-server.html) with [React Hot Loader](http://gaearon.github.io/react-hot-loader/) for live refresh. `redux-logger` enabled.
-  * **Prod** // [Express](http://expressjs.com/) server with `redux-logger` disabled.
-* See [here](https://github.com/mikechabot/react-boilerplate/blob/master/webpack.config.js#L69) and [here](https://github.com/mikechabot/react-boilerplate/blob/master/src/redux/store/configure-store.js#L9)
+  * **Dev**: [webpack-dev-server](https://webpack.github.io/docs/webpack-dev-server.html) with [React Hot Loader](http://gaearon.github.io/react-hot-loader/). `redux-logger` enabled.
+  * **Prod**: [Express](http://expressjs.com/) server with `redux-logger` disabled.
 
 #### Testing
 * Tested with [Mocha](https://mochajs.org/)
@@ -41,10 +39,12 @@ A slightly opinionated yet dead simple boilerplate for ReactJS
 
 ## Get Started
 1. git clone https://github.com/mikechabot/react-boilerplate.git
-2. Run `yarn`
+2. Run `yarn` or 'npm install'
 3. Launch environment:
   *  **Production**: `npm start`
   *  **Development**: `npm run dev`
+4. Build for production:
+  * `npm run build:prod`
 
 #### Test Commands
 * `npm test`: Shortcut for `test:coverage`
