@@ -17,8 +17,7 @@ function AjaxExample({
             <Row vAlignCenter={true}>
                 <Bullet />
                 Utilizes&nbsp;
-                <a href="https://github.com/mikechabot/react-boilerplate">redux-entity</a>&nbsp;
-                for domain entity management.
+                <a href="https://github.com/mikechabot/react-boilerplate">redux-entity</a>&nbsp;for domain entity management
             </Row>
             <hr />
             <Entity
