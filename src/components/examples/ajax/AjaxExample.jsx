@@ -18,7 +18,7 @@ function AjaxExample({
                 <Bullet />
                 Utilizes&nbsp;
                 <a href="https://github.com/mikechabot/react-boilerplate">redux-entity</a>&nbsp;
-                for asynchronous state management.
+                for domain entity management.
             </Row>
             <hr />
             <Entity
