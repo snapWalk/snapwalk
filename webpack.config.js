@@ -73,7 +73,7 @@ if (NodeUtils.isProduction()) {
     config.entry = [
         `webpack-dev-server/client?http://localhost:${appConfig.example.port}`,
         'webpack/hot/only-dev-server',
-        './src/bootstrap'
+        './src/Bootstrap'
     ];
     config.plugins.push(
         new webpack.HotModuleReplacementPlugin()
