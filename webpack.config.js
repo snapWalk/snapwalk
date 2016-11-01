@@ -67,7 +67,7 @@ const config = {
 };
 
 if (NodeUtils.isProduction()) {
-    config.entry = './src/bootstrap';
+    config.entry = './src/Bootstrap';
 } else {
     config.devtool = 'eval';
     config.entry = [
