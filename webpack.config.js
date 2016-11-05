@@ -47,7 +47,7 @@ const config = {
         loaders: [
             {
                 test: /\.(js|jsx)$/,
-                loaders: ['react-hot', 'babel'],
+                loaders: ['babel'],
                 include: path.join(__dirname, 'src')
             },
             {
@@ -71,6 +71,7 @@ if (NodeUtils.isProduction()) {
 } else {
     config.devtool = 'eval';
     config.entry = [
+        'react-hot-loader/patch',
         `webpack-dev-server/client?http://localhost:${appConfig.example.port}`,
         'webpack/hot/only-dev-server',
         './src/Bootstrap'
