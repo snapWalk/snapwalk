@@ -2,7 +2,6 @@
 [![Dependency Status](https://david-dm.org/mikechabot/react-boilerplate.svg)](https://david-dm.org/mikechabot/react-boilerplate)
 [![Coverage Status](https://coveralls.io/repos/github/mikechabot/react-boilerplate/badge.svg?branch=master)](https://coveralls.io/github/mikechabot/react-boilerplate?branch=master)
 
-
 # react-boilerplate
 A slightly opinionated yet dead simple boilerplate for ReactJS
 
