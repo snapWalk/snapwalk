@@ -49,9 +49,5 @@ A slightly opinionated yet dead simple boilerplate for ReactJS
   *  **Development**: `npm run dev`
 4. Build for production:
   * `npm run build:prod`
-
-#### Test Commands
-* `npm test`: Shortcut for `test:coverage`
-* `npm run test:unit`: Run unit tests located in `test/unit/**/*.js`
-* `npm run test:integration`: Run integration tests location in `test/integration/**/*.js`
-* `npm run test:coverage`: Run coverage for unit and integration tests
+5. Test:
+  * `npm test`
