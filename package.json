@@ -1,6 +1,6 @@
 {
   "name": "react-boilerplate",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "A slightly opinionated yet dead simple boilerplate for ReactJS",
   "scripts": {
     "start": "npm run prod",
@@ -59,7 +59,7 @@
     "react-dom": "^15.4.1",
     "react-hot-loader": "^3.0.0-beta.6",
     "react-redux": "^4.4.6",
-    "react-router": "^2.0.0",
+    "react-router": "^3.0.0",
     "redux": "^3.3.1",
     "redux-entity": "^2.0.0",
     "redux-logger": "^2.7.4",
