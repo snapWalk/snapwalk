@@ -10,14 +10,14 @@ import _ from 'lodash';
  *
  * @param Component     Component to be wrapped
  * @param props         Props to pass to component
- * @returns A wrapped React component
+ * @returns
  */
 export const wrapComponent = (Component, props) => {
     class Wrapper extends React.Component {
-        render() {
+        render () {
             return (
                 <Component {...props} />
-            )
+            );
         }
     }
     return <Wrapper />;
@@ -42,7 +42,7 @@ export const renderComponent = (component) => {
 export const wrapAndRender = (Component, props) => {
     return renderComponent(
         wrapComponent(Component, props)
-    )
+    );
 };
 
 /**
@@ -53,8 +53,7 @@ export const wrapAndRender = (Component, props) => {
  */
 export const findElementById = (tree, id) => {
     const element = _.find(tree, element => {
-        return TestUtils.isDOMComponent(element)
-            && element.getAttribute('id') === id;
+        return TestUtils.isDOMComponent(element) && element.getAttribute('id') === id;
     });
     if (element) return element;
     console.log('Unable to find element by id "%s"', id);

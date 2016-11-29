@@ -2,7 +2,6 @@ import expect from 'expect';
 import NodeService from '../../../../src/services/common/node-service';
 
 describe('NodeService', () => {
-
     const PREV_NODE_ENV = process.env;
 
     afterEach(() => {
@@ -26,7 +25,6 @@ describe('NodeService', () => {
     });
     describe('getNodeEnvByKey()', () => {
         it('should return the value assigned to the key', () => {
-
             // Create mock environment variables
             const key = 'foo';
             const value = 'bar';
@@ -44,13 +42,12 @@ describe('NodeService', () => {
         });
         it('should throw an error if the key provided is null/undefined', () => {
             expect(() => {
-                NodeService.getNodeEnvByKey(undefined)
+                NodeService.getNodeEnvByKey(undefined);
             }).toThrow('Key cannot be null/undefined');
         });
     });
     describe('getNodeEnvMode()', () => {
         it('should return the Node environment mode', () => {
-
             const mode = 'foobar';
             process.env.NODE_ENV = mode;
 

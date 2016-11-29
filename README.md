@@ -34,7 +34,6 @@ A slightly opinionated yet dead simple boilerplate for ReactJS
 * Tested with [Mocha](https://mochajs.org/)
 * Coverage support via [Istanbul](https://gotwarlost.github.io/istanbul/)
 * [react-addons-test-utils](https://facebook.github.io/react/docs/test-utils.html) for component testing
-* [redux-mock-store](https://github.com/arnaudbenard/redux-mock-store) for Redux state testing
 * [Sinon.JS](http://sinonjs.org/) for mocking, stubbing & spying
 
 ## Get Started
