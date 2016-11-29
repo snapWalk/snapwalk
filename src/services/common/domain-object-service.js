@@ -1,9 +1,9 @@
 'use strict';
 
-var common = require('../../common/common');
+let common = require('../../common/common');
 
 module.exports = {
-    getPropertyValue: function(obj, propName) {
+    getPropertyValue: function (obj, propName) {
         let prop;
         if (common.__hasValue(obj) && common.__hasValue(propName)) {
             prop = obj;

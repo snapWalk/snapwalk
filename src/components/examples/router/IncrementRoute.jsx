@@ -8,11 +8,11 @@ function IncrementRoute ({
 }) {
     return (
         <RouteContent
-            label="Increment"
-            path="/"
+            label='Increment'
+            path='/'
             action={increment}
         />
-    )
+    );
 }
 
 IncrementRoute.propTypes = {
@@ -21,5 +21,5 @@ IncrementRoute.propTypes = {
 
 export default connect(
     null,
-    { increment: () => increment(1)}
+    { increment: () => increment(1) }
 )(IncrementRoute);

@@ -1,7 +1,7 @@
 import DataAccessService from '../data/data-access-service';
 
 const ExampleDomainService = {
-    getFoo() {
+    getFoo () {
         return DataAccessService.get('/foo');
     }
 };

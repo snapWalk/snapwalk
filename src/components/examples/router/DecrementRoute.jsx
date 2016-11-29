@@ -8,8 +8,8 @@ function DecrementRoute ({
 }) {
     return (
         <RouteContent
-            label="Decrement"
-            path="/decrement"
+            label='Decrement'
+            path='/decrement'
             action={decrement}
         />
     );

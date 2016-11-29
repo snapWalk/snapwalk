@@ -1,5 +1,5 @@
 module.exports = {
-    __hasValue: function(val) {
+    __hasValue: function (val) {
         return val !== undefined && val !== null;
     }
 };

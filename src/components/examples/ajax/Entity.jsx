@@ -6,20 +6,19 @@ import moment from 'moment';
 
 class Entity extends React.Component {
 
-    constructor(props) {
+    constructor (props) {
         super(props);
         this._resetEntity = this._resetEntity.bind(this);
         this._deleteEntity = this._deleteEntity.bind(this);
     }
 
-    componentWillMount() {
+    componentWillMount () {
         if (this.props.runFetchEntityOnMount) {
             this.props.fetchEntity();
         }
     }
 
-    render() {
-
+    render () {
         const { name, entity } = this.props;
 
         if (_.isEmpty(entity)) {
@@ -46,7 +45,7 @@ class Entity extends React.Component {
         );
     }
 
-    _renderEntityDoesNotExist(entityName) {
+    _renderEntityDoesNotExist (entityName) {
         return (
             <div style={style.container}>
                 <div>
@@ -55,10 +54,10 @@ class Entity extends React.Component {
                 </div>
                 { this._renderFetch() }
             </div>
-        )
+        );
     }
 
-    _renderContent(name, entity) {
+    _renderContent (name, entity) {
         const { isFetching, data, lastUpdated } = entity;
         if (!_.isEmpty(data)) {
             return (
@@ -67,7 +66,7 @@ class Entity extends React.Component {
                     took <code>{ data.delay }</code> sec @&nbsp;
                     <code>{ moment(lastUpdated).format('LTS') }</code>
                 </div>
-            )
+            );
         }
         return (
             <div style={isFetching ? style.fetching : {}}>
@@ -77,40 +76,40 @@ class Entity extends React.Component {
                         : <span>Entity <code>{name}</code> is reset.</span>
                 }
             </div>
-        )
+        );
     }
 
-    _renderLoadingIndicator(isFetching) {
+    _renderLoadingIndicator (isFetching) {
         if (isFetching) {
             return <LoadingIndicator />;
         }
     }
 
-    _renderButton(label, onClick) {
+    _renderButton (label, onClick) {
         return (
             <button
-                className="button-primary"
+                className='button-primary'
                 onClick={onClick}>
                 { label }
             </button>
         );
     }
 
-    _renderFetch() {
-        return this._renderButton("Fetch", this.props.fetchEntity);
+    _renderFetch () {
+        return this._renderButton('Fetch', this.props.fetchEntity);
     }
 
-    _renderReset() {
-        return this._renderButton("Reset", this._resetEntity);
+    _renderReset () {
+        return this._renderButton('Reset', this._resetEntity);
     }
 
-    _renderDelete() {
-        return this._renderButton("Delete", this._deleteEntity);
+    _renderDelete () {
+        return this._renderButton('Delete', this._deleteEntity);
     }
 
-    _renderButtons(isFetching, data, error) {
+    _renderButtons (isFetching, data, error) {
         if (isFetching) {
-            return <span />
+            return <span />;
         }
         if (!_.isEmpty(data) || error) {
             return [
@@ -119,23 +118,23 @@ class Entity extends React.Component {
                 this._renderDelete()
             ].map((button, index) => (
                 <span key={index}>{button}</span>
-            ))
+            ));
         } else {
             return [
                 this._renderFetch(),
                 this._renderDelete()
             ].map((button, index) => (
                 <span key={index}>{button}</span>
-            ))
+            ));
         }
     }
 
-    _deleteEntity() {
+    _deleteEntity () {
         const { name, deleteEntity } = this.props;
         deleteEntity(name);
     }
 
-    _resetEntity() {
+    _resetEntity () {
         const { name, resetEntity } = this.props;
         resetEntity(name, Date.now());
     }
@@ -147,29 +146,29 @@ const style = {
         marginBottom: 20
     },
     fetching: {
-        color: '#BDBDBD',
+        color    : '#BDBDBD',
         fontStyle: 'italic'
     }
 };
 
-Entity.propTypes  = {
-    name: React.PropTypes.string.isRequired,
+Entity.propTypes = {
+    name  : React.PropTypes.string.isRequired,
     entity: React.PropTypes.shape({
-        isFetching: React.PropTypes.bool,
+        isFetching : React.PropTypes.bool,
         lastUpdated: React.PropTypes.number,
-        data: React.PropTypes.object,
-        error: React.PropTypes.oneOfType([
+        data       : React.PropTypes.object,
+        error      : React.PropTypes.oneOfType([
             React.PropTypes.object,
             React.PropTypes.string
         ])
     }),
     runFetchEntityOnMount: React.PropTypes.bool,
-    fetchEntity: React.PropTypes.func.isRequired,
-    resetEntity: React.PropTypes.func.isRequired,
-    deleteEntity: React.PropTypes.func.isRequired
+    fetchEntity          : React.PropTypes.func.isRequired,
+    resetEntity          : React.PropTypes.func.isRequired,
+    deleteEntity         : React.PropTypes.func.isRequired
 };
 
-export default connect (null, {
+export default connect(null, {
     resetEntity,
     deleteEntity
 })(Entity);

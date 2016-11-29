@@ -1,25 +1,27 @@
-var common = require('../../common/common');
+'use strict';
+
+const common = require('../../common/common');
 
 const CONFIG = {
-    NODE_ENV    : 'NODE_ENV',       // Application mode
-    APP_CONFIG  : 'APP_CONFIG'      // Application specific configs
+    NODE_ENV  : 'NODE_ENV',     // Application mode
+    APP_CONFIG: 'APP_CONFIG'    // Application specific configs
 };
 
 const APP_MODE = {
-    PRODUCTION  : 'production',
-    DEVELOPMENT : 'development',
-    TEST        : 'test'
+    PRODUCTION : 'production',
+    DEVELOPMENT: 'development',
+    TEST       : 'test'
 };
 
 module.exports = {
-    getNodeEnv: function() {
+    getNodeEnv: function () {
         return process.env;
     },
-    getNodeEnvByKey: function(key) {
-        if (!key) throw new Error ('Key cannot be null/undefined');
+    getNodeEnvByKey: function (key) {
+        if (!key) throw new Error('Key cannot be null/undefined');
         return this.getNodeEnv()[key];
     },
-    getNodeEnvMode: function() {
+    getNodeEnvMode: function () {
         const mode = this.getNodeEnvByKey(CONFIG.NODE_ENV);
         if (common.__hasValue(mode)) {
             return mode;
@@ -29,13 +31,13 @@ module.exports = {
             return process.env[CONFIG.NODE_ENV];
         }
     },
-    isProduction: function() {
+    isProduction: function () {
         return this.getNodeEnvMode() === APP_MODE.PRODUCTION;
     },
-    isDevelopment: function() {
+    isDevelopment: function () {
         return this.getNodeEnvMode() === APP_MODE.DEVELOPMENT;
     },
-    isTest: function() {
+    isTest: function () {
         return this.getNodeEnvMode() === APP_MODE.TEST;
     }
 };

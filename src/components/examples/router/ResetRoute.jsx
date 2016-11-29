@@ -8,8 +8,8 @@ function Reset ({
 }) {
     return (
         <RouteContent
-            label="Reset"
-            path="/reset"
+            label='Reset'
+            path='/reset'
             action={reset}
         />
     );

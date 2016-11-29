@@ -17,12 +17,12 @@ function App ({
         <Container>
 
             <HeroHeading
-                title="react-boilerplate"
-                subtitle="A slightly opinionated yet dead simple boilerplate for ReactJS" />
+                title='react-boilerplate'
+                subtitle='A slightly opinionated yet dead simple boilerplate for ReactJS' />
 
             <Row
                 hAlignCenter={true}
-                width="100%"
+                width='100%'
                 style={{
                     flexWrap: 'wrap',
                     minWidth: width
@@ -32,21 +32,21 @@ function App ({
 
                     { /* Render AJAX example */ }
                     <Panel
-                        faIcon="download"
-                        title="Ajax Example">
+                        faIcon='download'
+                        title='Ajax Example'>
                         <AjaxExample />
                     </Panel>
 
                     { /* Render router example */ }
                     <Panel
-                        faIcon="link"
-                        title="Router example">
+                        faIcon='link'
+                        title='Router example'>
                         <TabMenu
                             activePath={location.pathname}
                             items={[
-                                { label: 'increment',   path: '/' },
-                                { label: 'decrement',   path: '/decrement' },
-                                { label: 'reset',       path: '/reset' },
+                                { label: 'increment', path: '/' },
+                                { label: 'decrement', path: '/decrement' },
+                                { label: 'reset', path: '/reset' }
                             ]}
                         />
                         { /* Render the active route */ }
@@ -62,8 +62,8 @@ function App ({
 
             { /* Render Redux state */ }
             <Panel
-                faIcon="tree"
-                title="Redux State">
+                faIcon='tree'
+                title='Redux State'>
                 <Bullet />
                 Open the console to see the dispatched actions!
                 <JsonBlock content={state} />
@@ -75,12 +75,12 @@ function App ({
         <Footer/>
 
     </Container>
-    )
+    );
 }
 
 App.propTypes = {
     children: React.PropTypes.node.isRequired,
-    state: React.PropTypes.object.isRequired,
+    state   : React.PropTypes.object.isRequired,
     location: React.PropTypes.object.isRequired
 };
 

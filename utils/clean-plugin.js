@@ -3,10 +3,10 @@
 const del = require('del');
 
 class CleanPlugin {
-    constructor(options) {
+    constructor (options) {
         this.options = options;
     }
-    apply() {
+    apply () {
         del.sync(
             this.options.files
         );

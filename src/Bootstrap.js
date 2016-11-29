@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { AppContainer } from 'react-hot-loader'
+import { AppContainer } from 'react-hot-loader';
 import Root from './Root';
 import configureStore from './redux/store/configure-store';
 import { INITIAL_STATE } from './common/app-const';
-import babel from 'babel-polyfill';
-import styles from './scss/style.scss';
-import _ from 'lodash';
+
+// Require globals
+import 'babel-polyfill';
+import './scss/style.scss';
+import 'lodash';
 
 const store = configureStore(INITIAL_STATE);
 

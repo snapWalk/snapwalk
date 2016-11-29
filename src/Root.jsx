@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { Router, browserHistory  } from 'react-router'
+import { Router, browserHistory } from 'react-router';
 import Routes from './Routes';
 
 export default function Root ({
@@ -13,5 +13,9 @@ export default function Root ({
                 history={browserHistory}
             />
         </Provider>
-    )
+    );
 }
+
+Root.propTypes = {
+    store: React.PropTypes.object
+};

@@ -11,7 +11,7 @@ const appConfig = require('./config/config');
 
 const config = {
     output: {
-        path: path.join(__dirname, 'dist'),
+        path    : path.join(__dirname, 'dist'),
         filename: 'bundle.js'
     },
     resolve: {
@@ -29,10 +29,10 @@ const config = {
         new ExtractTextPlugin('css/bundle.css'),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src/index.html'),
-            inject: 'body'
+            inject  : 'body'
         }),
         new webpack.DefinePlugin({
-            "process.env": {
+            'process.env': {
                 NODE_ENV: JSON.stringify(
                     process.env.NODE_ENV
                 ),
@@ -44,22 +44,22 @@ const config = {
     ],
     module: {
         exprContextCritical: false, // Suppress "The request of a dependency is an expression"
-        loaders: [
+        loaders            : [
             {
-                test: /\.(js|jsx)$/,
+                test   : /\.(js|jsx)$/,
                 loaders: ['babel'],
                 include: path.join(__dirname, 'src')
             },
             {
-                test: /\.scss$/,
+                test  : /\.scss$/,
                 loader: ExtractTextPlugin.extract('style', 'css!postcss!sass')
             },
             {
-                test: /\.(eot|woff|woff2|ttf|svg|png|jpg)$/,
+                test  : /\.(eot|woff|woff2|ttf|svg|png|jpg)$/,
                 loader: 'url-loader?limit=10000&name=[name]-[hash].[ext]'
             },
             {
-                test: /\.json$/,
+                test  : /\.json$/,
                 loader: 'json'
             }
         ]

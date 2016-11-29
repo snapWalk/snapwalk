@@ -4,9 +4,6 @@ import axios from 'axios';
 /**
  * Service for making AJAX requests.
  * Uses Axios (https://github.com/mzabriskie/axios)
- *
- * @author  Mike Chabot
- * @type    {AxiosInstance}
  */
 const instance = axios.create({
     baseURL: ConfigService.getBaseUrl(),
@@ -14,7 +11,7 @@ const instance = axios.create({
 });
 
 export default {
-    request(options) {
+    request (options) {
         return instance.request(options);
     }
 };

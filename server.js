@@ -1,13 +1,14 @@
-import config from './config/config';
-import NodeUtils from './src/services/common/node-service';
+'use strict';
+
+const config = require('./config/config');
+const NodeService = require('./src/services/common/node-service');
 
 const { example } = config;
 if (!example) throw new Error('boilerplateExample configuration cannot be null/undefined');
 
 const PORT = example.port;
 
-if (NodeUtils.isProduction()) {
-
+if (NodeService.isProduction()) {
     const express = require('express');
     const path = require('path');
 
@@ -16,12 +17,12 @@ if (NodeUtils.isProduction()) {
     // Configure static resources
     app.use(
         express.static(
-            __dirname + '/dist'
+            path.join(__dirname, '/dist')
         )
     );
 
     // Configure server-side routing
-    app.get('*', (req,res) => {
+    app.get('*', (req, res) => {
         const dist = path.join(
             __dirname, '/dist/index.html'
         );
@@ -32,21 +33,15 @@ if (NodeUtils.isProduction()) {
     app.listen(PORT, () => {
         console.log(`Started Express server on port ${PORT}`);
     });
-
 } else {
-
     const webpack = require('webpack');
     const WebpackDevServer = require('webpack-dev-server');
     const config = require('./webpack.config.js');
 
     new WebpackDevServer(webpack(config), {
-        hot: true,
+        hot               : true,
         historyApiFallback: true
-    }).listen(PORT, 'localhost', (error, result) => {
-        if (error) {
-            console.log(error);
-        }
-        console.log(`Started WebpackDevServer on port ${PORT}`);
+    }).listen(PORT, 'localhost', error => {
+        console.log(error || `Started WebpackDevServer on port ${PORT}`);
     });
-
 }

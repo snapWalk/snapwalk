@@ -1,16 +1,14 @@
 import AjaxService from './ajax-service';
 
-/**      Author: Mike Chabot
- *  Description: HTTP service capable of performing GET and POST requests
- *               This service will be injected into domain services (e.g. PatientService, MedicationService)
- *               Agnostic of prototype/production
+/**
+ * HTTP service capable of performing GET and POST requests
+ * This service will be injected into domain services (e.g. PatientService, MedicationService)
+ * Agnostic of prototype/production
  */
-
 const _request = (method, url, data) => {
-
     let options = {
-        method: method,
-        url: url,
+        method      : method,
+        url         : url,
         responseType: 'json'
     };
 
@@ -36,17 +34,15 @@ const _request = (method, url, data) => {
                 reject(error);
             });
     });
-
 };
 
 const DataAccessService = {
-    get(url) {
+    get (url) {
         return _request('GET', url);
     },
-    post(url, data) {
+    post (url, data) {
         return _request('POST', url, data);
     }
 };
-
 
 export default DataAccessService;

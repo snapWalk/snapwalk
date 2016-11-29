@@ -6,14 +6,12 @@ import {
 } from '../actions/types';
 
 const counter = (state = INITIAL_STATE.counter, action) => {
-    switch(action.type) {
+    switch (action.type) {
         case INCREMENT_COUNTER: {
             return state + 1;
-            break;
         }
         case DECREMENT_COUNTER: {
             return state - 1;
-            break;
         }
         case RESET_COUNTER: {
             return INITIAL_STATE.counter;
