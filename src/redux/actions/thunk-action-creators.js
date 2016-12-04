@@ -18,7 +18,8 @@ export function fetchFoo () {
 export function fetchBar () {
     return loadEntity(
         'barEntity',
-        fakePromise()
+        fakePromise(),
+        { append: true }
     );
 }
 

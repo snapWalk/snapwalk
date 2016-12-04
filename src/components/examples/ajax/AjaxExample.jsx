@@ -28,7 +28,8 @@ function AjaxExample ({
             <Entity
                 name='barEntity'
                 entity={barEntity}
-                fetchEntity={fetchBar}/>
+                fetchEntity={fetchBar}
+                append={true} />
             <Entity
                 name='failEntity'
                 entity={failEntity}

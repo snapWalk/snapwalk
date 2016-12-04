@@ -6,12 +6,6 @@ import moment from 'moment';
 
 class Entity extends React.Component {
 
-    constructor (props) {
-        super(props);
-        this._resetEntity = this._resetEntity.bind(this);
-        this._deleteEntity = this._deleteEntity.bind(this);
-    }
-
     componentWillMount () {
         if (this.props.runFetchEntityOnMount) {
             this.props.fetchEntity();
@@ -62,8 +56,9 @@ class Entity extends React.Component {
         if (!_.isEmpty(data)) {
             return (
                 <div style={isFetching ? style.fetching : {}}>
-                    Fetch for <code>{ name }</code>&nbsp;
-                    took <code>{ data.delay }</code> sec @&nbsp;
+                    { this.props.append ? 'Appending to ' : 'Fetch for '}
+                    <code>{ name }</code>&nbsp;
+                    took <code>{ this.props.append ? _.last(data).delay : data.delay }</code> sec @&nbsp;
                     <code>{ moment(lastUpdated).format('LTS') }</code>
                 </div>
             );
@@ -100,11 +95,11 @@ class Entity extends React.Component {
     }
 
     _renderReset () {
-        return this._renderButton('Reset', this._resetEntity);
+        return this._renderButton('Reset', this._resetEntity.bind(this));
     }
 
     _renderDelete () {
-        return this._renderButton('Delete', this._deleteEntity);
+        return this._renderButton('Delete', this._deleteEntity.bind(this));
     }
 
     _renderButtons (isFetching, data, error) {
@@ -153,11 +148,17 @@ const style = {
 
 Entity.propTypes = {
     name  : React.PropTypes.string.isRequired,
+    append: React.PropTypes.bool,
     entity: React.PropTypes.shape({
         isFetching : React.PropTypes.bool,
         lastUpdated: React.PropTypes.number,
-        data       : React.PropTypes.object,
-        error      : React.PropTypes.oneOfType([
+        data       : React.PropTypes.oneOfType([
+            React.PropTypes.string,
+            React.PropTypes.number,
+            React.PropTypes.object,
+            React.PropTypes.array
+        ]),
+        error: React.PropTypes.oneOfType([
             React.PropTypes.object,
             React.PropTypes.string
         ])
