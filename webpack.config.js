@@ -52,15 +52,18 @@ const config = {
             },
             {
                 test  : /\.scss$/,
-                loader: ExtractTextPlugin.extract('style', 'css!postcss!sass')
+                loader: ExtractTextPlugin.extract('style', 'css!postcss!sass'),
+                include: path.join(__dirname, 'src')
             },
             {
                 test  : /\.(eot|woff|woff2|ttf|svg|png|jpg)$/,
-                loader: 'url-loader?limit=10000&name=[name]-[hash].[ext]'
+                loader: 'url-loader?limit=10000&name=[name]-[hash].[ext]',
+                include: path.join(__dirname, 'src')
             },
             {
                 test  : /\.json$/,
-                loader: 'json'
+                loader: 'json',
+                include: path.join(__dirname, 'src')
             }
         ]
     }

@@ -1,4 +1,5 @@
 import { loadEntity } from 'redux-entity';
+import ExampleDomainService from '../../services/domain/example-domain-service';
 
 /**
  * Thunk action that simulates ad delayed API call
@@ -7,7 +8,7 @@ import { loadEntity } from 'redux-entity';
 export function fetchFoo () {
     return loadEntity(
         'fooEntity',
-        fakePromise()
+        ExampleDomainService.getFakePromise()
     );
 }
 
@@ -18,7 +19,7 @@ export function fetchFoo () {
 export function fetchBar () {
     return loadEntity(
         'barEntity',
-        fakePromise(),
+        ExampleDomainService.getFakePromise(),
         { append: true }
     );
 }
@@ -30,32 +31,6 @@ export function fetchBar () {
 export function fetchFail () {
     return loadEntity(
         'failEntity',
-        fakePromise(true)
+        ExampleDomainService.getFakePromise(true)
     );
-}
-
-/**
- * For demonstration purposes only. Normally this promise would
- * do something cool, like fetch data from a remote API.
- *
- * @param entity
- * @returns {Promise}
- */
-function fakePromise (doReject) {
-    return new Promise((resolve, reject) => {
-        const delay = _getShortDelay();
-        setTimeout(() => {
-            doReject
-                ? reject({message: 'Error fetching data!'})
-                : resolve({delay});
-        }, delay * 1000);
-    });
-}
-
-function _getShortDelay () {
-    return _getRandomDelayBetween(1, 3, 2);
-}
-
-function _getRandomDelayBetween (min, max, roundTo) {
-    return Number(Math.random() * (max - min) + min).toFixed(roundTo);
 }

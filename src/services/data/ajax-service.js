@@ -1,4 +1,4 @@
-import ConfigService from '../config-service';
+import ConfigService from '../common/config-service';
 import axios from 'axios';
 
 /**
