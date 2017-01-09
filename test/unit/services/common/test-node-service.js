@@ -24,17 +24,6 @@ describe('NodeService', () => {
         });
     });
     describe('getNodeEnvByKey()', () => {
-        it('should return the value assigned to the key', () => {
-            // Create mock environment variables
-            const key = 'foo';
-            const value = 'bar';
-
-            process.env[key] = value;
-
-            expect(
-                NodeService.getNodeEnvByKey(key)
-            ).toEqual(value);
-        });
         it('should return undefined if the object does not contain the key', () => {
             expect(
                 NodeService.getNodeEnvByKey('foobaz')

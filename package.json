@@ -9,7 +9,7 @@
     "build:dev": "cross-env NODE_ENV=development webpack --progress --colors",
     "build:prod": "cross-env NODE_ENV=production webpack --progress --colors",
     "linter": "eslint src -f html --ext .jsx --ext .js -o lint-report.html",
-    "test": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "test": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "start-dev-server": "cross-env NODE_ENV=development node server.js",
     "start-server": "cross-env NODE_ENV=production node server.js"
   },
