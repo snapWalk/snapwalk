@@ -8,8 +8,8 @@ function IncrementRoute ({
 }) {
     return (
         <RouteContent
-            label='Increment'
-            path='/'
+            label="Increment"
+            path="/"
             action={increment}
         />
     );

@@ -4,26 +4,24 @@ export default function JsonBlock ({
     content
 }) {
     if (!_.isString(content) && !_.isObject(content)) {
-        return <p className='text-danger'>JsonBlock: content prop must be a string or object</p>;
+        return <p className="text-danger">JsonBlock: content prop must be a string or object</p>;
     }
     return _renderContent(content);
 }
 
 function _renderContent (content) {
     return (
-        <div>
-            <pre>
-                {
-                    _getContentAsString(content)
-                        .split('\n')
-                        .map((line, index) => (
-                            <div key={index} className='line'>
-                                { line }
-                            </div>
-                        ))
-                }
-            </pre>
-        </div>
+        <pre>
+            {
+                _getContentAsString(content)
+                    .split('\n')
+                    .map((line, index) => (
+                        <div key={index} className="line">
+                            { line }
+                        </div>
+                    ))
+            }
+        </pre>
     );
 }
 

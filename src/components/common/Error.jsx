@@ -10,7 +10,7 @@ export default function Error ({message}) {
     return (
         <span
             id={'foo-id'} // IRL, pass this in via props, or auto-generate
-            className='text-error' >
+            className="text-error" >
             {message || 'No detail provided'}
         </span>
     );

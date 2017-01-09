@@ -7,10 +7,10 @@ import NotFound from './components/examples/router/common/NotFound';
 import { Route, IndexRoute } from 'react-router';
 
 export default (
-    <Route path='/' component={App}>
+    <Route path="/" component={App}>
         <IndexRoute component={Increment} />
-        <Route path='decrement' component={Decrement} />
-        <Route path='reset' component={Reset} />
-        <Route path='*' component={NotFound} />
+        <Route path="decrement" component={Decrement} />
+        <Route path="reset" component={Reset} />
+        <Route path="*" component={NotFound} />
     </Route>
 );

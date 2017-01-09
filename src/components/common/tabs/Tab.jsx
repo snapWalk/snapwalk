@@ -18,8 +18,8 @@ export default function Tab ({
                     cursor              : 'pointer',
                     color               : '#37474F',
                     backgroundColor     : '#B0BEC5',
-                    borderTopRightRadius: 10,
-                    borderTopLeftRadius : 10,
+                    borderTopRightRadius: 2,
+                    borderTopLeftRadius : 2,
                     borderBottom        : 0
                 },
                 ...active ? {

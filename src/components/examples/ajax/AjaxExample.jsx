@@ -1,6 +1,6 @@
 import React from 'react';
 import Entity from './Entity';
-import { Row, Bullet } from '../../common';
+import { Flexbox } from '../../common';
 import { fetchFoo, fetchBar, fetchFail } from '../../../redux/actions/thunk-action-creators';
 import { connect } from 'react-redux';
 
@@ -13,28 +13,27 @@ function AjaxExample ({
     fetchFail
 }) {
     return (
-        <div>
-            <Row vAlignCenter={true}>
-                <Bullet />
-                Utilizes&nbsp;
-                <a href='https://github.com/mikechabot/redux-entity'>redux-entity</a>&nbsp;for domain entity management
-            </Row>
-            <hr />
+        <Flexbox column={true}>
+            <div>
+                <i className="fa fa-angle-right" style={{ fontWeight: 700 }}/>&nbsp;
+                Utilizes&nbsp;<a href="https://github.com/mikechabot/redux-entity">redux-entity</a>&nbsp;for domain entity management
+            </div>
+            <div><hr /></div>
             <Entity
-                name='fooEntity'
+                name="fooEntity"
                 runFetchEntityOnMount={true}
                 entity={fooEntity}
                 fetchEntity={fetchFoo} />
             <Entity
-                name='barEntity'
+                name="barEntity"
                 entity={barEntity}
                 fetchEntity={fetchBar}
                 append={true} />
             <Entity
-                name='failEntity'
+                name="failEntity"
                 entity={failEntity}
                 fetchEntity={fetchFail}/>
-        </div>
+        </Flexbox>
     );
 }
 

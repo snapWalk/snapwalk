@@ -1,12 +1,12 @@
 import React from 'react';
-import { Row } from '../flex';
+import Flexbox from '../Flexbox';
 
 export default function HeroHeading ({
     title,
     subtitle
 }) {
     return (
-        <Row
+        <Flexbox
             hAlignCenter={true}
             style={{
                 margin    : '10px 0',
@@ -24,7 +24,7 @@ export default function HeroHeading ({
                 opacity   : 0.7}}>
                 {subtitle}
             </small>
-        </Row>
+        </Flexbox>
     );
 }
 

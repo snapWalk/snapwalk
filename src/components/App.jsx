@@ -4,9 +4,8 @@ import { connect } from 'react-redux';
 import {
     Bullet, Panel, JsonBlock, HeroHeading,
     Footer, TabMenu, TabContent,
-    Row, Column, Container } from './common';
-
-const width = 500;
+    Flexbox
+} from './common';
 
 function App ({
     children,
@@ -14,33 +13,33 @@ function App ({
     location
 }) {
     return (
-        <Container>
+        <div style={{height: '100%', width: '100%'}}>
 
             <HeroHeading
-                title='react-boilerplate'
-                subtitle='A slightly opinionated yet dead simple boilerplate for ReactJS' />
+                title="react-boilerplate"
+                subtitle="A slightly opinionated yet dead simple boilerplate for ReactJS" />
 
-            <Row
+            <Flexbox
                 hAlignCenter={true}
-                width='100%'
+                width="100%"
                 style={{
                     flexWrap: 'wrap',
-                    minWidth: width
+                    minWidth: 500
                 }}>
 
-                <Column>
+                <Flexbox column={true}>
 
                     { /* Render AJAX example */ }
                     <Panel
-                        faIcon='download'
-                        title='Ajax Example'>
+                        faIcon="download"
+                        title="Ajax Example">
                         <AjaxExample />
                     </Panel>
 
                     { /* Render router example */ }
                     <Panel
-                        faIcon='link'
-                        title='Router example'>
+                        faIcon="link"
+                        title="Router example">
                         <TabMenu
                             activePath={location.pathname}
                             items={[
@@ -55,26 +54,22 @@ function App ({
                             { children }
                         </TabContent>
                     </Panel>
+                </Flexbox>
 
-                </Column>
+                <Flexbox>
+                    { /* Render Redux state */ }
+                    <Panel
+                        faIcon="tree"
+                        title="Redux State">
+                        <Bullet />
+                        Open the console to see the dispatched actions!
+                        <JsonBlock content={state} />
+                    </Panel>
+                </Flexbox>
 
-                <Column>
-
-            { /* Render Redux state */ }
-            <Panel
-                faIcon='tree'
-                title='Redux State'>
-                <Bullet />
-                Open the console to see the dispatched actions!
-                <JsonBlock content={state} />
-            </Panel>
-
-        </Column>
-
-        </Row>
+        </Flexbox>
         <Footer/>
-
-    </Container>
+    </div>
     );
 }
 

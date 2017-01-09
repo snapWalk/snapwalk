@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Column } from '../';
+import { Flexbox } from '../';
 
 export default function Panel ({
     faIcon,
@@ -7,15 +7,16 @@ export default function Panel ({
     children
 }) {
     return (
-        <Column
-            backgroundColor='#ECEFF1'
+        <Flexbox
+            column={true}
+            backgroundColor="#ECEFF1"
             width={450}
             style={{
                 ...{
                     margin                : 5,
                     padding               : 5,
-                    borderTopRightRadius  : 10,
-                    borderBottomLeftRadius: 10,
+                    borderTopRightRadius  : 5,
+                    borderBottomLeftRadius: 5,
                     border                : '1px solid #90A4AE'
                 }
             }}>
@@ -23,16 +24,16 @@ export default function Panel ({
             <section style={{padding: 5}}>
                 { children }
             </section>
-        </Column>
+        </Flexbox>
     );
 }
 
 function _renderHeading (title, icon, style) {
     if (title) {
         return (
-            <Row
+            <Flexbox
                 vAlignCenter={true}
-                color='#455A64'
+                color="#455A64"
                 style={{
                     ...{
                         padding : 2,
@@ -41,7 +42,7 @@ function _renderHeading (title, icon, style) {
                     ...style}}>
                 { _renderIcon(icon) }
                 <span style={icon ? {marginLeft: 8} : {}}>{ title }</span>
-            </Row>
+            </Flexbox>
         );
     }
 }

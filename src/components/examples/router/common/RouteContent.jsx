@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Column, Bullet } from '../../../common';
+import { Flexbox, Bullet } from '../../../common';
 import { connect } from 'react-redux';
 
 function Content ({
@@ -9,21 +9,21 @@ function Content ({
     counter
 }) {
     return (
-        <Column style={{padding: '0 5px'}}>
-            <Row vAlignCenter={true}>
+        <Flexbox column={true} style={{padding: '0 5px'}}>
+            <Flexbox vAlignCenter={true}>
                 <Bullet/>
                 <code>counter</code>: <code>{ counter }</code>
-            </Row>
-            <Row vAlignCenter={true}>
+            </Flexbox>
+            <Flexbox vAlignCenter={true}>
                 <Bullet/>
                 You are at the <code>('{path}')</code> route
-            </Row>
+            </Flexbox>
             <button
-                className='button-primary'
+                className="button-primary"
                 onClick={action}>
                 {label}
             </button>
-        </Column>
+        </Flexbox>
     );
 }
 

@@ -83,7 +83,7 @@ class Entity extends React.Component {
     _renderButton (label, onClick) {
         return (
             <button
-                className='button-primary'
+                className="button-primary"
                 onClick={onClick}>
                 { label }
             </button>
