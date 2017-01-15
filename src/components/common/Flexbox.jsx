@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default function Flex ({
+    id,
     style,
     className,
     column,
@@ -19,6 +20,7 @@ export default function Flex ({
 }) {
     return (
         <div
+            id={id}
             className={className}
             onMouseOver={onMouseOver}
             onClick={onClick}
@@ -35,6 +37,7 @@ export default function Flex ({
 }
 
 Flex.propTypes = {
+    id             : React.PropTypes.string,
     style          : React.PropTypes.object,
     className      : React.PropTypes.string,
     column         : React.PropTypes.bool,

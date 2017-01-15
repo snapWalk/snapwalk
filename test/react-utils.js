@@ -3,47 +3,33 @@ import TestUtils from 'react-addons-test-utils';
 import _ from 'lodash';
 
 /**
+ *
  * Stateless components don't get refs, meaning we can't access
  * the DOM, which we need in order to run our assertions.
  * We can solve this by wrapping our component in a generic React
  * class that extends its refs to child components
  *
+ * http://stackoverflow.com/questions/36682241/testing-functional-components-with-renderintodocument/
+ *
  * @param Component     Component to be wrapped
  * @param props         Props to pass to component
  * @returns
  */
-export const wrapComponent = (Component, props) => {
+
+export function renderStatelessComponent (ComponentType, props) {
+
     class Wrapper extends React.Component {
-        render () {
-            return (
-                <Component {...props} />
-            );
+        render() {
+            return this.props.children
         }
     }
-    return <Wrapper />;
-};
 
-/**
- * Render a component using React's TestUtils
- * @param component
- * @returns {*}
- */
-export const renderComponent = (component) => {
-    return TestUtils.renderIntoDocument(component);
-};
-
-/**
- * Generically wrap a component and render it with
- * React's TestUtils
- * @param Component
- * @param props
- * @returns A rendered React component
- */
-export const wrapAndRender = (Component, props) => {
-    return renderComponent(
-        wrapComponent(Component, props)
+    return TestUtils.renderIntoDocument(
+        <Wrapper>
+            <ComponentType { ...props } />
+        </Wrapper>
     );
-};
+}
 
 /**
  * Find an element by id given a tree of elements
@@ -51,17 +37,15 @@ export const wrapAndRender = (Component, props) => {
  * @param id
  * @returns {*}
  */
-export const findElementById = (tree, id) => {
+export function findElementById (tree, id) {
     const element = _.find(tree, element => {
         return TestUtils.isDOMComponent(element) && element.getAttribute('id') === id;
     });
     if (element) return element;
-    console.log('Unable to find element by id "%s"', id);
-};
+    console.log(`Unable to find element by id: ${id}`);
+}
 
-export default [
-    wrapComponent,
-    renderComponent,
-    wrapAndRender,
+export default {
+    renderStatelessComponent,
     findElementById
-];
+};

@@ -1,4 +1,4 @@
-import expect from 'expect';
+import { expect } from 'chai';
 import NodeService from '../../../../src/services/common/node-service';
 
 describe('NodeService', () => {
@@ -14,25 +14,25 @@ describe('NodeService', () => {
             process.env = testEnv;
             expect(
                 NodeService.getNodeEnv()
-            ).toEqual(testEnv);
+            ).to.equal(testEnv);
         });
         it('should return undefined if Node process info is unavailable', () => {
             delete process.env;
             expect(
                 NodeService.getNodeEnv()
-            ).toEqual(undefined);
+            ).to.equal(undefined);
         });
     });
     describe('getNodeEnvByKey()', () => {
         it('should return undefined if the object does not contain the key', () => {
             expect(
                 NodeService.getNodeEnvByKey('foobaz')
-            ).toBe(undefined);
+            ).to.equal(undefined);
         });
         it('should throw an error if the key provided is null/undefined', () => {
             expect(() => {
                 NodeService.getNodeEnvByKey(undefined);
-            }).toThrow('Key cannot be null/undefined');
+            }).throws('Key cannot be null/undefined');
         });
     });
     describe('getNodeEnvMode()', () => {
@@ -42,13 +42,13 @@ describe('NodeService', () => {
 
             expect(
                 NodeService.getNodeEnvMode()
-            ).toEqual(mode);
+            ).to.equal(mode);
         });
         it('should return test mode NODE_ENV is undefined/null', () => {
             delete process.env.NODE_ENV;
             expect(
                 NodeService.getNodeEnvMode()
-            ).toEqual('test');
+            ).to.equal('test');
         });
     });
     describe('isProduction()', () => {
@@ -56,13 +56,13 @@ describe('NodeService', () => {
             process.env.NODE_ENV = 'production';
             expect(
                 NodeService.isProduction()
-            ).toBe(true);
+            ).to.equal(true);
         });
         it('should return false if NODE_ENV is not production', () => {
             process.env.NODE_ENV = 'foobar';
             expect(
                 NodeService.isProduction()
-            ).toBe(false);
+            ).to.equal(false);
         });
     });
     describe('isDevelopment()', () => {
@@ -70,13 +70,13 @@ describe('NodeService', () => {
             process.env.NODE_ENV = 'development';
             expect(
                 NodeService.isDevelopment()
-            ).toBe(true);
+            ).to.equal(true);
         });
         it('should return false if NODE_ENV is not development', () => {
             process.env.NODE_ENV = 'foobar';
             expect(
                 NodeService.isDevelopment()
-            ).toBe(false);
+            ).to.equal(false);
         });
     });
     describe('isTest()', () => {
@@ -84,19 +84,19 @@ describe('NodeService', () => {
             process.env.NODE_ENV = 'test';
             expect(
                 NodeService.isTest()
-            ).toBe(true);
+            ).to.equal(true);
         });
         it('should return false if NODE_ENV is not test', () => {
             process.env.NODE_ENV = 'foobar';
             expect(
                 NodeService.isTest()
-            ).toBe(false);
+            ).to.equal(false);
         });
         it('should return true if NODE_ENV is null/undefined', () => {
             delete process.env.NODE_ENV;
             expect(
                 NodeService.isTest()
-            ).toBe(true);
+            ).to.equal(true);
         });
     });
 });

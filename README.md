@@ -35,7 +35,7 @@ A slightly opinionated yet dead simple boilerplate for ReactJS
   * **Prod**: [Express](http://expressjs.com/) server with `redux-logger` disabled.
 
 #### Testing
-* Tested with [Mocha](https://mochajs.org/)
+* Tested with [Mocha](https://mochajs.org/) and [Chai](http://chaijs.com/)
 * Coverage support via [Istanbul](https://gotwarlost.github.io/istanbul/)
 * [react-addons-test-utils](https://facebook.github.io/react/docs/test-utils.html) for component testing
 * [Sinon.JS](http://sinonjs.org/) for mocking, stubbing & spying

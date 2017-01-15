@@ -1,4 +1,4 @@
-import expect from 'expect';
+import { expect } from 'chai';
 
 describe('Config', () => {
 
@@ -15,7 +15,7 @@ describe('Config', () => {
             process.env.ENV_CONFIG_PATH = '../test/unit/config/test-config.default';
             expect(
                 require('../../../config/config')
-            ).toEqual(
+            ).to.equal(
                 require('./test-config.default.json')
             );
 
@@ -24,14 +24,12 @@ describe('Config', () => {
 
     describe('when ENV_CONFIG_PATH is not defined', () => {
         it('should use configuration at the defined filepath', () => {
-
             expect(
                 require('../../../config/config')
-            ).toEqual(
+            ).to.equal(
                 require('../../../config/config.default.json')
             );
         });
     });
-
 
 });
