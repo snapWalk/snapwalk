@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/mikechabot/react-boilerplate.svg?branch=master)](https://travis-ci.org/mikechabot/react-boilterplate)
+[![Build Status](https://travis-ci.org/mikechabot/react-boilerplate.svg?branch=master)](https://travis-ci.org/mikechabot/react-boilerplate)
 [![Dependency Status](https://david-dm.org/mikechabot/react-boilerplate.svg)](https://david-dm.org/mikechabot/react-boilerplate)
 [![Coverage Status](https://coveralls.io/repos/github/mikechabot/react-boilerplate/badge.svg?branch=master)](https://coveralls.io/github/mikechabot/react-boilerplate?branch=master)
 
