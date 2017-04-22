@@ -10,7 +10,7 @@ module.exports = svc = {
         return process.env[key];
     },
     getNodeEnvMode: function () {
-        return svc.getNodeEnvByKey('NODE_ENV');
+        return svc.getNodeEnvByKey('NODE_ENV') || 'test';
     },
     isProduction: function () {
         return svc.getNodeEnvMode() === 'production';
@@ -19,6 +19,6 @@ module.exports = svc = {
         return svc.getNodeEnvMode() === 'development';
     },
     isTest: function () {
-        return svc.getNodeEnvMode() === 'test';
+        return !svc.getNodeEnvMode() || svc.getNodeEnvMode() === 'test';
     }
 };
