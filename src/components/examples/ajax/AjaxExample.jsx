@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import Entity from './Entity';
 import { Flexbox } from '../../common';
@@ -38,12 +39,12 @@ function AjaxExample ({
 }
 
 AjaxExample.propTypes = {
-    fooEntity : React.PropTypes.object,
-    barEntity : React.PropTypes.object,
-    failEntity: React.PropTypes.object,
-    fetchFoo  : React.PropTypes.func.isRequired,
-    fetchBar  : React.PropTypes.func.isRequired,
-    fetchFail : React.PropTypes.func.isRequired
+    fooEntity : PropTypes.object,
+    barEntity : PropTypes.object,
+    failEntity: PropTypes.object,
+    fetchFoo  : PropTypes.func.isRequired,
+    fetchBar  : PropTypes.func.isRequired,
+    fetchFail : PropTypes.func.isRequired
 };
 
 export default connect(

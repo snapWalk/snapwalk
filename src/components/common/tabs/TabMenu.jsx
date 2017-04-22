@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import Tab from './Tab';
 import map from 'lodash/map';
@@ -31,6 +32,6 @@ function _renderTab (activePath) {
 }
 
 TabMenu.propTypes = {
-    items     : React.PropTypes.array,
-    activePath: React.PropTypes.string
+    items     : PropTypes.array,
+    activePath: PropTypes.string
 };

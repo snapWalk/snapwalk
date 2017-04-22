@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import { LoadingIndicator } from '../../common';
@@ -147,26 +148,26 @@ const style = {
 };
 
 Entity.propTypes = {
-    name  : React.PropTypes.string.isRequired,
-    append: React.PropTypes.bool,
-    entity: React.PropTypes.shape({
-        isFetching : React.PropTypes.bool,
-        lastUpdated: React.PropTypes.number,
-        data       : React.PropTypes.oneOfType([
-            React.PropTypes.string,
-            React.PropTypes.number,
-            React.PropTypes.object,
-            React.PropTypes.array
+    name  : PropTypes.string.isRequired,
+    append: PropTypes.bool,
+    entity: PropTypes.shape({
+        isFetching : PropTypes.bool,
+        lastUpdated: PropTypes.number,
+        data       : PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number,
+            PropTypes.object,
+            PropTypes.array
         ]),
-        error: React.PropTypes.oneOfType([
-            React.PropTypes.object,
-            React.PropTypes.string
+        error: PropTypes.oneOfType([
+            PropTypes.object,
+            PropTypes.string
         ])
     }),
-    runFetchEntityOnMount: React.PropTypes.bool,
-    fetchEntity          : React.PropTypes.func.isRequired,
-    resetEntity          : React.PropTypes.func.isRequired,
-    deleteEntity         : React.PropTypes.func.isRequired
+    runFetchEntityOnMount: PropTypes.bool,
+    fetchEntity          : PropTypes.func.isRequired,
+    resetEntity          : PropTypes.func.isRequired,
+    deleteEntity         : PropTypes.func.isRequired
 };
 
 export default connect(null, {

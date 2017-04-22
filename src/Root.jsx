@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
@@ -9,7 +10,7 @@ export default function Root ({
     return (
         <Provider store={store}>
             <Router
-                routes={Routes}
+                children={Routes}
                 history={browserHistory}
             />
         </Provider>
@@ -17,5 +18,5 @@ export default function Root ({
 }
 
 Root.propTypes = {
-    store: React.PropTypes.object
+    store: PropTypes.object
 };

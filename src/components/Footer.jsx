@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Flexbox } from './common';
 
@@ -64,10 +65,10 @@ function GithubButton ({
 }
 
 GithubButton.propTypes = {
-    label         : React.PropTypes.string.isRequired,
-    icon          : React.PropTypes.string.isRequired,
-    countHref     : React.PropTypes.string.isRequired,
-    countApi      : React.PropTypes.string.isRequired,
-    countAriaLabel: React.PropTypes.string.isRequired,
-    ariaLabel     : React.PropTypes.string.isRequired
+    label         : PropTypes.string.isRequired,
+    icon          : PropTypes.string.isRequired,
+    countHref     : PropTypes.string.isRequired,
+    countApi      : PropTypes.string.isRequired,
+    countAriaLabel: PropTypes.string.isRequired,
+    ariaLabel     : PropTypes.string.isRequired
 };

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import Flexbox from '../Flexbox';
 
@@ -29,6 +30,6 @@ export default function HeroHeading ({
 }
 
 HeroHeading.propTypes = {
-    title   : React.PropTypes.string,
-    subtitle: React.PropTypes.string
+    title   : PropTypes.string,
+    subtitle: PropTypes.string
 };

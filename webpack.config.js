@@ -15,13 +15,8 @@ const config = {
         filename: 'bundle.js'
     },
     resolve: {
-        extensions: ['', '.js', '.jsx', '.json']
+        extensions: ['.js', '.jsx', '.json']
     },
-    postcss: [
-        autoprefixer({
-            browsers: ['last 2 versions']
-        })
-    ],
     plugins: [
         new CleanPlugin({
             files: ['dist/*']
@@ -44,15 +39,15 @@ const config = {
     ],
     module: {
         exprContextCritical: false, // Suppress "The request of a dependency is an expression"
-        loaders            : [
+        rules            : [
             {
                 test   : /\.(js|jsx)$/,
-                loaders: ['babel'],
+                loaders: "babel-loader",
                 include: path.join(__dirname, 'src')
             },
             {
                 test  : /\.scss$/,
-                loader: ExtractTextPlugin.extract('style', 'css!postcss!sass'),
+                loader: ExtractTextPlugin.extract({fallback: "style-loader", use: "css-loader!sass-loader"}),
                 include: path.join(__dirname, 'src')
             },
             {
@@ -62,7 +57,7 @@ const config = {
             },
             {
                 test  : /\.json$/,
-                loader: 'json',
+                loader: 'json-loader',
                 include: path.join(__dirname, 'src')
             }
         ]

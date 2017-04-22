@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Flexbox, Bullet } from '../../../common';
 import { connect } from 'react-redux';
@@ -28,10 +29,10 @@ function Content ({
 }
 
 Content.propTypes = {
-    label  : React.PropTypes.string.isRequired,
-    path   : React.PropTypes.string.isRequired,
-    action : React.PropTypes.func.isRequired,
-    counter: React.PropTypes.number.isRequired
+    label  : PropTypes.string.isRequired,
+    path   : PropTypes.string.isRequired,
+    action : PropTypes.func.isRequired,
+    counter: PropTypes.number.isRequired
 };
 
 export default connect(

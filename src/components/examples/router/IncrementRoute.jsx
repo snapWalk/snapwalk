@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import RouteContent from './common/RouteContent';
 import { increment } from '../../../redux/actions/action-creators';
@@ -16,7 +17,7 @@ function IncrementRoute ({
 }
 
 IncrementRoute.propTypes = {
-    increment: React.PropTypes.func.isRequired
+    increment: PropTypes.func.isRequired
 };
 
 export default connect(

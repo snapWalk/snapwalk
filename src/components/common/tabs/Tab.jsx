@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { browserHistory } from 'react-router';
 
@@ -22,18 +23,18 @@ export default function Tab ({
                     borderTopLeftRadius : 2,
                     borderBottom        : 0
                 },
-                ...active ? {
+                ...((active ? {
                     color          : '#FFFFFF',
                     backgroundColor: '#607D8B',
                     borderBottom   : 0
-                } : {} }}>
+                } : {})) }}>
             { label }
         </li>
     );
 }
 
 Tab.propTypes = {
-    label : React.PropTypes.string,
-    path  : React.PropTypes.string,
-    active: React.PropTypes.bool
+    label : PropTypes.string,
+    path  : PropTypes.string,
+    active: PropTypes.bool
 };

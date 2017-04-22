@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Flexbox } from '../';
 
@@ -56,7 +57,7 @@ function _renderIcon (icon) {
 }
 
 Panel.propTypes = {
-    faIcon  : React.PropTypes.string,
-    title   : React.PropTypes.string,
-    children: React.PropTypes.node
+    faIcon  : PropTypes.string,
+    title   : PropTypes.string,
+    children: PropTypes.node
 };

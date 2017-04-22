@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import RouteContent from './common/RouteContent';
 import { decrement } from '../../../redux/actions/action-creators';
@@ -16,7 +17,7 @@ function DecrementRoute ({
 }
 
 DecrementRoute.propTypes = {
-    decrement: React.PropTypes.func.isRequired
+    decrement: PropTypes.func.isRequired
 };
 
 export default connect(

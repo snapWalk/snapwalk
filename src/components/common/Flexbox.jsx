@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 export default function Flex ({
@@ -25,9 +26,9 @@ export default function Flex ({
             onMouseOver={onMouseOver}
             onClick={onClick}
             style={{
-                ...{ display: 'flex', ...column ? { flexDirection: 'column' } : {} },
-                ...vAlignCenter ? column ? { justifyContent: 'center' } : { alignItems: 'center' } : {},
-                ...hAlignCenter ? column ? { alignItems: 'center' } : { justifyContent: 'center' } : {},
+                ...{ display: 'flex', ...((column ? { flexDirection: 'column' } : {})) },
+                ...((vAlignCenter ? column ? { justifyContent: 'center' } : { alignItems: 'center' } : {})),
+                ...((hAlignCenter ? column ? { alignItems: 'center' } : { justifyContent: 'center' } : {})),
                 ...{ color, backgroundColor, width, height, flex, margin, padding },
                 ...style
             }}>
@@ -37,20 +38,20 @@ export default function Flex ({
 }
 
 Flex.propTypes = {
-    id             : React.PropTypes.string,
-    style          : React.PropTypes.object,
-    className      : React.PropTypes.string,
-    column         : React.PropTypes.bool,
-    flex           : React.PropTypes.number,
-    vAlignCenter   : React.PropTypes.bool,
-    hAlignCenter   : React.PropTypes.bool,
-    width          : React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
-    height         : React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
-    margin         : React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
-    padding        : React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
-    color          : React.PropTypes.string,
-    backgroundColor: React.PropTypes.string,
-    onMouseOver    : React.PropTypes.func,
-    onClick        : React.PropTypes.func,
-    children       : React.PropTypes.node
+    id             : PropTypes.string,
+    style          : PropTypes.object,
+    className      : PropTypes.string,
+    column         : PropTypes.bool,
+    flex           : PropTypes.number,
+    vAlignCenter   : PropTypes.bool,
+    hAlignCenter   : PropTypes.bool,
+    width          : PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    height         : PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    margin         : PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    padding        : PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    color          : PropTypes.string,
+    backgroundColor: PropTypes.string,
+    onMouseOver    : PropTypes.func,
+    onClick        : PropTypes.func,
+    children       : PropTypes.node
 };

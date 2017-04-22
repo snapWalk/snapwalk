@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 export default function JsonBlock ({
@@ -32,8 +33,8 @@ function _getContentAsString (content) {
 }
 
 JsonBlock.propTypes = {
-    content: React.PropTypes.oneOfType([
-        React.PropTypes.string,
-        React.PropTypes.object
+    content: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object
     ])
 };

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import RouteContent from './common/RouteContent';
 import { reset } from '../../../redux/actions/action-creators';
@@ -16,7 +17,7 @@ function Reset ({
 }
 
 Reset.propTypes = {
-    reset: React.PropTypes.func.isRequired
+    reset: PropTypes.func.isRequired
 };
 
 export default connect(

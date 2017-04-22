@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import AjaxExample from './examples/ajax/AjaxExample';
 import { connect } from 'react-redux';
@@ -74,9 +75,9 @@ function App ({
 }
 
 App.propTypes = {
-    children: React.PropTypes.node.isRequired,
-    state   : React.PropTypes.object.isRequired,
-    location: React.PropTypes.object.isRequired
+    children: PropTypes.node.isRequired,
+    state   : PropTypes.object.isRequired,
+    location: PropTypes.object.isRequired
 };
 
 export default connect(

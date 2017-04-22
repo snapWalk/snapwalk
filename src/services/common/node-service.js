@@ -7,16 +7,10 @@ module.exports = svc = {
     },
     getNodeEnvByKey: function (key) {
         if (!key) throw new Error('Key cannot be null/undefined');
-        return svc.getNodeEnv()[key];
+        return process.env[key];
     },
     getNodeEnvMode: function () {
-        let mode = svc.getNodeEnvByKey('NODE_ENV');
-        if (!mode) {
-            // TODO: Set NODE_ENV within Istanbul so this isn't necessary
-            mode = 'test';
-            process.env['NODE_ENV'] = mode;
-        }
-        return mode;
+        return svc.getNodeEnvByKey('NODE_ENV');
     },
     isProduction: function () {
         return svc.getNodeEnvMode() === 'production';

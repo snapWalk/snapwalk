@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 export default function TabContent ({
@@ -16,5 +17,5 @@ export default function TabContent ({
 }
 
 TabContent.propTypes = {
-    children: React.PropTypes.node
+    children: PropTypes.node
 };
