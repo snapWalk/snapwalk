@@ -1,5 +1,5 @@
 let jsdom = require('jsdom');
-const { JSDOM } = jsdom;
+const JSDOM = jsdom.JSDOM;
 
 const dom = new JSDOM(`<!DOCTYPE html><p>Hello world</p>`);
 global.window = dom.window.document.defaultView;
