@@ -20,7 +20,7 @@ A slightly opinionated yet dead simple boilerplate for ReactJS and Webpack 2.
 * [redux-logger](https://github.com/theaqua/redux-logger) for capturing actions
 
 #### Routing
-* [react-router](https://github.com/reactjs/react-router) for client-side [routing](https://github.com/mikechabot/react-boilerplate/blob/master/src/routes.js)
+* [react-router v3](https://github.com/reactjs/react-router) for client-side [routing](https://github.com/mikechabot/react-boilerplate/blob/master/src/routes.js)
 
 #### HTTP
 * [Customizable](https://github.com/mikechabot/react-boilerplate/blob/master/src/services/data/ajax-service.js#L11), promise-based HTTP support via [Axios](https://github.com/mzabriskie/axios)
