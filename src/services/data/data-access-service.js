@@ -5,18 +5,23 @@ import AjaxService from './ajax-service';
  * This service will be injected into domain services (e.g. PatientService, MedicationService)
  * Agnostic of prototype/production
  */
-const _request = (method, url, data) => {
-    let options = {
+const _request = (method, url, data, options) => {
+    const defaultOptions = {
         method      : method,
         url         : url,
         responseType: 'json'
     };
 
     if (data) {
-        options.data = JSON.stringify(data);
-        options.headers = {
+        defaultOptions.data = JSON.stringify(data);
+        defaultOptions.headers = {
             'Content-Type': 'application/json'
         };
+    }
+
+    let requestOptions = defaultOptions;
+    if (options) {
+        requestOptions = Object.assign(defaultOptions, options);
     }
 
     // Resolve the original request, and wrap the response in another promise.
@@ -25,23 +30,27 @@ const _request = (method, url, data) => {
     // is technically successful from an AJAX perspective (200 OK), but failed
     // server-side due an arbitrary error (i.e. validation error).
     return new Promise((resolve, reject) => {
-        AjaxService.request(options)
+        AjaxService.request(requestOptions)
             .then(response => {
                 resolve(response.data);
             })
             .catch(error => {
-                error.message = error.message || `${error.status} ${error.statusText}`;
+                if (!error) {
+                    error = new Error('An unknown error occurred');
+                } else if (!error.message) {
+                    error.message = `${error.status} ${error.statusText}`;
+                }
                 reject(error);
             });
     });
 };
 
 const DataAccessService = {
-    get (url) {
-        return _request('GET', url);
+    get (url, options) {
+        return _request('GET', url, null, options);
     },
-    post (url, data) {
-        return _request('POST', url, data);
+    post (url, data, options) {
+        return _request('POST', url, data, options);
     }
 };
 

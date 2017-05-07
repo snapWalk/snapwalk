@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import { LoadingIndicator } from '../../common';
 import { resetEntity, deleteEntity } from 'redux-entity';
 import moment from 'moment';
+import _isEmpty from 'lodash/isEmpty';
 
 class Entity extends React.Component {
-
     componentWillMount () {
         if (this.props.runFetchEntityOnMount) {
             this.props.fetchEntity();
@@ -16,7 +16,7 @@ class Entity extends React.Component {
     render () {
         const { name, entity } = this.props;
 
-        if (_.isEmpty(entity)) {
+        if (_isEmpty(entity)) {
             return this._renderEntityDoesNotExist(name);
         }
 
@@ -25,7 +25,7 @@ class Entity extends React.Component {
         if (error) {
             return (
                 <div>
-                    <div>Fetch for <code>{name}</code> failed.</div>
+                    <div>Failed to fetch <code>{name}</code> due to <code>{ error.toString() }</code></div>
                     { this._renderButtons(isFetching, data, error) }
                 </div>
             );
@@ -54,12 +54,11 @@ class Entity extends React.Component {
 
     _renderContent (name, entity) {
         const { isFetching, data, lastUpdated } = entity;
-        if (!_.isEmpty(data)) {
+        if (!_isEmpty(data)) {
             return (
                 <div style={isFetching ? style.fetching : {}}>
                     { this.props.append ? 'Appending to ' : 'Fetch for '}
-                    <code>{ name }</code>&nbsp;
-                    took <code>{ this.props.append ? _.last(data).delay : data.delay }</code> sec @&nbsp;
+                    <code>{ name }</code> { this.props.append ? <span /> : (<span>took<code>{data.delay} sec</code></span>) } @&nbsp;
                     <code>{ moment(lastUpdated).format('LTS') }</code>
                 </div>
             );
@@ -107,7 +106,7 @@ class Entity extends React.Component {
         if (isFetching) {
             return <span />;
         }
-        if (!_.isEmpty(data) || error) {
+        if (!_isEmpty(data) || error) {
             return [
                 this._renderFetch(),
                 this._renderReset(),
@@ -134,7 +133,6 @@ class Entity extends React.Component {
         const { name, resetEntity } = this.props;
         resetEntity(name, Date.now());
     }
-
 }
 
 const style = {

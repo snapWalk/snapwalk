@@ -9,6 +9,10 @@ function _getRandomDelayBetween (min, max, roundTo) {
 }
 
 const ExampleDomainService = {
+    /**
+     * Example usage for DataAccessService
+     * @returns {*}
+     */
     getFoo () {
         return DataAccessService.get('/foo');
     },
@@ -17,7 +21,7 @@ const ExampleDomainService = {
             const delay = _getShortDelay();
             setTimeout(() => {
                 doReject
-                    ? reject({message: 'Error fetching data!'})
+                    ? reject(new Error('Fake Error!'))
                     : resolve({delay});
             }, delay * 1000);
         });

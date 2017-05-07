@@ -1,3 +1,4 @@
+import { ENTITY_KEY } from '../../common/app-const';
 import { loadEntity } from 'redux-entity';
 import ExampleDomainService from '../../services/domain/example-domain-service';
 
@@ -7,7 +8,7 @@ import ExampleDomainService from '../../services/domain/example-domain-service';
  */
 export function fetchFoo () {
     return loadEntity(
-        'fooEntity',
+        ENTITY_KEY.FOO,
         ExampleDomainService.getFakePromise()
     );
 }
@@ -18,7 +19,7 @@ export function fetchFoo () {
  */
 export function fetchBar () {
     return loadEntity(
-        'barEntity',
+        ENTITY_KEY.BAR,
         ExampleDomainService.getFakePromise(),
         { append: true }
     );
@@ -28,9 +29,9 @@ export function fetchBar () {
  * Thunk action that simulates ad delayed, failed API call
  * @returns {Function}  thunk
  */
-export function fetchFail () {
+export function fetchBaz () {
     return loadEntity(
-        'failEntity',
+        ENTITY_KEY.BAZ,
         ExampleDomainService.getFakePromise(true)
     );
 }

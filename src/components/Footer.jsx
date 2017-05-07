@@ -12,26 +12,19 @@ export default function Footer () {
                 <GithubButton
                     label="Star"
                     icon="octicon-star"
-                    countHref="/mikechabot/react-boilerplate/stargazers"
-                    countApi="/repos/mikechabot/react-boilerplate#stargazers_count"
-                    countAriaLabel="# stargazers on GitHub"
+                    href="mikechabot/react-boilerplate"
                     ariaLabel="Star mikechabot/react-boilerplate on GitHub"
                 />
                 <GithubButton
                     label="Fork"
                     icon="octicon-repo-forked"
-                    hrefSuffix="/fork"
-                    countHref="/mikechabot/react-boilerplate/network"
-                    countApi="/repos/mikechabot/react-boilerplate#forks_count"
-                    countAriaLabel="# forks on GitHub"
+                    href="mikechabot/react-boilerplate/fork"
                     ariaLabel="Fork mikechabot/react-boilerplate on GitHub"
                 />
                 <GithubButton
                     label="Watch"
                     icon="octicon-eye"
-                    countHref="/mikechabot/react-boilerplate/watchers"
-                    countApi="/repos/mikechabot/react-boilerplate#subscribers_count"
-                    countAriaLabel="# watchers on GitHub"
+                    href="mikechabot/react-boilerplate/subscription"
                     ariaLabel="Watch mikechabot/react-boilerplate on GitHub"
                 />
             </Flexbox>
@@ -42,22 +35,17 @@ export default function Footer () {
 function GithubButton ({
     label,
     icon,
-    countHref,
-    countApi,
-    countAriaLabel,
+    href,
     ariaLabel
 }) {
     return (
         <div style={{ margin: 5 }}>
-            <a
-                className="github-button"
-                href="https://github.com/mikechabot/react-boilerplate"
-                data-icon={icon}
-                data-style="mega"
-                data-count-href={countHref}
-                data-count-api={countApi}
-                data-count-aria-label={countAriaLabel}
-                aria-label={ariaLabel}>
+            <a className="github-button"
+               href={`https://github.com/${href}`}
+               data-icon={icon}
+               data-size="large"
+               data-show-count={true}
+               aria-label={ariaLabel}>
                 { label }
             </a>
         </div>
@@ -65,10 +53,8 @@ function GithubButton ({
 }
 
 GithubButton.propTypes = {
-    label         : PropTypes.string.isRequired,
-    icon          : PropTypes.string.isRequired,
-    countHref     : PropTypes.string.isRequired,
-    countApi      : PropTypes.string.isRequired,
-    countAriaLabel: PropTypes.string.isRequired,
-    ariaLabel     : PropTypes.string.isRequired
+    label    : PropTypes.string.isRequired,
+    icon     : PropTypes.string.isRequired,
+    href     : PropTypes.string.isRequired,
+    ariaLabel: PropTypes.string.isRequired
 };

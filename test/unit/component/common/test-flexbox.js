@@ -1,13 +1,11 @@
 import React from 'react';
-import TestUtils from 'react-addons-test-utils';
+import TestUtils from 'react-dom/test-utils';
 import { expect } from 'chai';
-import sinon from 'sinon';
 import { renderStatelessComponent } from '../../../react-utils';
 
 import Flexbox from '../../../../src/components/common/Flexbox';
 
 describe('Flexbox Component', () => {
-
     let props;
     beforeEach(() => {
         props = { id: 'ABC' };

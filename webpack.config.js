@@ -22,6 +22,7 @@ const config = {
             files: ['dist/*']
         }),
         new ExtractTextPlugin('css/bundle.css'),
+        new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src/index.html'),
             inject  : 'body'
@@ -39,25 +40,25 @@ const config = {
     ],
     module: {
         exprContextCritical: false, // Suppress "The request of a dependency is an expression"
-        rules            : [
+        rules              : [
             {
                 test   : /\.(js|jsx)$/,
-                loaders: "babel-loader",
+                loaders: 'babel-loader',
                 include: path.join(__dirname, 'src')
             },
             {
-                test  : /\.scss$/,
-                loader: ExtractTextPlugin.extract({fallback: "style-loader", use: "css-loader!sass-loader"}),
+                test   : /\.scss$/,
+                loader : ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader!sass-loader'}),
                 include: path.join(__dirname, 'src')
             },
             {
-                test  : /\.(eot|woff|woff2|ttf|svg|png|jpg)$/,
-                loader: 'url-loader?limit=10000&name=[name]-[hash].[ext]',
+                test   : /\.(eot|woff|woff2|ttf|svg|png|jpg)$/,
+                loader : 'url-loader?limit=10000&name=[name]-[hash].[ext]',
                 include: path.join(__dirname, 'src')
             },
             {
-                test  : /\.json$/,
-                loader: 'json-loader',
+                test   : /\.json$/,
+                loader : 'json-loader',
                 include: path.join(__dirname, 'src')
             }
         ]

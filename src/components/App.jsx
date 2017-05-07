@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import AjaxExample from './examples/ajax/AjaxExample';
+import ReduxEntity from './examples/redux-entity/ReduxEntity';
+import ReduxState from './examples/ReduxState';
 import { connect } from 'react-redux';
 import {
-    Bullet, Panel, JsonBlock, HeroHeading,
+    Bullet, Panel, HeroHeading,
     Footer, TabMenu, TabContent,
     Flexbox
 } from './common';
@@ -32,9 +33,9 @@ function App ({
 
                     { /* Render AJAX example */ }
                     <Panel
-                        faIcon="download"
-                        title="Ajax Example">
-                        <AjaxExample />
+                        faIcon="cloud"
+                        title="redux-entity">
+                        <ReduxEntity />
                     </Panel>
 
                     { /* Render router example */ }
@@ -63,8 +64,8 @@ function App ({
                         faIcon="tree"
                         title="Redux State">
                         <Bullet />
-                        Open the console to see the dispatched actions!
-                        <JsonBlock content={state} />
+                        Open devtools to see the dispatched actions
+                        <ReduxState state={state} />
                     </Panel>
                 </Flexbox>
 

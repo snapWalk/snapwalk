@@ -1,7 +1,7 @@
 let jsdom = require('jsdom');
 const JSDOM = jsdom.JSDOM;
 
-const dom = new JSDOM(`<!DOCTYPE html><p>Hello world</p>`);
+const dom = new JSDOM('<!DOCTYPE html><p>Hello world</p>');
 global.window = dom.window.document.defaultView;
 global.document = dom.window.document;
 global.navigator = {

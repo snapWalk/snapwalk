@@ -1,6 +1,6 @@
 import React from 'react';
 import TestUtils from 'react-dom/test-utils';
-import _ from 'lodash';
+import _find from 'lodash/find';
 
 /**
  *
@@ -17,10 +17,9 @@ import _ from 'lodash';
  */
 
 export function renderStatelessComponent (ComponentType, props) {
-
     class Wrapper extends React.Component {
-        render() {
-            return this.props.children
+        render () {
+            return this.props.children;
         }
     }
 
@@ -38,7 +37,7 @@ export function renderStatelessComponent (ComponentType, props) {
  * @returns {*}
  */
 export function findElementById (tree, id) {
-    const element = _.find(tree, element => {
+    const element = _find(tree, element => {
         return TestUtils.isDOMComponent(element) && element.getAttribute('id') === id;
     });
     if (element) return element;
