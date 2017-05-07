@@ -23,6 +23,15 @@ const config = {
         }),
         new ExtractTextPlugin('css/bundle.css'),
         new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+        new webpack.LoaderOptionsPlugin({
+            options: {
+                postcss: [
+                    autoprefixer({
+                        browsers: ['last 2 version']
+                    })
+                ]
+            }
+        }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src/index.html'),
             inject  : 'body'
@@ -67,6 +76,7 @@ const config = {
 
 if (NodeUtils.isProduction()) {
     config.entry = './src/Bootstrap';
+    config.plugins.push(new webpack.optimize.UglifyJsPlugin());
 } else {
     config.devtool = 'eval';
     config.entry = [
