@@ -5,4 +5,3 @@ export { default as HeroHeading } from './display/HeroHeading';
 export { default as LoadingIndicator } from './LoadingIndicator';
 export { default as Flexbox } from './Flexbox';
 export { default as Panel } from './display/Panel';
-export { TabMenu, TabContent } from './tabs';

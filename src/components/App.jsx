@@ -1,19 +1,14 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import ReduxEntity from './examples/redux-entity/ReduxEntity';
 import ReduxState from './examples/ReduxState';
-import { connect } from 'react-redux';
-import {
-    Bullet, Panel, HeroHeading,
-    Footer, TabMenu, TabContent,
-    Flexbox
-} from './common';
+import { Tabs, Tab } from 'react-tabify';
+import { Bullet, Panel, HeroHeading, Footer, Flexbox } from './common';
+import { Route, withRouter } from 'react-router-dom';
+import DecrementRoute from './examples/router/DecrementRoute';
+import ResetRoute from './examples/router/ResetRoute';
+import IncrementRoute from './examples/router/IncrementRoute';
 
-function App ({
-    children,
-    state,
-    location
-}) {
+function App({ location, history }) {
     return (
         <div style={{height: '100%', width: '100%'}}>
 
@@ -42,19 +37,25 @@ function App ({
                     <Panel
                         faIcon="link"
                         title="Router example">
-                        <TabMenu
-                            activePath={location.pathname}
-                            items={[
-                                { label: 'increment', path: '/' },
-                                { label: 'decrement', path: '/decrement' },
-                                { label: 'reset', path: '/reset' }
-                            ]}
-                        />
-                        { /* Render the active route */ }
-                        { /* Check Routes.jsx along with your current URL to determine the rendered component! */ }
-                        <TabContent>
-                            { children }
-                        </TabContent>
+                        <Tabs
+                            theme={{
+                                main: {
+                                    color: '#546E7A'
+                                }
+                            }}
+                            id="router-example-tabs"
+                            activeKey={location.pathname}
+                            onSelect={(eventKey) => history.push(eventKey)}>
+                            <Tab eventKey="/" label="Increment">
+                                <Route exact path="/" component={IncrementRoute}/>
+                            </Tab>
+                            <Tab eventKey="/decrement" label="Decrement">
+                                <Route path="/decrement" component={DecrementRoute}/>
+                            </Tab>
+                            <Tab eventKey="/reset" label="Reset">
+                                <Route path="/reset" component={ResetRoute}/>
+                            </Tab>
+                        </Tabs>
                     </Panel>
                 </Flexbox>
 
@@ -65,22 +66,14 @@ function App ({
                         title="Redux State">
                         <Bullet />
                         Open devtools to see the dispatched actions
-                        <ReduxState state={state} />
+                        <ReduxState />
                     </Panel>
                 </Flexbox>
 
-        </Flexbox>
-        <Footer/>
-    </div>
+            </Flexbox>
+            <Footer/>
+        </div>
     );
 }
 
-App.propTypes = {
-    children: PropTypes.node.isRequired,
-    state   : PropTypes.object.isRequired,
-    location: PropTypes.object.isRequired
-};
-
-export default connect(
-    (state) => ({ state })
-)(App);
+export default withRouter(App);

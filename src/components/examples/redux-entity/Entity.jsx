@@ -45,7 +45,7 @@ class Entity extends React.Component {
             <div style={style.container}>
                 <div>
                     Entity <code>{entityName}</code> doesn't&nbsp;
-                    exist on <code>model</code>
+                    exist on <code>entities</code>
                 </div>
                 { this._renderFetch() }
             </div>

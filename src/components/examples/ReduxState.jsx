@@ -1,23 +1,24 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import _isObject from 'lodash/isObject';
+import { connect } from 'react-redux';
 
-export default function ReduxState ({
-    state
-}) {
-    return (
-        <pre>
-            {
-                _getContentAsString(state)
-                    .split('\n')
-                    .map((line, index) => (
-                        <div key={index} className="line">
-                            { line }
-                        </div>
-                    ))
-            }
-        </pre>
-    );
+class ReduxState extends React.Component {
+    render () {
+        return (
+            <pre>
+                {
+                    _getContentAsString(this.props.state)
+                        .split('\n')
+                        .map((line, index) => (
+                            <div key={index} className="line">
+                                { line }
+                            </div>
+                        ))
+                }
+            </pre>
+        );
+    }
 }
 
 function _stringifyErrors (obj) {
@@ -43,3 +44,7 @@ function _getContentAsString (content) {
 ReduxState.propTypes = {
     state: PropTypes.object.isRequired
 };
+
+export default connect(
+    (state) => ({ state })
+)(ReduxState);

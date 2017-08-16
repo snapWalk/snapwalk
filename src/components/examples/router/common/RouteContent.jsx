@@ -10,14 +10,14 @@ function Content ({
     counter
 }) {
     return (
-        <Flexbox column={true} style={{padding: '0 5px'}}>
+        <Flexbox column={true} padding={10}>
             <Flexbox vAlignCenter={true}>
                 <Bullet/>
                 <code>counter</code>: <code>{ counter }</code>
             </Flexbox>
             <Flexbox vAlignCenter={true}>
                 <Bullet/>
-                You are at the <code>('{path}')</code> route
+                You are at the <code>{path}</code> route
             </Flexbox>
             <button
                 className="button-primary"
