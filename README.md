@@ -4,14 +4,14 @@
 [![Dependency Status](https://david-dm.org/mikechabot/react-boilerplate.svg)](https://david-dm.org/mikechabot/react-boilerplate)
 [![Coverage Status](https://coveralls.io/repos/github/mikechabot/react-boilerplate/badge.svg?branch=master&cacheBuster=1)](https://coveralls.io/github/mikechabot/react-boilerplate?branch=master)
 
-A slightly opinionated yet dead simple boilerplate for ReactJS and Webpack 2.
+A slightly opinionated yet dead simple boilerplate for ReactJS, Webpack 3, and React Router v4.
 
 #### http://mikechabot.github.io/react-boilerplate/
 
 ## Features
 
 #### Build Process
- * Built with [webpack 2](https://webpack.js.org/configuration/)
+ * Built with [webpack 3](https://webpack.js.org/configuration/)
  * Supports ES6 via [Babel](https://babeljs.io/) transpiling
 
 #### State Management
@@ -20,7 +20,7 @@ A slightly opinionated yet dead simple boilerplate for ReactJS and Webpack 2.
 * [redux-logger](https://github.com/theaqua/redux-logger) for capturing actions
 
 #### Routing
-* [react-router v3](https://github.com/reactjs/react-router) for client-side [routing](https://github.com/mikechabot/react-boilerplate/blob/master/src/routes.js)
+* [react-router v4](https://github.com/reactjs/react-router) for client-side [routing](https://github.com/mikechabot/react-boilerplate/blob/master/src/Root.jsx#L5)
 
 #### HTTP
 * [Customizable](https://github.com/mikechabot/react-boilerplate/blob/master/src/services/data/ajax-service.js#L11), promise-based HTTP support via [Axios](https://github.com/mzabriskie/axios)
