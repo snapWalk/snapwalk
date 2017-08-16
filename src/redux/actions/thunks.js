@@ -3,7 +3,7 @@ import { loadEntity } from 'redux-entity';
 import ExampleDomainService from '../../services/domain/example-domain-service';
 
 /**
- * Thunk action that simulates ad delayed API call
+ * Thunk action that simulates a delayed API call
  * @returns {Function}  thunk
  */
 export function fetchFoo () {
@@ -14,7 +14,7 @@ export function fetchFoo () {
 }
 
 /**
- * Thunk action that simulates ad delayed API call
+ * Thunk action that simulates a delayed API call
  * @returns {Function}  thunk
  */
 export function fetchBar () {
@@ -26,7 +26,7 @@ export function fetchBar () {
 }
 
 /**
- * Thunk action that simulates ad delayed, failed API call
+ * Thunk action that simulates a delayed, failed API call
  * @returns {Function}  thunk
  */
 export function fetchBaz () {
