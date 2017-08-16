@@ -23,8 +23,8 @@ A slightly opinionated yet dead simple boilerplate for ReactJS, Webpack 3, and R
 * [react-router v4](https://github.com/reactjs/react-router) for client-side [routing](https://github.com/mikechabot/react-boilerplate/blob/master/src/Root.jsx#L5)
 
 #### HTTP
-* [Customizable](https://github.com/mikechabot/react-boilerplate/blob/master/src/services/data/ajax-service.js#L11), promise-based HTTP support via [Axios](https://github.com/mzabriskie/axios)
-* Implementing [data services](https://github.com/mikechabot/react-boilerplate/blob/master/src/services/data/data-access-service.js#L29) utilize [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+* [Customizable](https://github.com/mikechabot/react-boilerplate/blob/master/src/services/data/ajax-service.js#L8), promise-based HTTP support via [Axios](https://github.com/mzabriskie/axios)
+* Implementing [data services](https://github.com/mikechabot/react-boilerplate/blob/master/src/services/data/data-access-service.js#L32) utilize [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 #### Styling
 * Supports [SCSS & SASS](http://sass-lang.com/) syntax
