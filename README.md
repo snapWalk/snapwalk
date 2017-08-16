@@ -16,7 +16,7 @@ A slightly opinionated yet dead simple boilerplate for ReactJS, Webpack 3, and R
 
 #### State Management
 * [redux-entity](https://github.com/mikechabot/redux-entity) for domain entity management
-* [redux-thunk](https://github.com/gaearon/redux-thunk) for [asynchronous actions](https://github.com/mikechabot/react-boilerplate/blob/master/src/redux/actions/thunk-action-creators.js#L21)
+* [redux-thunk](https://github.com/gaearon/redux-thunk) for [asynchronous actions](https://github.com/mikechabot/react-boilerplate/blob/master/src/redux/actions/thunks.js#L6)
 * [redux-logger](https://github.com/theaqua/redux-logger) for capturing actions
 
 #### Routing
