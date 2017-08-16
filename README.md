@@ -42,7 +42,7 @@ A slightly opinionated yet dead simple boilerplate for ReactJS, Webpack 3, and R
 * [Sinon.JS](http://sinonjs.org/) for mocking, stubbing & spying
 
 ## Get Started
-1. git clone https://github.com/mikechabot/react-boilerplate.git
+1. `git clone https://github.com/mikechabot/react-boilerplate.git`
 2. `npm install`
 3. Launch environment:
    *  **Production**: `npm start`
