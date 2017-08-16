@@ -32,7 +32,7 @@ A slightly opinionated yet dead simple boilerplate for ReactJS, Webpack 3, and R
 
 #### Develop & Deploy
 * Environmental configurations for both webpack and redux
-  * **Dev**: [webpack-dev-server](https://webpack.github.io/docs/webpack-dev-server.html) with [React Hot Loader](http://gaearon.github.io/react-hot-loader/). `redux-logger` enabled.
+  * **Dev**: [webpack-dev-server](https://webpack.js.org/configuration/dev-server/) with [React Hot Loader](http://gaearon.github.io/react-hot-loader/). `redux-logger` enabled.
   * **Prod**: [Express](http://expressjs.com/) server with `redux-logger` disabled.
 
 #### Testing
