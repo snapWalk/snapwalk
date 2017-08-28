@@ -37,8 +37,7 @@
     "redux": "^3.7.2",
     "redux-entity": "^5.0.5",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.2.0",
-    "webpack": "^3.5.4"
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -77,6 +76,7 @@
     "style-loader": "^0.18.2",
     "svg-react-loader": "^0.4.4",
     "url-loader": "^0.5.9",
+    "webpack": "^3.5.4",
     "webpack-dev-server": "^2.7.1"
   }
 }
