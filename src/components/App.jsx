@@ -1,14 +1,15 @@
 import React from 'react';
+import { Route, withRouter } from 'react-router-dom';
+import { Tabs, Tab } from 'react-tabify';
+import { connect } from 'react-redux';
+
 import ReduxEntity from './examples/redux-entity/ReduxEntity';
 import ReduxState from './examples/ReduxState';
-import { Tabs, Tab } from 'react-tabify';
 import { Bullet, Panel, HeroHeading, Footer, Flexbox } from './common';
-import { Route, withRouter } from 'react-router-dom';
-import DecrementRoute from './examples/router/DecrementRoute';
-import ResetRoute from './examples/router/ResetRoute';
-import IncrementRoute from './examples/router/IncrementRoute';
+import { increment, decrement, reset } from '../redux/actions/action-creators';
+import RouteContent from './examples/router/RouteContent';
 
-function App({ location, history }) {
+function App ({ location, history }) {
     return (
         <div style={{height: '100%', width: '100%'}}>
 
@@ -47,13 +48,13 @@ function App({ location, history }) {
                             activeKey={location.pathname}
                             onSelect={(eventKey) => history.push(eventKey)}>
                             <Tab eventKey="/" label="Increment">
-                                <Route exact path="/" component={IncrementRoute}/>
+                                <Route exact path="/" component={RouteContent}/>
                             </Tab>
                             <Tab eventKey="/decrement" label="Decrement">
-                                <Route path="/decrement" component={DecrementRoute}/>
+                                <Route path="/decrement" component={RouteContent}/>
                             </Tab>
                             <Tab eventKey="/reset" label="Reset">
-                                <Route path="/reset" component={ResetRoute}/>
+                                <Route path="/reset" component={RouteContent}/>
                             </Tab>
                         </Tabs>
                     </Panel>
@@ -76,4 +77,4 @@ function App({ location, history }) {
     );
 }
 
-export default withRouter(App);
+export default withRouter(App)
