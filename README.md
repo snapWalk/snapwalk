@@ -51,3 +51,36 @@ A slightly opinionated yet dead simple boilerplate for ReactJS, Webpack 3, and R
    * `$ npm run build:prod`
 5. Test:
    * `$ npm test`
+
+### Custom Configuration
+
+Use `cross-env` or a comparable library to set an environment variable:
+
+`$ cross-env ENV_CONFIG_PATH=/path/to/my/config npm start`
+
+Note: This configuration path is made available to Webpack **only**, however the contents of the file are stamped on a global variable (`process.env.APP_CONFIG`, see webpack.config.js) and can be accessed easily with the ConfigService.
+
+Example:
+
+    mikec@Krait MINGW64 /d/_workspaces/react-boilerplate (master)
+    $ cross-env ENV_CONFIG_PATH="D\:\_workspaces\foo.json" npm start
+
+    > react-boilerplate@2.5.0 start D:\_workspaces\react-boilerplate
+    > npm run prod
+
+    > react-boilerplate@2.5.0 prod D:\_workspaces\react-boilerplate
+    > npm run build:prod && npm run start-server
+
+    > react-boilerplate@2.5.0 build:prod D:\_workspaces\react-boilerplate
+    > cross-env NODE_ENV=production webpack --progress --colors
+
+    ** Using custom configuration located at "D:\_workspaces\foo.json" **
+
+    Hash: 32bbf23a46e7ac19741a
+    Version: webpack 3.5.5
+    Time: 8711ms
+             Asset     Size  Chunks                    Chunk Names
+         bundle.js   563 kB       0  [emitted]  [big]  main
+    css/bundle.css  1.68 kB       0  [emitted]         main
+        index.html  1.58 kB          [emitted]
+
