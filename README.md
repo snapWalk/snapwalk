@@ -54,13 +54,15 @@ A slightly opinionated yet dead simple boilerplate for ReactJS, Webpack 3, and R
 
 ### Custom Configuration
 
-Use `cross-env` or a comparable library to set an environment variable:
+Use `cross-env` or a comparable library to set an environment variable (`ENV_CONFIG_PATH`) to the path of your JSON configuration file:
 
 `$ cross-env ENV_CONFIG_PATH=/path/to/my/config npm start`
 
-Note: This configuration path is made available to Webpack **only**, however the contents of the file are stamped on a global variable (`process.env.APP_CONFIG`, see webpack.config.js) and can be accessed easily with the ConfigService.
+Note: This configuration path is made available to Webpack **only**, however the contents of the file are stamped on a global variable during the build process (`process.env.APP_CONFIG`, see [webpack.config.js](https://github.com/mikechabot/react-boilerplate/blob/master/webpack.config.js#L44)), which is then easily accessible via the [ConfigService](https://github.com/mikechabot/react-boilerplate/blob/master/src/services/common/config-service.js#L8).
 
-Example:
+#### Example:
+
+Configuration located @ at `D:\_workspaces\foo.json`:
 
     mikec@Krait MINGW64 /d/_workspaces/react-boilerplate (master)
     $ cross-env ENV_CONFIG_PATH="D\:\_workspaces\foo.json" npm start
