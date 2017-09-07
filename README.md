@@ -54,7 +54,7 @@ A slightly opinionated yet dead simple boilerplate for ReactJS, Webpack 3, and R
 
 ### Custom Configuration
 
-Use `cross-env` or a comparable library to set an environment variable (`ENV_CONFIG_PATH`) to the path of your JSON configuration file:
+Use `cross-env` or a comparable library or command to set an environment variable (`ENV_CONFIG_PATH`) to the path of your JSON configuration file:
 
 `$ cross-env ENV_CONFIG_PATH=/path/to/my/config npm start`
 
