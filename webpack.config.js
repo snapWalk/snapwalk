@@ -4,6 +4,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const CleanPlugin = require('./utils/clean-plugin');
 const NodeUtils = require('./src/services/common/node-service');
@@ -76,7 +77,8 @@ const config = {
 
 if (NodeUtils.isProduction()) {
     config.entry = './src/Bootstrap';
-    config.plugins.push(new webpack.optimize.UglifyJsPlugin());
+    config.plugins.push(new UglifyJSPlugin());
+
 } else {
     config.devtool = 'eval';
     config.entry = [
