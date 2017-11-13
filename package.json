@@ -23,7 +23,7 @@
     "url": "https://github.com/mikechabot/react-boilerplate/issues"
   },
   "dependencies": {
-    "axios": "^0.16.2",
+    "axios": "^0.17.1",
     "babel-polyfill": "^6.23.0",
     "cross-env": "^5.0.5",
     "express": "^4.16.2",
