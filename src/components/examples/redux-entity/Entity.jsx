@@ -38,7 +38,7 @@ class Entity extends React.Component {
             <div className="m-top--large m-bottom--large">
                 <div className="m-bottom--small">
                     <Icon icon="exclamation-triangle" className="has-text-danger" />
-                    &nbsp;Entity<code>{entityName}</code>doesn't&nbsp;exist on<code>entities</code>
+                    &nbsp;Entity&nbsp;<code>{entityName}</code>&nbsp;doesn't exist on&nbsp;<code>entities</code>
                 </div>
                 { this._renderFetch() }
             </div>
@@ -52,7 +52,8 @@ class Entity extends React.Component {
             return (
                 <div className="m-bottom--small">
                     <Icon icon="exclamation-triangle" className="has-text-danger" />
-                    &nbsp;Failed to fetch<code>{name}</code>due to<code className="has-text-danger">{ error.toString() }</code>
+                    &nbsp;Failed to fetch&nbsp;<code>{name}</code>
+                    &nbsp;due to&nbsp;<code className="has-text-danger">{ error.toString() }</code>
                 </div>
             );
         }
@@ -71,8 +72,12 @@ class Entity extends React.Component {
                 <div className="m-bottom--small">
                     <Icon icon="check" className="has-text-success" />
                     &nbsp;{ this.props.append ? 'Appending to' : 'Fetch for'}
-                    <code>{ name }</code>{ this.props.append ? null : (<span>took<code>{data.delay} sec</code></span>) }@
-                    <code>{ moment(lastUpdated).format('LTS') }</code>
+                    &nbsp;<code>{ name }</code>
+                    { this.props.append
+                        ? null
+                        : (<span>took <code>{data.delay} sec</code></span>)
+                    }
+                    &nbsp;@&nbsp;<code>{ moment(lastUpdated).format('LTS') }</code>
                 </div>
             );
         } else {
