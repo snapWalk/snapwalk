@@ -1,81 +1,33 @@
-@import 'common';
+
+@import 'mixins';
 
 body, html {
   @include full-height;
-  @include margin(0px);
   font: $font-stack;
-  color: #455A64;
 }
 
 #example-app {
-  @include flex;
+  @include margin(0px);
   @include full-height;
 }
 
-a {
-  color: inherit;
-}
-
-h1 {
-  display: inline;
-}
-
-h6 {
-  font-size: 110%;
-  margin-bottom: 10px;
-};
-
 code {
-   font-size: 115%;
+  font-size: 1.1rem;
+  color: hsl(0, 0%, 29%)
 }
 
-.button.button-primary,
-button.button-primary,
-input[type="submit"].button-primary,
-input[type="reset"].button-primary,
-input[type="button"].button-primary {
-  color: #FFFFFF;
-  background-color: #546E7A;
-  border-color: #455A64; }
-.button.button-primary:hover,
-button.button-primary:hover,
-input[type="submit"].button-primary:hover,
-input[type="reset"].button-primary:hover,
-input[type="button"].button-primary:hover,
-.button.button-primary:focus,
-button.button-primary:focus,
-input[type="submit"].button-primary:focus,
-input[type="reset"].button-primary:focus,
-input[type="button"].button-primary:focus {
-  color: #FFFFFF;
-  background-color: #37474F;
-  border-color: #263238;
+.notification code {
+  background: hsl(0, 0%, 90%)
 }
 
-.button-primary {
-  margin: 5px 5px 0 0;
-  border-radius: 2px;
-}
-
-code {
-  color: #546E7A;
-}
-
-hr {
-  margin-top: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-
-/*  REDUX STATE CODEBLOCK */
 pre {
-  font-size: 90%;
+  font-size: .9rem;
   margin: 0;
-  background-color: #CFD8DC;
+  background-color: whitesmoke;
   counter-reset: line-numbering;
-  font-family: Consolas, Menlo, Monaco, monospace;
+  font-family: Inconsolata, Consolas, monospace;
   padding: 5px;
-  border-radius: 3px 10px 3px 10px;
+  border-radius: 3px;
   color: #455A64;
   white-space: pre-wrap;
   word-wrap: break-word;
@@ -89,6 +41,46 @@ pre .line::before {
   width: 1.5em;
   text-align: right;
   font-weight: 600;
-  font-size: 12px;
-  color: #616161;
+  font-size: .9rem;
+  color: #209cee;
+}
+
+.m-left--small {
+  margin-left: 0.5rem;
+}
+
+.m-right--small {
+  margin-right: 0.5rem;
+}
+
+.m-top--small {
+  margin-top: 0.5rem;
+}
+
+.m-bottom--small {
+  margin-bottom: 0.5rem;
+}
+
+.m--small {
+  margin: 0.5rem;
+}
+
+.m-left--large {
+  margin-left: 1rem;
+}
+
+.m-right--large {
+  margin-right: 1rem;
+}
+
+.m-top--large {
+  margin-top: 1rem;
+}
+
+.m-bottom--large {
+  margin-bottom: 1rem;
+}
+
+.m-large {
+  margin: 1rem;
 }

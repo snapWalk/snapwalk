@@ -22,12 +22,7 @@ function ReduxEntity ({
     }
 
     return (
-        <Flex column>
-            <div>
-                <i className="fa fa-angle-right" style={{ fontWeight: 700 }}/>&nbsp;
-                Utilizes&nbsp;<a href="https://github.com/mikechabot/redux-entity">redux-entity</a>&nbsp;for domain entity management
-            </div>
-            <div><hr /></div>
+        <Flex column className="notification is-light m-top--small">
             {
                 Object.keys(ENTITY_KEY).map((key, index) => {
                     const entityKey = ENTITY_KEY[key];

@@ -18,16 +18,19 @@ export const INITIAL_STATE = {
 
 export const ROUTES = [
     {
+        icon  : 'plus',
         path  : null,
         label : 'Increment',
         action: increment
     },
     {
+        icon  : 'minus',
         path  : '/decrement',
         label : 'Decrement',
         action: decrement
     },
     {
+        icon  : 'history',
         path  : '/reset',
         label : 'Reset',
         action: reset

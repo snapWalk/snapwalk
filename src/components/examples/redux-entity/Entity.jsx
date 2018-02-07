@@ -5,7 +5,7 @@ import _isEmpty from 'lodash/isEmpty';
 import { connect } from 'react-redux';
 import { resetEntity, deleteEntity } from 'redux-entity';
 
-import LoadingIndicator from '../../common/LoadingIndicator';
+import Icon from '../../common/Icon';
 
 class Entity extends React.Component {
     componentWillMount () {
@@ -21,32 +21,24 @@ class Entity extends React.Component {
             return this._renderEntityDoesNotExist(name);
         }
 
-        const { isFetching, data, error } = entity;
-
-        if (error) {
-            return (
-                <div>
-                    <div>Failed to fetch <code>{name}</code> due to <code>{ error.toString() }</code></div>
-                    { this._renderButtons(isFetching, data, error) }
-                </div>
-            );
-        }
+        const { isFetching, data } = entity;
 
         return (
-            <div style={style.container}>
+            <div className="m-top--large m-bottom--large">
                 { this._renderContent(name, entity)}
-                { this._renderLoadingIndicator(isFetching) }
-                { this._renderButtons(isFetching, data) }
+                <div className="field has-addons">
+                    { this._renderButtons(isFetching, data) }
+                </div>
             </div>
         );
     }
 
     _renderEntityDoesNotExist (entityName) {
         return (
-            <div style={style.container}>
-                <div>
-                    Entity <code>{entityName}</code> doesn't&nbsp;
-                    exist on <code>entities</code>
+            <div className="m-top--large m-bottom--large">
+                <div className="m-bottom--small">
+                    <Icon icon="exclamation-triangle" className="has-text-danger" />
+                    &nbsp;Entity<code>{entityName}</code>doesn't&nbsp;exist on<code>entities</code>
                 </div>
                 { this._renderFetch() }
             </div>
@@ -54,53 +46,65 @@ class Entity extends React.Component {
     }
 
     _renderContent (name, entity) {
-        const { isFetching, data, lastUpdated } = entity;
-        if (!_isEmpty(data)) {
+        const { isFetching, data, lastUpdated, error } = entity;
+
+        if (error) {
             return (
-                <div style={isFetching ? style.fetching : {}}>
-                    { this.props.append ? 'Appending to ' : 'Fetch for '}
-                    <code>{ name }</code> { this.props.append ? <span /> : (<span>took<code>{data.delay} sec</code></span>) } @&nbsp;
-                    <code>{ moment(lastUpdated).format('LTS') }</code>
+                <div className="m-bottom--small">
+                    <Icon icon="exclamation-triangle" className="has-text-danger" />
+                    &nbsp;Failed to fetch<code>{name}</code>due to<code className="has-text-danger">{ error.toString() }</code>
                 </div>
             );
         }
-        return (
-            <div style={isFetching ? style.fetching : {}}>
-                {
-                    isFetching
-                        ? <span>Fetching fresh data!</span>
-                        : <span>Entity <code>{name}</code> is reset.</span>
-                }
-            </div>
-        );
-    }
 
-    _renderLoadingIndicator (isFetching) {
         if (isFetching) {
-            return <LoadingIndicator />;
+            return (
+                <div className="m-bottom--small">
+                    <Icon icon="cog fa-spin" />
+                    &nbsp;Fetching fresh data!
+                </div>
+            );
+        }
+
+        if (!_isEmpty(data)) {
+            return (
+                <div className="m-bottom--small">
+                    <Icon icon="check" className="has-text-success" />
+                    &nbsp;{ this.props.append ? 'Appending to' : 'Fetch for'}
+                    <code>{ name }</code>{ this.props.append ? null : (<span>took<code>{data.delay} sec</code></span>) }@
+                    <code>{ moment(lastUpdated).format('LTS') }</code>
+                </div>
+            );
+        } else {
+            return (
+                <span>Entity <code>{name}</code> is reset.</span>
+            );
         }
     }
 
-    _renderButton (label, onClick) {
+    _renderButton (label, icon, onClick) {
         return (
-            <button
-                className="button-primary"
-                onClick={onClick}>
-                { label }
-            </button>
+            <p key={label} className="control">
+                <a className="button" onClick={onClick}>
+                    <span className="icon">
+                        <Icon icon={icon} />
+                    </span>
+                    <span>{label}</span>
+                </a>
+            </p>
         );
     }
 
     _renderFetch () {
-        return this._renderButton('Fetch', this.props.fetchEntity);
+        return this._renderButton('Fetch', 'download', this.props.fetchEntity);
     }
 
     _renderReset () {
-        return this._renderButton('Reset', this._resetEntity.bind(this));
+        return this._renderButton('Reset', 'history', this._resetEntity.bind(this));
     }
 
     _renderDelete () {
-        return this._renderButton('Delete', this._deleteEntity.bind(this));
+        return this._renderButton('Delete', 'trash', this._deleteEntity.bind(this));
     }
 
     _renderButtons (isFetching, data, error) {
@@ -112,16 +116,12 @@ class Entity extends React.Component {
                 this._renderFetch(),
                 this._renderReset(),
                 this._renderDelete()
-            ].map((button, index) => (
-                <span key={index}>{button}</span>
-            ));
+            ];
         } else {
             return [
                 this._renderFetch(),
                 this._renderDelete()
-            ].map((button, index) => (
-                <span key={index}>{button}</span>
-            ));
+            ];
         }
     }
 
@@ -135,16 +135,6 @@ class Entity extends React.Component {
         resetEntity(name, Date.now());
     }
 }
-
-const style = {
-    container: {
-        marginBottom: 20
-    },
-    fetching: {
-        color    : '#BDBDBD',
-        fontStyle: 'italic'
-    }
-};
 
 Entity.propTypes = {
     name  : PropTypes.string.isRequired,

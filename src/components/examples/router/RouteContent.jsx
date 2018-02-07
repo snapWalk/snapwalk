@@ -3,25 +3,28 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import Flex from '../../common/glamorous/Flex';
-import { Bullet } from '../../common/index';
+import Icon from '../../common/Icon';
 import { ROUTES } from '../../../common/app-const';
 
 function RouteContent (props) {
     return (
         <Flex column={true} padding={10}>
             <Flex vAlignCenter={true}>
-                <Bullet/>
-                <code>counter</code>: <code>{props.counter}</code>
+                <Icon icon="angle-right" />
+                &nbsp;Connected to the Redux store at the <code>{props.path || '/'}</code> route
             </Flex>
             <Flex vAlignCenter={true}>
-                <Bullet/>
-                You are at the <code>{props.path || '/'}</code> route
+                <Icon icon="angle-right" />
+                &nbsp;<code>counter</code>: <code>{props.counter}</code>
             </Flex>
-            <button
-                className="button-primary"
-                onClick={props.dispatch.bind(this, props.action())}>
-                {props.label}
-            </button>
+            <br />
+            <div>
+                <button
+                    className="button"
+                    onClick={props.dispatch.bind(this, props.action())}>
+                    <Icon icon={props.icon} />&nbsp;{props.label} counter
+                </button>
+            </div>
         </Flex>
     );
 }
@@ -44,7 +47,8 @@ RouteContent.propTypes = {
     label  : PropTypes.string.isRequired,
     action : PropTypes.func.isRequired,
     counter: PropTypes.number.isRequired,
-    path   : PropTypes.string
+    path   : PropTypes.string,
+    icon   : PropTypes.icon
 };
 
 export default connect(

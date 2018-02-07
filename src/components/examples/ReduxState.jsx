@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 class ReduxState extends React.Component {
     render () {
         return (
-            <pre>
+            <pre className="m-top--small">
                 {
                     _getContentAsString(this.props.state)
                         .split('\n')

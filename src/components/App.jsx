@@ -1,80 +1,120 @@
 import React from 'react';
-import { Route, withRouter } from 'react-router-dom';
-import { Tabs, Tab } from 'react-tabify';
+import { withRouter } from 'react-router-dom';
 
 import ReduxEntity from './examples/redux-entity/ReduxEntity';
 import ReduxState from './examples/ReduxState';
-import RouteContent from './examples/router/RouteContent';
-import Flex from './common/glamorous/Flex';
-import HeroHeading from './common/display/HeroHeading';
+import TabbedRouter from './examples/router/TabbedRouter';
+
+import Icon from './common/Icon';
+import Navbar from './common/bulma/Navbar';
 import Footer from './Footer';
-import { Bullet, Panel } from './common';
+import Hero from './common/bulma/Hero';
+import Columns from './common/bulma/Columns';
+import Flex from './common/glamorous/Flex';
+
+const COLUMN_MAP = {
+    ROUTER: {
+        title     : 'Router',
+        subtitle  : <span>Utilizes <a href="https://github.com/ReactTraining/react-router">react-router</a>&nbsp;v4 for client-side routing</span>,
+        icon      : 'link',
+        getContent: (location, history) => <TabbedRouter location={location} history={history} />
+    },
+    STATE_MANAGEMENT: {
+        title     : 'State Management',
+        subtitle  : <span>Utilizes&nbsp;<a href="https://github.com/mikechabot/redux-entity">redux-entity</a>&nbsp;for domain entity management</span>,
+        icon      : 'sitemap',
+        iconPrefix: 'fas',
+        getContent: () => <ReduxEntity />
+    },
+    REDUX_STATE: {
+        title     : 'State Tree',
+        subtitle  : 'Open devtools to view dispatched actions',
+        icon      : 'tree',
+        getContent: () => <ReduxState />
+    }
+};
 
 function App ({ location, history }) {
     return (
-        <div style={{height: '100%', width: '100%'}}>
+        <Flex column height="100%" width="100%" justifyContent="space-between">
+            <div>
+                { _renderHeader() }
+            </div>
+            <div>
+                { _renderBody(location, history) }
+            </div>
+            <div>
+                { _renderFooter() }
+            </div>
+        </Flex>
+    );
+}
 
-            <HeroHeading
-                title="react-boilerplate"
-                subtitle="A slightly opinionated yet dead simple boilerplate for ReactJS"
-            />
+function _renderHeader () {
+    return (
+        <Navbar brand={{
+            icon : 'cloud',
+            url  : 'http://www.github.com/mikechabot/react-boilerplate',
+            label: 'react-boilerplate'
+        }}/>
+    );
+}
 
-            <Flex
-                hAlignCenter={true}
-                width="100%"
-                style={{
-                    flexWrap: 'wrap',
-                    minWidth: 500
-                }}>
-
-                <Flex column={true}>
-
-                    { /* Render AJAX example */ }
-                    <Panel
-                        faIcon="cloud"
-                        title="redux-entity">
-                        <ReduxEntity />
-                    </Panel>
+function _renderBody (location, history) {
+    const { ROUTER, STATE_MANAGEMENT, REDUX_STATE } = COLUMN_MAP;
+    return (
+        <Hero
+            content={(
+                <div>
 
                     { /* Render router example */ }
-                    <Panel
-                        faIcon="link"
-                        title="Router example">
-                        <Tabs
-                            theme={{
-                                main: {
-                                    color: '#546E7A'
-                                }
-                            }}
-                            id="router-example-tabs"
-                            activeKey={location.pathname}
-                            onSelect={(eventKey) => history.push(eventKey)}>
-                            <Tab eventKey="/" label="Increment">
-                                <Route exact path="/" component={RouteContent}/>
-                            </Tab>
-                            <Tab eventKey="/decrement" label="Decrement">
-                                <Route path="/decrement" component={RouteContent}/>
-                            </Tab>
-                            <Tab eventKey="/reset" label="Reset">
-                                <Route path="/reset" component={RouteContent}/>
-                            </Tab>
-                        </Tabs>
-                    </Panel>
-                </Flex>
+                    <Columns
+                        columns={[
+                            (
+                                <span key={1}>
+                                    { _renderTitleAndSubtitle(ROUTER.title, ROUTER.subtitle, ROUTER.icon, ROUTER.iconPrefix)}
+                                    { ROUTER.getContent(location, history) }
+                                </span>
+                            )]}
+                    />
 
-                { /* Render Redux state */ }
-                <Flex>
-                    <Panel
-                        faIcon="tree"
-                        title="Redux State">
-                        <Bullet />
-                        Open devtools to see the dispatched actions
-                        <ReduxState />
-                    </Panel>
-                </Flex>
+                    { /* Render AJAX example with redux-entity, and display Redux state */ }
+                    <Columns
+                        columns={[
+                            (
+                                <span key={1}>
+                                    { _renderTitleAndSubtitle(STATE_MANAGEMENT.title, STATE_MANAGEMENT.subtitle, STATE_MANAGEMENT.icon)}
+                                    { STATE_MANAGEMENT.getContent(location, history) }
+                                </span>
+                            ),
+                            (
+                                <span key={2}>
+                                    { _renderTitleAndSubtitle(REDUX_STATE.title, REDUX_STATE.subtitle, REDUX_STATE.icon)}
+                                    <ReduxState />
+                                </span>
+                            )
+                        ]}
+                    />
+                </div>
+            )}
+        />
+    );
+}
 
-            </Flex>
-            <Footer/>
+function _renderFooter () {
+    return <Footer />;
+}
+
+function _renderTitleAndSubtitle (title, subtitle, icon, iconPrefix) {
+    return (
+        <div>
+            <h1 className="title is-size-4-desktop is-size-5-mobile is-size-5-tablet">
+                <Icon icon={icon} className="has-text-info" prefix={iconPrefix} />&nbsp;{title}
+            </h1>
+            <h2 className="subtitle is-size-6-desktop is-size-7-mobile is-size-7-tablet">
+                <Icon icon="angle-right"/>&nbsp;
+                {subtitle}
+            </h2>
         </div>
     );
 }

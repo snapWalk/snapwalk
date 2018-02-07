@@ -13,6 +13,8 @@ import 'lodash';
 
 const store = configureStore(INITIAL_STATE);
 
+const FontAwesomeConfig = { autoReplaceSvg: 'nest' };
+
 const ROOT_ELEMENT_ID_AS_DEFINED_IN_INDEX_HTML = 'example-app';
 
 ReactDOM.render(
