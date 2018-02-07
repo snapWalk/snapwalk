@@ -57,8 +57,10 @@ const config = {
                 include: path.join(__dirname, 'src')
             },
             {
-                test   : /\.scss$/,
-                loader : ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader!sass-loader'}),
+                test  : /\.scss$/,
+                loader: NodeUtils.isProduction()
+                    ? ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader!sass-loader' })
+                    : 'style-loader!css-loader!sass-loader',
                 include: path.join(__dirname, 'src')
             },
             {
@@ -78,7 +80,6 @@ const config = {
 if (NodeUtils.isProduction()) {
     config.entry = './src/Bootstrap';
     config.plugins.push(new UglifyJSPlugin());
-
 } else {
     config.devtool = 'eval';
     config.entry = [
