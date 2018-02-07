@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
+
 import Root from './Root';
 import configureStore from './redux/store/configure-store';
 import { INITIAL_STATE } from './common/app-const';
@@ -12,11 +13,13 @@ import 'lodash';
 
 const store = configureStore(INITIAL_STATE);
 
+const ROOT_ELEMENT_ID_AS_DEFINED_IN_INDEX_HTML = 'example-app';
+
 ReactDOM.render(
     <AppContainer>
         <Root store={store} />
     </AppContainer>,
-    document.getElementById('example-app')
+    document.getElementById(ROOT_ELEMENT_ID_AS_DEFINED_IN_INDEX_HTML)
 );
 
 // Hot Module Replacement API
@@ -27,7 +30,7 @@ if (module.hot) {
             <AppContainer>
                 <NextApp store={store}/>
             </AppContainer>,
-            document.getElementById('example-app')
+            document.getElementById(ROOT_ELEMENT_ID_AS_DEFINED_IN_INDEX_HTML)
         );
     });
 }

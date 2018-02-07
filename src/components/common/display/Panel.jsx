@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Flexbox } from '../';
+import Flex from '../glamorous/Flex';
 
 export default function Panel ({
     faIcon,
@@ -8,7 +8,7 @@ export default function Panel ({
     children
 }) {
     return (
-        <Flexbox
+        <Flex
             column={true}
             backgroundColor="#ECEFF1"
             width={450}
@@ -25,14 +25,14 @@ export default function Panel ({
             <section style={{padding: 5}}>
                 { children }
             </section>
-        </Flexbox>
+        </Flex>
     );
 }
 
 function _renderHeading (title, icon, style) {
     if (title) {
         return (
-            <Flexbox
+            <Flex
                 vAlignCenter={true}
                 color="#455A64"
                 style={{
@@ -43,7 +43,7 @@ function _renderHeading (title, icon, style) {
                     ...style}}>
                 { _renderIcon(icon) }
                 <span style={icon ? {marginLeft: 8} : {}}>{ title }</span>
-            </Flexbox>
+            </Flex>
         );
     }
 }

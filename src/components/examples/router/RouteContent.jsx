@@ -2,26 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { Flexbox, Bullet } from '../../common/index';
+import Flex from '../../common/glamorous/Flex';
+import { Bullet } from '../../common/index';
 import { ROUTES } from '../../../common/app-const';
 
 function RouteContent (props) {
     return (
-        <Flexbox column={true} padding={10}>
-            <Flexbox vAlignCenter={true}>
+        <Flex column={true} padding={10}>
+            <Flex vAlignCenter={true}>
                 <Bullet/>
                 <code>counter</code>: <code>{props.counter}</code>
-            </Flexbox>
-            <Flexbox vAlignCenter={true}>
+            </Flex>
+            <Flex vAlignCenter={true}>
                 <Bullet/>
                 You are at the <code>{props.path || '/'}</code> route
-            </Flexbox>
+            </Flex>
             <button
                 className="button-primary"
                 onClick={props.dispatch.bind(this, props.action())}>
                 {props.label}
             </button>
-        </Flexbox>
+        </Flex>
     );
 }
 

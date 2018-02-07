@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { connect } from 'react-redux';
-import { LoadingIndicator } from '../../common';
-import { resetEntity, deleteEntity } from 'redux-entity';
 import moment from 'moment';
 import _isEmpty from 'lodash/isEmpty';
+import { connect } from 'react-redux';
+import { resetEntity, deleteEntity } from 'redux-entity';
+
+import LoadingIndicator from '../../common/LoadingIndicator';
 
 class Entity extends React.Component {
     componentWillMount () {

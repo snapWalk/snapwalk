@@ -1,13 +1,14 @@
 import React from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import { Tabs, Tab } from 'react-tabify';
-import { connect } from 'react-redux';
 
 import ReduxEntity from './examples/redux-entity/ReduxEntity';
 import ReduxState from './examples/ReduxState';
-import { Bullet, Panel, HeroHeading, Footer, Flexbox } from './common';
-import { increment, decrement, reset } from '../redux/actions/action-creators';
 import RouteContent from './examples/router/RouteContent';
+import Flex from './common/glamorous/Flex';
+import HeroHeading from './common/display/HeroHeading';
+import Footer from './Footer';
+import { Bullet, Panel } from './common';
 
 function App ({ location, history }) {
     return (
@@ -15,9 +16,10 @@ function App ({ location, history }) {
 
             <HeroHeading
                 title="react-boilerplate"
-                subtitle="A slightly opinionated yet dead simple boilerplate for ReactJS" />
+                subtitle="A slightly opinionated yet dead simple boilerplate for ReactJS"
+            />
 
-            <Flexbox
+            <Flex
                 hAlignCenter={true}
                 width="100%"
                 style={{
@@ -25,7 +27,7 @@ function App ({ location, history }) {
                     minWidth: 500
                 }}>
 
-                <Flexbox column={true}>
+                <Flex column={true}>
 
                     { /* Render AJAX example */ }
                     <Panel
@@ -58,10 +60,10 @@ function App ({ location, history }) {
                             </Tab>
                         </Tabs>
                     </Panel>
-                </Flexbox>
+                </Flex>
 
-                <Flexbox>
-                    { /* Render Redux state */ }
+                { /* Render Redux state */ }
+                <Flex>
                     <Panel
                         faIcon="tree"
                         title="Redux State">
@@ -69,12 +71,12 @@ function App ({ location, history }) {
                         Open devtools to see the dispatched actions
                         <ReduxState />
                     </Panel>
-                </Flexbox>
+                </Flex>
 
-            </Flexbox>
+            </Flex>
             <Footer/>
         </div>
     );
 }
 
-export default withRouter(App)
+export default withRouter(App);

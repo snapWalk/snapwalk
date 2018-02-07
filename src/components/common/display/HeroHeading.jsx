@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import Flexbox from '../Flexbox';
+import Flex from '../glamorous/Flex';
 
 export default function HeroHeading ({
     title,
     subtitle
 }) {
     return (
-        <Flexbox
+        <Flex
             hAlignCenter={true}
             style={{
                 margin    : '10px 0',
@@ -25,7 +25,7 @@ export default function HeroHeading ({
                 opacity   : 0.7}}>
                 {subtitle}
             </small>
-        </Flexbox>
+        </Flex>
     );
 }
 

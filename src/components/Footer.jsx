@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Flexbox } from './common';
+import Flex from './common/glamorous/Flex';
 
 export default function Footer () {
     return (
@@ -8,7 +8,7 @@ export default function Footer () {
             <h6>Powered by <a href="https://github.com/mikechabot/react-boilerplate">react-boilerplate</a>.&nbsp;
                 Code licensed under <a href="https://github.com/mikechabot/react-boilerplate/blob/master/LICENSE">MIT</a>.
             </h6>
-            <Flexbox hAlignCenter={true}>
+            <Flex hAlignCenter>
                 <GithubButton
                     label="Star"
                     icon="octicon-star"
@@ -27,7 +27,7 @@ export default function Footer () {
                     href="mikechabot/react-boilerplate/subscription"
                     ariaLabel="Watch mikechabot/react-boilerplate on GitHub"
                 />
-            </Flexbox>
+            </Flex>
         </div>
     );
 }
@@ -41,11 +41,11 @@ function GithubButton ({
     return (
         <div style={{ margin: 5 }}>
             <a className="github-button"
-               href={`https://github.com/${href}`}
-               data-icon={icon}
-               data-size="large"
-               data-show-count={true}
-               aria-label={ariaLabel}>
+                href={`https://github.com/${href}`}
+                data-icon={icon}
+                data-size="large"
+                data-show-count={true}
+                aria-label={ariaLabel}>
                 { label }
             </a>
         </div>
