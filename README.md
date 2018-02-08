@@ -8,8 +8,6 @@ A slightly opinionated yet dead simple boilerplate for ReactJS, Webpack 3, and R
 
 #### http://mikechabot.github.io/react-boilerplate/
 
-## Features
-
 #### Build Process
  * Built with [webpack 3](https://webpack.js.org/configuration/)
  * Supports ES6 via [Babel](https://babeljs.io/) transpiling
@@ -23,12 +21,15 @@ A slightly opinionated yet dead simple boilerplate for ReactJS, Webpack 3, and R
 * [react-router v4](https://github.com/reactjs/react-router) for client-side [routing](https://github.com/mikechabot/react-boilerplate/blob/master/src/Root.jsx#L5)
 
 #### HTTP
-* [Customizable](https://github.com/mikechabot/react-boilerplate/blob/master/src/services/data/ajax-service.js#L8), promise-based HTTP support via [Axios](https://github.com/mzabriskie/axios)
-* Implementing [data services](https://github.com/mikechabot/react-boilerplate/blob/master/src/services/data/data-access-service.js#L32) utilize [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+* [Customizable](https://github.com/mikechabot/react-boilerplate/blob/master/src/services/data/ajax-service.js#L8), [Promise-based](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) HTTP support via [Axios](https://github.com/mzabriskie/axios)
+* Utilizes a [a generic data service](https://github.com/mikechabot/react-boilerplate/blob/master/src/services/data/data-access-service.js#L48) to easily fetch data
+* Example of [implementing the data service](https://github.com/mikechabot/react-boilerplate/blob/master/src/services/domain/example-domain-service.js#L17)
 
 #### Styling
 * Supports [SCSS & SASS](http://sass-lang.com/) syntax
-* Browser compatibility via [autoprefixing](https://github.com/postcss/autoprefixer)
+* Browser compatibility via [autoprefixing](https://github.com/postcss/autoprefixer) and [normalize.css](https://necolas.github.io/normalize.css/)
+* [Bulma](https://bulma.io/documentation/overview/start/) for out-of-the-box styling
+* [glamorous](https://glamorous.rocks) for CSS-in-JS styling.
 
 #### Develop & Deploy
 * Environmental configurations for both webpack and redux
