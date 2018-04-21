@@ -4,12 +4,12 @@
 [![Dependency Status](https://david-dm.org/mikechabot/react-boilerplate.svg)](https://david-dm.org/mikechabot/react-boilerplate)
 [![Coverage Status](https://coveralls.io/repos/github/mikechabot/react-boilerplate/badge.svg?branch=master&cacheBuster=1)](https://coveralls.io/github/mikechabot/react-boilerplate?branch=master)
 
-A slightly opinionated yet dead simple boilerplate for ReactJS, Webpack 3, and React Router v4.
+A slightly opinionated yet dead simple boilerplate for ReactJS, Webpack 4, and React Router v4.
 
 #### http://mikechabot.github.io/react-boilerplate/
 
 #### Build Process
- * Built with [webpack 3](https://webpack.js.org/configuration/)
+ * Built with [webpack 4](https://webpack.js.org/configuration/)
  * Supports ES6 via [Babel](https://babeljs.io/) transpiling
 
 #### State Management
