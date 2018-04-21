@@ -47,8 +47,7 @@ RouteContent.propTypes = {
     label  : PropTypes.string.isRequired,
     action : PropTypes.func.isRequired,
     counter: PropTypes.number.isRequired,
-    path   : PropTypes.string,
-    icon   : PropTypes.icon
+    path   : PropTypes.string
 };
 
 export default connect(
