@@ -21,6 +21,22 @@
 
 ----
 
+## Table of Contents
+
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Custom Configuration](#custom-config)
+
+## <a id="live-demo">Live Demo</a>
+
+ http://mikechabot.github.io/react-boilerplate/dist
+ 
+ > Pretty landing page located [here]( http://mikechabot.github.io/react-boilerplate/)
+
+----
+
+## <a id="featurs">Features</a>
+
 #### Build Process
  * Built with [webpack 4](https://webpack.js.org/configuration/)
  * Supports ES6 via [Babel](https://babeljs.io/) transpiling
