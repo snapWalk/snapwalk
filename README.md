@@ -1,10 +1,13 @@
-# react-boilerplate
+# <a href='https://github.com/mikechabot/react-boilerplate'><img src='https://raw.githubusercontent.com/mikechabot/react-boilerplate/gh-pages/assets/img/header_photo.png' alt='logo' aria-label='https://github.com/mikechabot/react-boilerplate' /></a>
 
-<div align="center">
  A slightly opinionated yet dead simple boilerplate for ReactJS, Webpack 4, and React Router v4.
-  <br /><br />
+ <br />
+ 
  http://mikechabot.github.io/react-boilerplate/
- <br /><br />
+ <br />
+ <br />
+ 
+<div align="center">
   <a href="https://travis-ci.org/mikechabot/react-boilerplate">
     <img src="https://travis-ci.org/mikechabot/react-boilerplate.svg?branch=master" alt="build status" />
   </a>
