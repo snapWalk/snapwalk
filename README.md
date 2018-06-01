@@ -1,8 +1,8 @@
 # react-boilerplate
 
-A slightly opinionated yet dead simple boilerplate for ReactJS, Webpack 4, and React Router v4.
-
-<div align="center">  
+<div align="center">
+ A slightly opinionated yet dead simple boilerplate for ReactJS, Webpack 4, and React Router v4.
+  <br /><br />
  http://mikechabot.github.io/react-boilerplate/
  <br /><br />
   <a href="https://travis-ci.org/mikechabot/react-boilerplate">
