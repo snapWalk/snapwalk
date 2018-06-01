@@ -1,12 +1,22 @@
 # react-boilerplate
 
-[![Build Status](https://travis-ci.org/mikechabot/react-boilerplate.svg?branch=master)](https://travis-ci.org/mikechabot/react-boilerplate)
-[![Dependency Status](https://david-dm.org/mikechabot/react-boilerplate.svg)](https://david-dm.org/mikechabot/react-boilerplate)
-[![Coverage Status](https://coveralls.io/repos/github/mikechabot/react-boilerplate/badge.svg?branch=master&cacheBuster=1)](https://coveralls.io/github/mikechabot/react-boilerplate?branch=master)
-
 A slightly opinionated yet dead simple boilerplate for ReactJS, Webpack 4, and React Router v4.
 
-#### http://mikechabot.github.io/react-boilerplate/
+<div align="center">  
+ http://mikechabot.github.io/react-boilerplate/
+ <br />
+  <a href="https://travis-ci.org/mikechabot/react-boilerplate">
+    <img src="https://travis-ci.org/mikechabot/react-boilerplate.svg?branch=master" alt="build status" />
+  </a>
+  <a href="https://david-dm.org/mikechabot/react-boilerplate">
+    <img src="https://david-dm.org/mikechabot/react-boilerplate.svg" alt="dependency status" />
+  </a>
+  <a href="https://github.com/mikechabot/react-boilerplate/pulls">
+    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="prs welcome" />
+  </a>
+</div>
+
+----
 
 #### Build Process
  * Built with [webpack 4](https://webpack.js.org/configuration/)
@@ -42,28 +52,39 @@ A slightly opinionated yet dead simple boilerplate for ReactJS, Webpack 4, and R
 * [react-addons-test-utils](https://facebook.github.io/react/docs/test-utils.html) for component testing
 * [Sinon.JS](http://sinonjs.org/) for mocking, stubbing & spying
 
-## Get Started
+----
+
+## <a id="getting-started">Getting Started</a>
+
 1. `$ git clone https://github.com/mikechabot/react-boilerplate.git`
 2. `$ npm install`
 3. Launch environment:
    *  **Production**: `$ npm start`
    *  **Development**: `$ npm run dev`
-4. Build for production:
+4. Build assets for production:
    * `$ npm run build:prod`
-5. Test:
+5. Execute tests:
    * `$ npm test`
 
-### Custom Configuration
+----
 
-Use `cross-env` or a comparable library or command to set an environment variable (`ENV_CONFIG_PATH`) to the path of your JSON configuration file:
+## <a id="custom-config">Custom Configuration</a>
 
-`$ cross-env ENV_CONFIG_PATH=/path/to/my/config npm start`
+Use [`cross-env`](https://github.com/kentcdodds/cross-env) or a comparable library/command to set the `ENV_CONFIG_PATH` to the path of your JSON configuration file:
 
-Note: This configuration path is made available to Webpack **only**, however the contents of the file are stamped on a global variable during the build process (`process.env.APP_CONFIG`, see [webpack.config.js](https://github.com/mikechabot/react-boilerplate/blob/master/webpack.config.js#L44)), which is then easily accessible via the [ConfigService](https://github.com/mikechabot/react-boilerplate/blob/master/src/services/common/config-service.js#L8).
+`$ cross-env ENV_CONFIG_PATH=/path/to/config.json npm start`
 
-#### Example:
+> **Note**: This path is made available to Webpack **only**, however the contents of the file are stamped on a global variable during the build process (`process.env.APP_CONFIG`, see [webpack.config.js](https://github.com/mikechabot/react-boilerplate/blob/master/webpack.config.js#L44)), which is then accessible via the [ConfigService](https://github.com/mikechabot/react-boilerplate/blob/master/src/services/common/config-service.js#L8).
 
-Configuration located @ at `D:\_workspaces\foo.json`:
+If your configuration is loaded successfully, you can expect to see the following indicator during startup:
+
+```
+** Using custom configuration located at "/path/to/config.json" **
+```
+
+#### Example
+
+Using configuration file @ `D\:\_workspaces\foo.json`
 
     mikec@Krait MINGW64 /d/_workspaces/react-boilerplate (master)
     $ cross-env ENV_CONFIG_PATH="D\:\_workspaces\foo.json" npm start
