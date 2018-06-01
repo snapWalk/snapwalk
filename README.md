@@ -18,6 +18,7 @@
 
 ## Table of Contents
 
+- [Live Demo](#live-demo)
 - [Features](#features)
 - [Getting Started](#getting-started)
 - [Custom Configuration](#custom-config)
