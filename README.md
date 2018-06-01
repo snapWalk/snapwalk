@@ -75,7 +75,8 @@
 2. `$ npm install`
 3. Launch environment:
    *  **Production**: `$ npm start`
-   *  **Development**: `$ npm run dev`
+   *  **Development**: `$ npm run dev`   
+   > Available at http://localhost:3060
 4. Build assets for production:
    * `$ npm run build:prod`
 5. Execute tests:
