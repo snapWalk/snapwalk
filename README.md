@@ -4,7 +4,7 @@ A slightly opinionated yet dead simple boilerplate for ReactJS, Webpack 4, and R
 
 <div align="center">  
  http://mikechabot.github.io/react-boilerplate/
- <br />
+ <br /><br />
   <a href="https://travis-ci.org/mikechabot/react-boilerplate">
     <img src="https://travis-ci.org/mikechabot/react-boilerplate.svg?branch=master" alt="build status" />
   </a>
