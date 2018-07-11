@@ -22,5 +22,6 @@ dist
 /*.iml
 
 # Coverage reports
-/coverage
+/.nyc-coverage
+/.nyc-coverage-temp
 /lint-report.html

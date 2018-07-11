@@ -5,13 +5,14 @@
   "scripts": {
     "start": "npm run prod",
     "dev": "npm run build:dev && npm run start-dev-server",
-    "prod": "npm run build:prod && npm run start-server",
+    "prod": "npm run build:prod && npm run start-prod-server",
     "build:dev": "cross-env NODE_ENV=development webpack --progress --colors",
     "build:prod": "cross-env NODE_ENV=production webpack --progress --colors",
-    "linter": "eslint src -f html --ext .jsx --ext .js -o lint-report.html",
-    "test": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "start-dev-server": "cross-env NODE_ENV=development node server.js",
-    "start-server": "cross-env NODE_ENV=production node server.js"
+    "start-prod-server": "cross-env NODE_ENV=production node server.js",
+    "test": "nyc mocha",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "linter": "eslint --ext .jsx --ext .js -o lint-report.html src/"
   },
   "author": "Mike Chabot",
   "license": "MIT",
@@ -21,6 +22,17 @@
   },
   "bugs": {
     "url": "https://github.com/mikechabot/react-boilerplate/issues"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.js"
+    ],
+    "reporter": [
+      "text-summary",
+      "html"
+    ],
+    "temp-directory": "./.nyc-coverage-temp",
+    "report-dir": "./.nyc-coverage"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -56,7 +68,7 @@
     "css-loader": "^1.0.0",
     "del": "^3.0.0",
     "eslint": "^5.1.0",
-    "eslint-config-standard": "^11.0.0",
+    "eslint-config-standard": "^12.0.0-alpha.0",
     "eslint-loader": "^2.0.0",
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-node": "^6.0.1",
@@ -66,11 +78,11 @@
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
-    "istanbul": "^1.0.0-alpha.2",
     "jsdom": "^11.11.0",
     "json-loader": "^0.5.7",
     "mocha": "^5.2.0",
     "node-sass": "^4.9.2",
+    "nyc": "^12.0.2",
     "postcss-loader": "^2.1.6",
     "react-addons-test-utils": "^15.6.2",
     "react-hot-loader": "^4.3.3",
