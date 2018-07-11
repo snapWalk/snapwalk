@@ -69,6 +69,10 @@ const config = {
                 include: path.join(__dirname, 'src')
             },
             {
+                test  : /\.ico$/,
+                loader: 'file-loader?name=[name].[ext]'
+            },
+            {
                 test   : /\.json$/,
                 loader : 'json-loader',
                 include: path.join(__dirname, 'src')
@@ -79,9 +83,11 @@ const config = {
 
 if (NodeUtils.isProduction()) {
     config.entry = './src/Bootstrap';
+    config.mode = 'production';
     config.plugins.push(new UglifyJSPlugin());
 } else {
     config.devtool = 'eval';
+    config.mode = 'development';
     config.entry = [
         'react-hot-loader/patch',
         `webpack-dev-server/client?http://localhost:${appConfig.example.port}`,

@@ -84,3 +84,14 @@ pre .line::before {
 .m-large {
   margin: 1rem;
 }
+
+
+// Bulma overrides
+
+.navbar-item img {
+  max-height: none;
+}
+
+.notification a:not(.button) {
+  text-decoration: none;
+}

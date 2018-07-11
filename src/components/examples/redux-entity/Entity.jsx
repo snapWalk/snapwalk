@@ -38,7 +38,7 @@ class Entity extends React.Component {
             <div className="m-top--large m-bottom--large">
                 <div className="m-bottom--small">
                     <Icon icon="exclamation-triangle" className="has-text-danger" />
-                    &nbsp;Entity&nbsp;<code>{entityName}</code>&nbsp;doesn't exist on&nbsp;<code>entities</code>
+                    &nbsp;Entity&nbsp;<code>{entityName}</code>&nbsp;does not exist on&nbsp;<code>entities</code>
                 </div>
                 { this._renderFetch() }
             </div>
@@ -46,7 +46,7 @@ class Entity extends React.Component {
     }
 
     _renderContent (name, entity) {
-        const { isFetching, data, lastUpdated, error } = entity;
+        const { isFetching, data, error } = entity;
 
         if (error) {
             return (
@@ -71,13 +71,13 @@ class Entity extends React.Component {
             return (
                 <div className="m-bottom--small">
                     <Icon icon="check" className="has-text-success" />
-                    &nbsp;{ this.props.append ? 'Appending to' : 'Fetch for'}
-                    &nbsp;<code>{ name }</code>
-                    { this.props.append
-                        ? null
-                        : (<span>took <code>{data.delay} sec</code></span>)
-                    }
-                    &nbsp;@&nbsp;<code>{ moment(lastUpdated).format('LTS') }</code>
+                    &nbsp;
+                    { this._renderActionVerb() }
+                    &nbsp;
+                    <code>{ name }</code>
+                    { this._renderEntityData(data) }
+                    &nbsp;
+                    { this._renderLastUpdated(data)}
                 </div>
             );
         } else {
@@ -85,6 +85,24 @@ class Entity extends React.Component {
                 <span>Entity <code>{name}</code> is reset.</span>
             );
         }
+    }
+
+    _renderActionVerb () {
+        return this.props.append ? 'Appending to' : 'Fetch for';
+    }
+
+    _renderEntityData (data) {
+        if (!this.props.append) {
+            return (<span>&nbsp;took&nbsp;<code>{data.delay}s</code></span>);
+        }
+    }
+
+    _renderLastUpdated (data) {
+        return (
+            <span>
+                @&nbsp;<code>{ moment(data.lastUpdated).format('LTS') }</code>
+            </span>
+        );
     }
 
     _renderButton (label, icon, onClick) {

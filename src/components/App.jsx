@@ -108,10 +108,10 @@ function _renderFooter () {
 function _renderTitleAndSubtitle (title, subtitle, icon, iconPrefix) {
     return (
         <div>
-            <h1 className="title is-size-4-desktop is-size-5-mobile is-size-5-tablet">
+            <h1 className="title">
                 <Icon icon={icon} className="has-text-info" prefix={iconPrefix} />&nbsp;{title}
             </h1>
-            <h2 className="subtitle is-size-6-desktop is-size-7-mobile is-size-7-tablet">
+            <h2 className="subtitle ">
                 <Icon icon="angle-right"/>&nbsp;
                 {subtitle}
             </h2>

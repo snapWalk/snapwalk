@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Icon from '../Icon';
+import icon from '../../../assets/images/logo.png';
 
 function Navbar ({
     brand
@@ -22,8 +22,8 @@ function _renderBrand (brand) {
     return (
         <a
             href={brand.url}
-            className="navbar-item is-size-4-desktop is-size-5-tablet is-size-6-mobile">
-            <Icon icon={brand.icon} />&nbsp;
+            className="navbar-item is-size-3">
+            <img src={icon} height={64} width={64}/>
             <span>{brand.label}</span>
         </a>
     );

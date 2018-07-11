@@ -10,6 +10,7 @@ import { INITIAL_STATE } from './common/app-const';
 import 'babel-polyfill';
 import './scss/style.scss';
 import 'lodash';
+import './assets/images/favicon.ico';
 
 const store = configureStore(INITIAL_STATE);
 

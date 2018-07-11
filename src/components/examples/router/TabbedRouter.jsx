@@ -11,11 +11,6 @@ function TabbedRouter ({
     return (
         <div className="notification m-top--small">
             <Tabs
-                theme={{
-                    main: {
-                        color: '#209cee'
-                    }
-                }}
                 id="router-example-tabs"
                 activeKey={location.pathname}
                 onSelect={(eventKey) => history.push(eventKey)}>

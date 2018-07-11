@@ -11,14 +11,14 @@ function RouteContent (props) {
         <Flex column={true} padding={10}>
             <Flex vAlignCenter={true}>
                 <Icon icon="angle-right" />
-                &nbsp;Connected to the Redux store at the <code>{props.path || '/'}</code> route
+                &nbsp;Connected to the Redux store at the&nbsp;<code>{props.path || '/'}</code>&nbsp;route
             </Flex>
             <Flex vAlignCenter={true}>
                 <Icon icon="angle-right" />
                 &nbsp;<code>counter</code>: <code>{props.counter}</code>
             </Flex>
             <br />
-            <div>
+            <div className="m-top--small">
                 <button
                     className="button"
                     onClick={props.dispatch.bind(this, props.action())}>
