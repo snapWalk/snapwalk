@@ -63,7 +63,7 @@
 
 #### Testing
 * Tested with [Mocha](https://mochajs.org/) and [Chai](http://chaijs.com/)
-* Coverage support via [Istanbul](https://gotwarlost.github.io/istanbul/)
+* Coverage support via [nyc](https://istanbul.js.org)
 * [react-addons-test-utils](https://facebook.github.io/react/docs/test-utils.html) for component testing
 * [Sinon.JS](http://sinonjs.org/) for mocking, stubbing & spying
 
