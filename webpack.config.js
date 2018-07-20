@@ -2,16 +2,18 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const autoprefixer = require('autoprefixer');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+
 const CleanPlugin = require('./utils/clean-plugin');
 const NodeUtils = require('./src/services/common/node-service');
+
 const appConfig = require('./config/config');
 
 const config = {
-    output: {
+    output : {
         path    : path.join(__dirname, 'dist'),
         filename: 'bundle.js'
     },
@@ -22,24 +24,18 @@ const config = {
         new CleanPlugin({
             files: ['dist/*']
         }),
-        new ExtractTextPlugin('css/bundle.css'),
-        new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-        new webpack.LoaderOptionsPlugin({
-            options: {
-                postcss: [
-                    autoprefixer({
-                        browsers: ['last 2 version']
-                    })
-                ]
-            }
+        new MiniCssExtractPlugin({
+            filename     : NodeUtils.isProduction() ? '[name].[hash].css' : '[name].css',
+            chunkFilename: NodeUtils.isProduction() ? '[id].[hash].css' : "[id].css"
         }),
+        new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src/index.html'),
             inject  : 'body'
         }),
         new webpack.DefinePlugin({
             'process.env': {
-                NODE_ENV: JSON.stringify(
+                NODE_ENV  : JSON.stringify(
                     process.env.NODE_ENV
                 ),
                 APP_CONFIG: JSON.stringify(
@@ -48,7 +44,7 @@ const config = {
             }
         })
     ],
-    module: {
+    module : {
         exprContextCritical: false, // Suppress "The request of a dependency is an expression"
         rules              : [
             {
@@ -57,10 +53,21 @@ const config = {
                 include: path.join(__dirname, 'src')
             },
             {
-                test  : /\.scss$/,
-                loader: NodeUtils.isProduction()
-                    ? ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader!sass-loader' })
-                    : 'style-loader!css-loader!sass-loader',
+                test   : /\.scss$/,
+                use    :
+                    NodeUtils.isProduction()
+                        ? [ MiniCssExtractPlugin.loader, 'css-loader',
+                            {
+                                loader: 'postcss-loader',
+                                options: {
+                                    plugins: () => [
+                                        autoprefixer({
+                                            browsers: ['last 2 version']
+                                        })
+                                    ]
+                                }
+                            }, 'sass-loader']
+                        : ['style-loader', 'css-loader', 'sass-loader'],
                 include: path.join(__dirname, 'src')
             },
             {
