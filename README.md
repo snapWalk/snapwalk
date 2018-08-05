@@ -31,7 +31,7 @@
 
 ----
 
-## <a id="featurs">Features</a>
+## <a id="features">Features</a>
 
 #### Build Process
  * Built with [webpack 4](https://webpack.js.org/configuration/)
