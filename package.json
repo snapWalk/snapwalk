@@ -1,6 +1,6 @@
 {
   "name": "react-boilerplate",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "A slightly opinionated yet dead simple boilerplate for ReactJS",
   "scripts": {
     "start": "npm run prod",
