@@ -8,7 +8,7 @@ import { resetEntity, deleteEntity } from 'redux-entity';
 import Icon from '../../common/Icon';
 
 class Entity extends React.Component {
-  componentDidUpdate () {
+  componentDidMount () {
     if (this.props.runFetchEntityOnMount) {
       this.props.fetchEntity();
     }

@@ -54,9 +54,9 @@ RouteContent.propTypes = {
   label: PropTypes.string.isRequired,
   action: PropTypes.func.isRequired,
   counter: PropTypes.number.isRequired,
-  path: PropTypes.string.isRequired,
+  path: PropTypes.string,
   icon: PropTypes.string.isRequired,
-  dispatch: PropTypes.func.issRequired
+  dispatch: PropTypes.func.isRequired
 };
 
 export default connect(

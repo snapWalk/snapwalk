@@ -30,8 +30,8 @@ const TabbedRouter = ({
 };
 
 TabbedRouter.propTypes = {
-  location: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired
+  location: PropTypes.instanceOf(Object),
+  history: PropTypes.instanceOf(Object)
 };
 
 export default TabbedRouter;
