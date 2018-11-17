@@ -6,12 +6,12 @@ import axios from 'axios';
  * Uses Axios (https://github.com/mzabriskie/axios)
  */
 const instance = axios.create({
-    baseURL: ConfigService.getBaseUrl(),
-    timeout: 4000
+  baseURL: ConfigService.getBaseUrl(),
+  timeout: 4000
 });
 
 export default {
-    request (options) {
-        return instance.request(options);
-    }
+  request (options) {
+    return instance.request(options);
+  }
 };

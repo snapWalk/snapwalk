@@ -16,18 +16,18 @@ import _find from 'lodash/find';
  * @returns
  */
 
-export function renderStatelessComponent (ComponentType, props) {
-    class Wrapper extends React.Component {
-        render () {
-            return this.props.children;
-        }
+export function renderStatelessComponent(ComponentType, props) {
+  class Wrapper extends React.Component {
+    render() {
+      return this.props.children;
     }
+  }
 
-    return TestUtils.renderIntoDocument(
-        <Wrapper>
-            <ComponentType { ...props } />
-        </Wrapper>
-    );
+  return TestUtils.renderIntoDocument(
+    <Wrapper>
+      <ComponentType {...props} />
+    </Wrapper>
+  );
 }
 
 /**
@@ -36,15 +36,15 @@ export function renderStatelessComponent (ComponentType, props) {
  * @param id
  * @returns {*}
  */
-export function findElementById (tree, id) {
-    const element = _find(tree, element => {
-        return TestUtils.isDOMComponent(element) && element.getAttribute('id') === id;
-    });
-    if (element) return element;
-    console.log(`Unable to find element by id: ${id}`);
+export function findElementById(tree, id) {
+  const element = _find(tree, element => {
+    return TestUtils.isDOMComponent(element) && element.getAttribute('id') === id;
+  });
+  if (element) return element;
+  console.log(`Unable to find element by id: ${id}`);
 }
 
 export default {
-    renderStatelessComponent,
-    findElementById
+  renderStatelessComponent,
+  findElementById
 };

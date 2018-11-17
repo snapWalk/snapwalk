@@ -25,3 +25,5 @@ dist
 /.nyc-coverage
 /.nyc-coverage-temp
 /lint-report.html
+/.nyc_output/
+

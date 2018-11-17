@@ -7,16 +7,16 @@ import React from 'react';
  * @param message
  * @constructor
  */
-export default function Error ({message}) {
-    return (
-        <span
-            id={'foo-id'} // IRL, pass this in via props, or auto-generate
-            className="text-error" >
-            {message || 'No detail provided'}
-        </span>
-    );
+export default function Error ({ message }) {
+  return (
+    <span
+      id={'foo-id'} // IRL, pass this in via props, or auto-generate
+      className="text-error">
+      {message || 'No detail provided'}
+    </span>
+  );
 }
 
 Error.propTypes = {
-    message: PropTypes.string.isRequired
+  message: PropTypes.string.isRequired
 };

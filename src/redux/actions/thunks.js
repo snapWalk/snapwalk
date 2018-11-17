@@ -7,10 +7,10 @@ import ExampleDomainService from '../../services/domain/example-domain-service';
  * @returns {Function}  thunk
  */
 export function fetchFoo () {
-    return loadEntity(
-        ENTITY_KEY.FOO,
-        ExampleDomainService.getFakePromise()
-    );
+  return loadEntity(
+    ENTITY_KEY.FOO,
+    ExampleDomainService.getFakePromise()
+  );
 }
 
 /**
@@ -18,11 +18,11 @@ export function fetchFoo () {
  * @returns {Function}  thunk
  */
 export function fetchBar () {
-    return loadEntity(
-        ENTITY_KEY.BAR,
-        ExampleDomainService.getFakePromise(),
-        { append: true }
-    );
+  return loadEntity(
+    ENTITY_KEY.BAR,
+    ExampleDomainService.getFakePromise(),
+    { append: true }
+  );
 }
 
 /**
@@ -30,8 +30,8 @@ export function fetchBar () {
  * @returns {Function}  thunk
  */
 export function fetchBaz () {
-    return loadEntity(
-        ENTITY_KEY.BAZ,
-        ExampleDomainService.getFakePromise(true)
-    );
+  return loadEntity(
+    ENTITY_KEY.BAZ,
+    ExampleDomainService.getFakePromise(true)
+  );
 }

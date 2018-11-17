@@ -9,9 +9,9 @@ import rootReducer from '../reducers/root-reducer';
  * @return {object}                 Redux store
  */
 export default function configureStore (initialState) {
-    return createStore(
-        rootReducer,
-        initialState,
-        applyMiddleware(thunk, logger)
-    );
+  return createStore(
+    rootReducer,
+    initialState,
+    applyMiddleware(thunk, logger)
+  );
 }

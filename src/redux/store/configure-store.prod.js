@@ -14,10 +14,10 @@ import logger from 'redux-logger';
  * @return {object}                 Redux store
  */
 export default function configureStore (initialState) {
-    return createStore(
-        rootReducer,
-        initialState,
-        // applyMiddleware(thunk),          // USE ME FOR PROD!
-        applyMiddleware(thunk, logger)      // DON'T USE ME FOR PROD!
-    );
+  return createStore(
+    rootReducer,
+    initialState,
+    // applyMiddleware(thunk),          // USE ME FOR PROD!
+    applyMiddleware(thunk, logger) // DON'T USE ME FOR PROD!
+  );
 }

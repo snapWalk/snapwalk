@@ -6,17 +6,17 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './components/App';
 
 export default function Root ({
-    store
+  store
 }) {
-    return (
-        <Provider store={store}>
-            <BrowserRouter>
-                <App />
-            </BrowserRouter>
-        </Provider>
-    );
+  return (
+    <Provider store={store}>
+      <BrowserRouter>
+        <App/>
+      </BrowserRouter>
+    </Provider>
+  );
 }
 
 Root.propTypes = {
-    store: PropTypes.object
+  store: PropTypes.object
 };

@@ -7,5 +7,5 @@ import NodeService from '../../services/common/node-service';
  */
 
 export default NodeService.isProduction()
-    ? require('./configure-store.prod').default
-    : require('./configure-store.dev').default;
+  ? require('./configure-store.prod').default
+  : require('./configure-store.dev').default;
