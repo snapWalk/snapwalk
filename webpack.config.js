@@ -88,6 +88,7 @@ const config = {
 };
 
 if (NodeUtils.isProduction()) {
+  config.entry = './src/Root';
   config.mode = 'production';
   config.plugins.push(new MinifyPlugin());
 } else {
@@ -96,7 +97,8 @@ if (NodeUtils.isProduction()) {
   config.entry = [
     'react-hot-loader/patch',
     `webpack-dev-server/client?http://localhost:${appConfig.example.port}`,
-    'webpack/hot/only-dev-server'
+    'webpack/hot/only-dev-server',
+    './src/Root'
   ];
   config.plugins.push(new webpack.HotModuleReplacementPlugin());
 }
