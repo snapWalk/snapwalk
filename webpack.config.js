@@ -4,8 +4,8 @@ const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const MinifyPlugin = require("babel-minify-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MinifyPlugin = require('babel-minify-webpack-plugin');
 
 const CleanPlugin = require('./utils/clean-plugin');
 const NodeUtils = require('./src/services/common/node-service');
@@ -26,7 +26,7 @@ const config = {
     }),
     new MiniCssExtractPlugin({
       filename: NodeUtils.isProduction() ? '[name].[hash].css' : '[name].css',
-      chunkFilename: NodeUtils.isProduction() ? '[id].[hash].css' : "[id].css"
+      chunkFilename: NodeUtils.isProduction() ? '[id].[hash].css' : '[id].css'
     }),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new HtmlWebpackPlugin({
@@ -35,17 +35,13 @@ const config = {
     }),
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify(
-          process.env.NODE_ENV
-        ),
-        APP_CONFIG: JSON.stringify(
-          appConfig
-        )
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+        APP_CONFIG: JSON.stringify(appConfig)
       }
     })
   ],
   module: {
-    exprContextCritical: false, // Suppress "The request of a dependency is an expression"
+    exprContextCritical: false, // Suppress 'The request of a dependency is an expression'
     rules: [
       {
         test: /\.(js|jsx)$/,
@@ -54,20 +50,23 @@ const config = {
       },
       {
         test: /\.scss$/,
-        use:
-          NodeUtils.isProduction()
-            ? [MiniCssExtractPlugin.loader, 'css-loader',
-              {
-                loader: 'postcss-loader',
-                options: {
-                  plugins: () => [
-                    autoprefixer({
-                      browsers: ['last 2 version']
-                    })
-                  ]
-                }
-              }, 'sass-loader']
-            : ['style-loader', 'css-loader', 'sass-loader'],
+        use: NodeUtils.isProduction()
+          ? [
+            MiniCssExtractPlugin.loader,
+            'css-loader',
+            {
+              loader: 'postcss-loader',
+              options: {
+                plugins: () => [
+                  autoprefixer({
+                    browsers: ['last 2 version']
+                  })
+                ]
+              }
+            },
+            'sass-loader'
+          ]
+          : ['style-loader', 'css-loader', 'sass-loader'],
         include: path.join(__dirname, 'src')
       },
       {
@@ -89,7 +88,6 @@ const config = {
 };
 
 if (NodeUtils.isProduction()) {
-  config.entry = './src/Bootstrap';
   config.mode = 'production';
   config.plugins.push(new MinifyPlugin());
 } else {
@@ -98,12 +96,9 @@ if (NodeUtils.isProduction()) {
   config.entry = [
     'react-hot-loader/patch',
     `webpack-dev-server/client?http://localhost:${appConfig.example.port}`,
-    'webpack/hot/only-dev-server',
-    './src/Bootstrap'
+    'webpack/hot/only-dev-server'
   ];
-  config.plugins.push(
-    new webpack.HotModuleReplacementPlugin()
-  );
+  config.plugins.push(new webpack.HotModuleReplacementPlugin());
 }
 
 module.exports = config;

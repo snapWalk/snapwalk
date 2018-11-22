@@ -1,16 +1,6 @@
 
 @import 'mixins';
 
-body, html {
-  @include full-height;
-  font: $font-stack;
-}
-
-#example-app {
-  @include margin(0px);
-  @include full-height;
-}
-
 code {
   font-size: 1.1rem;
   color: hsl(0, 0%, 29%)
@@ -20,78 +10,3 @@ code {
   background: hsl(0, 0%, 90%)
 }
 
-pre {
-  font-size: .9rem;
-  margin: 0;
-  background-color: whitesmoke;
-  counter-reset: line-numbering;
-  font-family: Inconsolata, Consolas, monospace;
-  padding: 5px;
-  border-radius: 3px;
-  color: #455A64;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-}
-
-pre .line::before {
-  content: counter(line-numbering);
-  counter-increment: line-numbering;
-  padding-right: 1em;
-  /* space after numbers */
-  width: 1.5em;
-  text-align: right;
-  font-weight: 600;
-  font-size: .9rem;
-  color: #209cee;
-}
-
-.m-left--small {
-  margin-left: 0.5rem;
-}
-
-.m-right--small {
-  margin-right: 0.5rem;
-}
-
-.m-top--small {
-  margin-top: 0.5rem;
-}
-
-.m-bottom--small {
-  margin-bottom: 0.5rem;
-}
-
-.m--small {
-  margin: 0.5rem;
-}
-
-.m-left--large {
-  margin-left: 1rem;
-}
-
-.m-right--large {
-  margin-right: 1rem;
-}
-
-.m-top--large {
-  margin-top: 1rem;
-}
-
-.m-bottom--large {
-  margin-bottom: 1rem;
-}
-
-.m-large {
-  margin: 1rem;
-}
-
-
-// Bulma overrides
-
-.navbar-item img {
-  max-height: none;
-}
-
-.notification a:not(.button) {
-  text-decoration: none;
-}

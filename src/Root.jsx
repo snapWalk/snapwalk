@@ -1,22 +1,21 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import ReactDOM from 'react-dom';
 
-import App from './components/App';
+class App extends React.Component {
+  constructor (props) {
+    super(props);
 
-export default function Root ({
-  store
-}) {
-  return (
-    <Provider store={store}>
-      <BrowserRouter>
-        <App/>
-      </BrowserRouter>
-    </Provider>
-  );
+    this.state = {
+      error: false
+    };
+  }
+
+  render () {
+    return (
+      <div>Hello Almudena!</div>
+    );
+  }
 }
 
-Root.propTypes = {
-  store: PropTypes.object
-};
+const mountNode = document.getElementById('app');
+ReactDOM.render(<App />, mountNode);
