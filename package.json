@@ -1,7 +1,8 @@
 {
-  "name": "react-boilerplate",
+  "name": "snap-walk",
   "version": "3.2.0",
-  "description": "A slightly opinionated yet dead simple boilerplate for ReactJS",
+  "author": "Anna and Almudena for Codely",
+  "license": "Proprietary",
   "scripts": {
     "start": "npm run prod",
     "dev": "npm run build:dev && npm run start-dev-server",
@@ -10,39 +11,12 @@
     "build:prod": "cross-env NODE_ENV=production webpack --progress --colors",
     "start-dev-server": "cross-env NODE_ENV=development node server.js",
     "start-prod-server": "cross-env NODE_ENV=production node server.js",
-    "test": "nyc mocha",
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "lint": "eslint src/**/*.js src/**/*.jsx",
-    "fix": "eslint --fix src/**/*.js src/**/*.jsx"
-  },
-  "author": "Mike Chabot",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mikechabot/react-boilerplate.git"
-  },
-  "bugs": {
-    "url": "https://github.com/mikechabot/react-boilerplate/issues"
-  },
-  "nyc": {
-    "include": [
-      "src/**/*.js"
-    ],
-    "reporter": [
-      "text-summary",
-      "html"
-    ],
-    "temp-directory": "./.nyc-coverage-temp",
-    "report-dir": "./.nyc-coverage"
+    "test": "nyc mocha"
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
-    "bulma": "^0.7.2",
     "cross-env": "^5.2.0",
     "express": "^4.16.4",
-    "glamor": "^2.20.40",
-    "glamorous": "^4.13.1",
-    "lodash": "^4.17.11",
     "moment": "^2.22.2",
     "normalize.css": "^8.0.1",
     "pg": "^7.6.1",
@@ -58,15 +32,6 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.1.5",
-    "@babel/core": "^7.1.6",
-    "@babel/preset-env": "^7.1.6",
-    "@babel/preset-react": "^7.0.0",
-    "@babel/register": "^7.0.0",
-    "autoprefixer": "^9.3.1",
-    "babel-eslint": "^10.0.1",
-    "babel-loader": "^8.0.4",
-    "babel-minify-webpack-plugin": "^0.3.1",
     "chai": "^4.2.0",
     "coveralls": "^3.0.2",
     "css-loader": "^1.0.1",
@@ -86,7 +51,6 @@
     "mini-css-extract-plugin": "^0.4.4",
     "mocha": "^5.2.0",
     "node-sass": "^4.10.0",
-    "nyc": "^13.1.0",
     "postcss-loader": "^3.0.0",
     "react-addons-test-utils": "^15.6.2",
     "react-hot-loader": "^4.3.12",
