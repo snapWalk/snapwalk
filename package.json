@@ -37,7 +37,6 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
-    "axios": "^0.18.0",
     "bulma": "^0.7.2",
     "cross-env": "^5.2.0",
     "express": "^4.16.4",
@@ -46,6 +45,7 @@
     "lodash": "^4.17.11",
     "moment": "^2.22.2",
     "normalize.css": "^8.0.1",
+    "pg": "^7.6.1",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
