@@ -1,18 +1,4 @@
-# <a href='https://github.com/mikechabot/react-boilerplate'><img src='https://raw.githubusercontent.com/mikechabot/react-boilerplate/gh-pages/assets/img/header_photo.png' alt='logo' aria-label='https://github.com/mikechabot/react-boilerplate' /></a>
-
-<div align="center">
- A slightly opinionated yet dead simple boilerplate for ReactJS, Webpack 4, and React Router v4.
- <br /><br />
-  <a href="https://travis-ci.org/mikechabot/react-boilerplate">
-    <img src="https://travis-ci.org/mikechabot/react-boilerplate.svg?branch=master" alt="build status" />
-  </a>
-  <a href="https://david-dm.org/mikechabot/react-boilerplate">
-    <img src="https://david-dm.org/mikechabot/react-boilerplate.svg" alt="dependency status" />
-  </a>
-  <a href="https://github.com/mikechabot/react-boilerplate/pulls">
-    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="prs welcome" />
-  </a>
-</div>
+# SnapWalk
 
 ---
 
