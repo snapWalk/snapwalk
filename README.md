@@ -1,71 +1,16 @@
-# SnapWalk
+
+## <a>**SnapWalk**</a>
+
+Welcome to SnapWalk, the new amazing social app where users can share their favourite routes and can experience other's routes. Create or choose a route and play it. Look at your next location on the map and take a picture to check you're there and go to the next location. Once you're finished, comment and like the route, win points, and look at the ranking.
 
 ---
 
-## Table of Contents
+## <a>Getting Started</a>
 
-- [Live Demo](#live-demo)
-- [Features](#features)
-- [Getting Started](#getting-started)
-- [Custom Configuration](#custom-config)
-
-## <a id="live-demo">Live Demo</a>
-
-http://mikechabot.github.io/react-boilerplate/dist
-
-> Pretty landing page located [here](http://mikechabot.github.io/react-boilerplate/)
-
----
-
-## <a id="features">Features</a>
-
-#### Build Process
-
-- Built with [webpack 4](https://webpack.js.org/configuration/)
-- Supports ES6 via [Babel](https://babeljs.io/) transpiling
-
-#### State Management
-
-- [redux-entity](https://github.com/mikechabot/redux-entity) for domain entity management
-- [redux-thunk](https://github.com/gaearon/redux-thunk) for [asynchronous actions](https://github.com/mikechabot/react-boilerplate/blob/master/src/redux/actions/thunks.js#L6)
-- [redux-logger](https://github.com/theaqua/redux-logger) for capturing actions
-
-#### Routing
-
-- [react-router v4](https://github.com/reactjs/react-router) for client-side [routing](https://github.com/mikechabot/react-boilerplate/blob/master/src/Root.jsx#L5)
-
-#### HTTP
-
-- [Customizable](https://github.com/mikechabot/react-boilerplate/blob/master/src/services/data/ajax-service.js#L8), [Promise-based](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) HTTP support via [Axios](https://github.com/mzabriskie/axios)
-- Utilizes a [a generic data service](https://github.com/mikechabot/react-boilerplate/blob/master/src/services/data/data-access-service.js#L48) to easily fetch data
-- Example of [implementing the data service](https://github.com/mikechabot/react-boilerplate/blob/master/src/services/domain/example-domain-service.js#L17)
-
-#### Styling
-
-- Supports [SCSS & SASS](http://sass-lang.com/) syntax
-- Browser compatibility via [autoprefixing](https://github.com/postcss/autoprefixer) and [normalize.css](https://necolas.github.io/normalize.css/)
-- [Bulma](https://bulma.io/documentation/overview/start/) for out-of-the-box styling
-- [glamorous](https://glamorous.rocks) for CSS-in-JS styling
-
-#### Develop & Deploy
-
-- Environmental configurations for both webpack and redux
-  - **Dev**: [webpack-dev-server](https://webpack.js.org/configuration/dev-server/) with [React Hot Loader](http://gaearon.github.io/react-hot-loader/). `redux-logger` enabled
-  - **Prod**: [Express](http://expressjs.com/) server with `redux-logger` disabled
-
-#### Testing
-
-- Tested with [Mocha](https://mochajs.org/) and [Chai](http://chaijs.com/)
-- Coverage support via [nyc](https://istanbul.js.org)
-- [react-addons-test-utils](https://facebook.github.io/react/docs/test-utils.html) for component testing
-- [Sinon.JS](http://sinonjs.org/) for mocking, stubbing & spying
-
----
-
-## <a id="getting-started">Getting Started</a>
-
-1. `$ git clone https://github.com/mikechabot/react-boilerplate.git`
-2. `$ yarn install`
+1. Clone project:
+   - `$ git clone https://github.com/snapWalk/snapwalk.git`
+2. Install yarn: 
+   - `$ yarn install`
 3. Launch environment:
    - **Production**: `$ yarn start`
    - **Development**: `$ yarn run dev`
@@ -74,45 +19,24 @@ http://mikechabot.github.io/react-boilerplate/dist
    - `$ yarn run build:prod`
 5. Execute tests:
    - `$ yarn test`
+6. Install postgreSQL:
+   - `$ yarn install pg`
 
 ---
 
-## <a id="custom-config">Custom Configuration</a>
+## <a>Technical designs</a>
 
-Use [`cross-env`](https://github.com/kentcdodds/cross-env) or a comparable library/command to set the `ENV_CONFIG_PATH` to the path of your JSON configuration file:
+- Architecture
+[[https://github.com/snapWalk/snapwalk/tree/master/src/assets/architecture.jpg|alt=architecture]]
 
-`$ cross-env ENV_CONFIG_PATH=/path/to/config.json yarn start`
+- User Flow
+[[https://github.com/snapWalk/snapwalk/tree/master/src/assets/user_flow.jpg|alt=user_flow]]
 
-> **Note**: This path is made available to Webpack **only**, however the contents of the file are stamped on a global variable during the build process (`process.env.APP_CONFIG`, see [webpack.config.js](https://github.com/mikechabot/react-boilerplate/blob/master/webpack.config.js#L44)), which is then accessible via the [ConfigService](https://github.com/mikechabot/react-boilerplate/blob/master/src/services/common/config-service.js#L8).
+- Database schema
+[[https://github.com/snapWalk/snapwalk/tree/master/src/assets/database.jpg|alt=database]]
 
-If your configuration is loaded successfully, you can expect to see the following indicator during startup:
+---
 
-```
-** Using custom configuration located at "/path/to/config.json" **
-```
+## <a>Notes</a>
+_This is a student project that was created at [Codely](http://codely.tech), a full stack development bootcamp in Barcelona._
 
-#### Example
-
-Using configuration file @ `D\:\_workspaces\foo.json`
-
-    mikec@Krait MINGW64 /d/_workspaces/react-boilerplate (master)
-    $ cross-env ENV_CONFIG_PATH="D\:\_workspaces\foo.json" npm start
-
-    > react-boilerplate@2.5.0 start D:\_workspaces\react-boilerplate
-    > npm run prod
-
-    > react-boilerplate@2.5.0 prod D:\_workspaces\react-boilerplate
-    > npm run build:prod && npm run start-server
-
-    > react-boilerplate@2.5.0 build:prod D:\_workspaces\react-boilerplate
-    > cross-env NODE_ENV=production webpack --progress --colors
-
-    ** Using custom configuration located at "D:\_workspaces\foo.json" **
-
-    Hash: 32bbf23a46e7ac19741a
-    Version: webpack 3.5.5
-    Time: 8711ms
-             Asset     Size  Chunks                    Chunk Names
-         bundle.js   563 kB       0  [emitted]  [big]  main
-    css/bundle.css  1.68 kB       0  [emitted]         main
-        index.html  1.58 kB          [emitted]
