@@ -7,20 +7,14 @@ Welcome to SnapWalk, the new amazing social app where users can share their favo
 
 ## <a>Getting Started</a>
 
-1. Clone project:
-   - `$ git clone https://github.com/snapWalk/snapwalk.git`
-2. Install yarn: 
-   - `$ yarn install`
-3. Launch environment:
-   - **Production**: `$ yarn start`
+1. Install dependencies: 
+   - `$ yarn`
+2. Launch environment:
+   - **Production**: `$ yarn run build:prod` to create, `$ yarn start` to run
    - **Development**: `$ yarn run dev`
      > Available at http://localhost:3060
-4. Build assets for production:
-   - `$ yarn run build:prod`
-5. Execute tests:
+3. Execute tests:
    - `$ yarn test`
-6. Install postgreSQL:
-   - `$ yarn install pg`
 
 ---
 
