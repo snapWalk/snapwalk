@@ -74,7 +74,7 @@ http://mikechabot.github.io/react-boilerplate/dist
    - `$ yarn run build:prod`
 5. Execute tests:
    - `$ yarn test`
-
+6. run `createdb snapwalk` to create your database
 ---
 
 ## <a id="custom-config">Custom Configuration</a>
