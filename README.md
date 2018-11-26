@@ -21,10 +21,10 @@ Welcome to SnapWalk, the new amazing social app where users can share their favo
 ## <a>Technical designs</a>
 
 - Architecture
-[[https://github.com/snapWalk/snapwalk/tree/master/src/assets/architecture.jpg|alt=architecture]]
+![alt text](/src/assets/architecture.jpg)
 
 - User Flow
-[[https://github.com/snapWalk/snapwalk/tree/master/src/assets/user_flow.jpg|alt=user_flow]]
+![alt text](https://github.com/snapWalk/snapwalk/raw/assets/user_flow.jpg)
 
 - Database schema
 [[https://github.com/snapWalk/snapwalk/tree/master/src/assets/database.jpg|alt=database]]
