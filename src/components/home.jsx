@@ -1,5 +1,6 @@
 import React from 'react';
 import CreateView from './createView';
+import { Button, DropdownButton, MenuItem } from 'react-bootstrap';
 
 class Home extends React.Component {
   constructor (props) {
@@ -17,7 +18,8 @@ class Home extends React.Component {
     let home;
 
     if (!this.state.createView) {
-      home = <div><button onClick={() => this.goCreate()}>Create a new route</button><button>Search for a route</button></div>;
+      home = <div><Button bsStyle="primary" onClick={() => this.goCreate()}>Create a new route</Button><Button bsStyle="primary">Search for a route</Button>
+      </div>;
     } else {
       home = <CreateView/>;
     }
