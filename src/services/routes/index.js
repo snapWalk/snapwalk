@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
-const getData = require('./common/database-access');
+// const getData = require('./common/database-access');
 
 router.get('/', (req, res, next) => {
   res.sendFile(path.join(
