@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
-const getData = require("../common/database-access");
+// const getData = require('./common/database-access');
 
 router.get('/', (req, res, next) => {
   res.sendFile(path.join(
@@ -9,8 +9,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/api/v1/hello', (req, res, next) => {
-  res.send({ message: "Hello world!"});
+  res.send({ message: 'Hello world!' });
 });
 
 module.exports = router;
-
