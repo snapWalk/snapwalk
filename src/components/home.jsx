@@ -28,7 +28,7 @@ class Home extends React.Component {
       </div>;
     } else {
       home = <CreateView/>;
-    } 
+    }
 
     return (
       <div>

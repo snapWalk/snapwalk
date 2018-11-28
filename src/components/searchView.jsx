@@ -3,7 +3,7 @@ import React from 'react';
 class SearchView extends React.Component {
   constructor (props) {
     super(props);
-    this.state = { test: false };
+    this.state = {};
   }
 
   render () {
