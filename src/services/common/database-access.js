@@ -6,8 +6,9 @@ module.exports = async function getData (query) {
   let error = null;
 
   await new Promise((resolve, reject) => {
+    const pool = new pg.Pool({ connectionString });
     // Get a Postgres client from the connection pool
-    pg.connect(connectionString, (err, client, done) => {
+    pool.connect((err, client, done) => {
       // Handle connection errors
       if (err) {
         done(); // Kills the pg connection
@@ -26,7 +27,8 @@ module.exports = async function getData (query) {
         resolve();
       });
     });
+    pool.end();
   });
-
+  
   return { data, error };
 }
