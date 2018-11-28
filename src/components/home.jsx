@@ -1,7 +1,7 @@
-import React from 'react';
-import CreateView from './createView';
-import SearchView from './searchView';
-import { Button } from 'react-bootstrap';
+import React from "react";
+import CreateView from "./createView";
+import SearchView from "./searchView";
+import { Button } from "react-bootstrap";
 
 class Home extends React.Component {
   constructor (props) {

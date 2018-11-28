@@ -11,11 +11,17 @@ Welcome to SnapWalk, the new amazing social app where users can share their favo
    - `$ yarn`
 2. Launch environment:
    - **Production**: `$ yarn run build:prod` to create, `$ yarn start` to run
-   - **Development**: `$ yarn run dev`
+   - **Development for frontend**: `$ yarn run dev`
+   - **Development for server**: `$ yarn prod`
+
      > Available at http://localhost:3060
 3. Execute tests:
    - `$ yarn test`
-6. run `createdb snapwalk` to create your database
+4. Database Prep
+
+run `createdb snapwalk` to create your database
+run `node src/services/data/seed.js` to create tables
+
 ---
 
 ## <a>Technical designs</a>
