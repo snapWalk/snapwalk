@@ -18,9 +18,8 @@ Welcome to SnapWalk, the new amazing social app where users can share their favo
 3. Execute tests:
    - `$ yarn test`
 4. Database Prep
-
-run `createdb snapwalk` to create your database
-run `node src/services/data/seed.js` to create tables
+     - run `createdb snapwalk` to create your database
+     - run `node src/services/data/seed.js` to create tables
 
 ---
 
