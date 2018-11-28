@@ -25,6 +25,7 @@ class Home extends React.Component {
 
     if (!this.state.createView && !this.state.searchView) {
       home = <div><Button bsStyle="primary" onClick={() => this.goCreate()}>Create a new route</Button><Button bsStyle="primary">Search for a route</Button>
+
       </div>;
     } else {
       home = <CreateView/>;
