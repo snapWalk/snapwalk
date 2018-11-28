@@ -31,4 +31,12 @@ router.post("/api/v1/create", (req, res, next) => {
   });
 });
 
+router.post('/api/v1/create', (req, res, next) => {
+  getData(`INSERT INTO items () VALUES ('${req.body.name}', ${req.body.description}) RETURNING *;`)
+    .then(results => results.error
+      ? res.status(404).send({ error: results.error })
+      : res.send({ body: results.data })
+    );
+});
+
 module.exports = router;
