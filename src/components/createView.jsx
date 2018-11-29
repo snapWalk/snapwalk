@@ -12,7 +12,8 @@ class CreateView extends React.Component {
       lat: "",
       lng: "",
       item: "",
-      success: false
+      success: false,
+      error: false
     };
   }
 
@@ -21,6 +22,37 @@ class CreateView extends React.Component {
     this.setState({
       [name]: e.target.value
     });
+  }
+
+  addRoute (e) {
+    e.preventDefault();
+    console.log("clicked!");
+    fetch("http://localhost:3060/api/v1/routes", {
+      method: "POST",
+      body: JSON.stringify({
+        "route": {
+          "name": this.state.name,
+          "description": this.state.description,
+          "author": 1
+        },
+        "place1": {
+          "name": this.state.placeName,
+          "description": this.state.placeDescription,
+          "latitude": this.state.lat,
+          "longitude": this.state.lng,
+          "item": this.state.item
+        }
+      }),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(res => res.json())
+      .then(json => {
+        this.setState({ success: true });
+      })
+      .catch(error => {
+        this.setState({ error: true })
+      });
   }
 
   render () {
@@ -55,7 +87,7 @@ class CreateView extends React.Component {
                 <FormControl name="item" className="col-md-4" type="text" placeholder="item name" required onChange={e => this.updateInput(e)}></FormControl>
               </FormGroup>
             </InputGroup>
-            <Button type="submit">Submit</Button>
+            <Button type="submit" onClick={e => this.addRoute(e)}>Submit</Button>
           </FormGroup>
         </Form>
       </div>
