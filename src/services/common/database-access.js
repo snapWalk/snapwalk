@@ -1,6 +1,6 @@
 const pg = require("pg");
 const connectionString =
-  process.env.DATABASE_URL || "postgres://localhost:5432/snapwalk";
+  process.env.DATABASE_URL || "postgres://localhost:5432/todos";
 
 module.exports = async function getData(query) {
   const data = [];
