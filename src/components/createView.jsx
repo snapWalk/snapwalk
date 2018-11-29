@@ -24,7 +24,6 @@ class CreateView extends React.Component {
   }
 
   render () {
-    console.log(this.state.name, this.state.placeDescription, this.setState.lng);
     return (
       <div>
         <h2>Create your own route</h2>
@@ -48,7 +47,6 @@ class CreateView extends React.Component {
               </FormGroup>
               <FormGroup>
                 <h3>Insert geolocation of this place!</h3>
-                {/* Need to fix inline */}
                 <FormControl name="lat" inline="true" className="col-xs-3" type="text" placeholder="LAT" required onChange={e => this.updateInput(e)}></FormControl>
                 <FormControl name="lng" inline="true" className="col-xs-3" type="text" placeholder="LNG" required onChange={e => this.updateInput(e)}></FormControl>
               </FormGroup>
