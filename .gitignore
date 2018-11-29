@@ -28,3 +28,5 @@ dist
 /lint-report.html
 /.nyc_output/
 
+#API keys
+.env
