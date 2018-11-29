@@ -22,15 +22,16 @@ class Home extends React.Component {
 
   render () {
     let home;
-
-    if (!this.state.createView && !this.state.searchView) {
-      home = <div><Button bsStyle="primary" onClick={() => this.goCreate()}>Create a new route</Button><Button bsStyle="primary">Search for a route</Button>
-
-      </div>;
-    } else {
-      home = <CreateView/>;
+    if (this.state.searchView) {
+      return <SearchView/>;
     }
-
+    if (this.state.createView) {
+      return <CreateView/>;
+    }
+    if (!this.state.createView && !this.state.searchView) {
+      home = <div><Button bsStyle="primary" onClick={() => this.goCreate()}>Create a new route</Button><Button bsStyle="primary" onClick={() => this.goSearch()}>Search for a route</Button>
+      </div>;
+    }
     return (
       <div>
         <h1>SnapWalk</h1>
