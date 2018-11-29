@@ -7,13 +7,7 @@ router.get("/", (req, res, next) => {
   res.sendFile(path.join(__dirname, "..", "..", "dist", "index.html"));
 });
 
-router.get("/api/v1/hello", (req, res, next) => {
-  res.send({ message: "Hello world!" });
-});
-
 router.get("/api/v1/routes", (req, res, next) => {
-  // NOTE: This will not work unless the user has been created
-  // Add in better error handling!
   getData("SELECT * FROM routes;").then(results => {
     if (results.error) {
       console.log(results.error);
@@ -25,20 +19,19 @@ router.get("/api/v1/routes", (req, res, next) => {
   });
 });
 
-router.post("/api/v1/user", (req, res, next) => {
-  // NOTE: This will not work unless the user has been created
-  // Add in better error handling!
-  getData(
-    `INSERT INTO routes (name, description) VALUES ('${req.body.name}', '${
-      req.body.description
-    }') RETURNING *;`
-  ).then(results => {
-    if (results.error) {
-      res.status(404).send({ error: results.error });
-    } else {
-      res.send({ message: "new route added" });
-    }
-  });
+router.post("/api/v1/routes", (req, res, next) => {
+  getData(`INSERT INTO routes (name, description, author) VALUES ('${req.body.route.name}', '${req.body.route.description}', '${req.body.route.author}') RETURNING *;`)
+    .then(routeResults => {
+      if (routeResults.error) {
+        res.status(404).send({ routeError: routeResults.error });
+      } else {
+        getData(`INSERT INTO places (name, description, longitude, latitude, item, route) VALUES ('${req.body.place1.name}', '${req.body.place1.description}', '${req.body.place1.longitude}', '${req.body.place1.latitude}', '${req.body.place1.item}', '${parseInt(routeResults.data[0].id)}') RETURNING *;`)
+          .then(placeResults => placeResults.error
+            ? res.status(404).send({ placeError: placeResults.error })
+            : res.send({ body: placeResults.data })
+          );
+      }
+    });
 });
 
 // router.post('/api/v1/create', (req, res, next) => {
