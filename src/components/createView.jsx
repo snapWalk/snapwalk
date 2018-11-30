@@ -50,8 +50,8 @@ class CreateView extends React.Component {
       .then(json => {
         this.setState({ success: true });
       })
-      .catch(error => {
-        this.setState({ error: true })
+      .catch(() => {
+        this.setState({ error: true });
       });
   }
 
