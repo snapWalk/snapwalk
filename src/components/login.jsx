@@ -7,8 +7,7 @@ class Login extends React.Component {
   }
 
   responseGoogle (response) {
-    // get email from response
-    console.log(response.profileObj.email);
+    // get email from response -> response.profileObj.email
     // post this in users
     // get the id from users
     // pass the id as a prop

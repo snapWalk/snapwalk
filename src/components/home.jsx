@@ -15,7 +15,6 @@ class Home extends React.Component {
 
   goCreate () {
     this.setState({ createView: true });
-    console.log("hola monger");
   }
 
   goSearch () {
