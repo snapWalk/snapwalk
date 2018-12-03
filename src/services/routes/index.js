@@ -23,9 +23,8 @@ router.post("/api/v1/routes", (req, res, next) => {
   getData(`INSERT INTO routes (name, description, author) VALUES ('${req.body.route.name}', '${req.body.route.description}', '${req.body.route.author}') RETURNING *;`)
     .then(routeResults => {
       getData(`INSERT INTO places (name, description, longitude, latitude, item, route) VALUES ('${req.body.place1.name}', '${req.body.place1.description}', '${req.body.place1.longitude}', '${req.body.place1.latitude}', '${req.body.place1.item}', '${parseInt(routeResults.data[0].id)}') RETURNING *;`)
-        .then(placeResults => placeResults.error
-          ? res.status(404).send({ placeError: placeResults.error })
-          : res.send({ body: placeResults.data })
+        .then(placeResults =>
+          res.send({ body: placeResults.data })
         )
         .catch(error => {
           res.status(404).send({ error: error });
