@@ -9,10 +9,6 @@ class Login extends React.Component {
   responseGoogle (response) {
   }
 
-  logout (response) {
-    console.log(response);
-  }
-
   render () {
     return (
       <div>
