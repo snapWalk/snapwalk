@@ -20,6 +20,7 @@ router.get("/api/v1/routes", (req, res, next) => {
 });
 
 router.post("/api/v1/routes", (req, res, next) => {
+<<<<<<< HEAD
   getData(`INSERT INTO routes (name, description, author) VALUES ('${req.body.route.name}', '${req.body.route.description}', '${req.body.route.author}') RETURNING *;`)
     .then(routeResults => {
       getData(`INSERT INTO places (name, description, longitude, latitude, item, route) VALUES ('${req.body.place1.name}', '${req.body.place1.description}', '${req.body.place1.longitude}', '${req.body.place1.latitude}', '${req.body.place1.item}', '${parseInt(routeResults.data[0].id)}') RETURNING *;`)
@@ -33,6 +34,35 @@ router.post("/api/v1/routes", (req, res, next) => {
     .catch(routeError => {
       res.status(404).send({ routeError: routeError });
     });
+=======
+  console.log(req.body);
+  getData(
+    `INSERT INTO routes (name, description, author) VALUES ('${
+      req.body.route.name
+    }', '${req.body.route.description}', '${
+      req.body.route.author
+    }') RETURNING *;`
+  ).then(routeResults => {
+    if (routeResults.error) {
+      console.log("error in routes", routeResults.error);
+      res.status(404).send({ routeError: routeResults.error });
+    } else {
+      getData(
+        `INSERT INTO places (name, description, longitude, latitude, item, route) VALUES ('${
+          req.body.place1.name
+        }', '${req.body.place1.description}', '${
+          req.body.place1.longitude
+        }', '${req.body.place1.latitude}', '${
+          req.body.place1.item
+        }', '${parseInt(routeResults.data[0].id)}') RETURNING *;`
+      ).then(placeResults =>
+        placeResults.error
+          ? res.status(404).send({ placeError: placeResults.error })
+          : res.send({ body: placeResults.data })
+      );
+    }
+  });
+>>>>>>> frontend changes
 });
 
 router.post("/api/v1/users", (req, res, next) => {
