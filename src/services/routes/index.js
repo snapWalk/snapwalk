@@ -20,36 +20,14 @@ router.get("/api/v1/routes", (req, res, next) => {
 });
 
 router.post("/api/v1/routes", (req, res, next) => {
-<<<<<<< HEAD
-<<<<<<< HEAD
-  getData(`INSERT INTO routes (name, description, author) VALUES ('${req.body.route.name}', '${req.body.route.description}', '${req.body.route.author}') RETURNING *;`)
-    .then(routeResults => {
-      getData(`INSERT INTO places (name, description, longitude, latitude, item, route) VALUES ('${req.body.place1.name}', '${req.body.place1.description}', '${req.body.place1.longitude}', '${req.body.place1.latitude}', '${req.body.place1.item}', '${parseInt(routeResults.data[0].id)}') RETURNING *;`)
-        .then(placeResults =>
-          res.send({ body: placeResults.data })
-        )
-        .catch(error => {
-          res.status(404).send({ error: error });
-        });
-    })
-    .catch(routeError => {
-      res.status(404).send({ routeError: routeError });
-    });
-=======
-=======
->>>>>>> fb18d3cfe08ecd5f397ba9429ffd26ea36453a6d
-  console.log(req.body);
   getData(
     `INSERT INTO routes (name, description, author) VALUES ('${
       req.body.route.name
     }', '${req.body.route.description}', '${
       req.body.route.author
     }') RETURNING *;`
-  ).then(routeResults => {
-    if (routeResults.error) {
-      console.log("error in routes", routeResults.error);
-      res.status(404).send({ routeError: routeResults.error });
-    } else {
+  )
+    .then(routeResults => {
       getData(
         `INSERT INTO places (name, description, longitude, latitude, item, route) VALUES ('${
           req.body.place1.name
@@ -58,17 +36,15 @@ router.post("/api/v1/routes", (req, res, next) => {
         }', '${req.body.place1.latitude}', '${
           req.body.place1.item
         }', '${parseInt(routeResults.data[0].id)}') RETURNING *;`
-      ).then(placeResults =>
-        placeResults.error
-          ? res.status(404).send({ placeError: placeResults.error })
-          : res.send({ body: placeResults.data })
-      );
-    }
-  });
-<<<<<<< HEAD
->>>>>>> frontend changes
-=======
->>>>>>> fb18d3cfe08ecd5f397ba9429ffd26ea36453a6d
+      )
+        .then(placeResults => res.send({ body: placeResults.data }))
+        .catch(error => {
+          res.status(404).send({ error: error });
+        });
+    })
+    .catch(routeError => {
+      res.status(404).send({ routeError: routeError });
+    });
 });
 
 router.post("/api/v1/users", (req, res, next) => {
@@ -77,7 +53,9 @@ router.post("/api/v1/users", (req, res, next) => {
       res.send({ body: selectResults.data[0].id });
     })
     .catch(selectError => {
-      getData(`INSERT INTO users (email) VALUES ('${req.body.email}') RETURNING *;`)
+      getData(
+        `INSERT INTO users (email) VALUES ('${req.body.email}') RETURNING *;`
+      )
         .then(results => {
           res.send({ body: results.data[0].id });
         })
