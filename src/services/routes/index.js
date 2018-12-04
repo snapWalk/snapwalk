@@ -21,6 +21,7 @@ router.get("/api/v1/routes", (req, res, next) => {
 
 router.post("/api/v1/routes", (req, res, next) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
   getData(`INSERT INTO routes (name, description, author) VALUES ('${req.body.route.name}', '${req.body.route.description}', '${req.body.route.author}') RETURNING *;`)
     .then(routeResults => {
       getData(`INSERT INTO places (name, description, longitude, latitude, item, route) VALUES ('${req.body.place1.name}', '${req.body.place1.description}', '${req.body.place1.longitude}', '${req.body.place1.latitude}', '${req.body.place1.item}', '${parseInt(routeResults.data[0].id)}') RETURNING *;`)
@@ -35,6 +36,8 @@ router.post("/api/v1/routes", (req, res, next) => {
       res.status(404).send({ routeError: routeError });
     });
 =======
+=======
+>>>>>>> fb18d3cfe08ecd5f397ba9429ffd26ea36453a6d
   console.log(req.body);
   getData(
     `INSERT INTO routes (name, description, author) VALUES ('${
@@ -62,7 +65,10 @@ router.post("/api/v1/routes", (req, res, next) => {
       );
     }
   });
+<<<<<<< HEAD
 >>>>>>> frontend changes
+=======
+>>>>>>> fb18d3cfe08ecd5f397ba9429ffd26ea36453a6d
 });
 
 router.post("/api/v1/users", (req, res, next) => {
