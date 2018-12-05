@@ -26,7 +26,6 @@ class CreateView extends React.Component {
 
   addRoute (e) {
     e.preventDefault();
-    console.log("clicked!");
     fetch("http://localhost:3060/api/v1/routes", {
       method: "POST",
       body: JSON.stringify({
