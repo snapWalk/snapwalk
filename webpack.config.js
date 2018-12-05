@@ -54,7 +54,6 @@ const config = {
     fs: "empty"
   },
   module: {
-    noParse: /(mapbox-gl)\.js$/,
     exprContextCritical: false, // Suppress 'The request of a dependency is an expression'
     rules: [
       {
@@ -102,6 +101,7 @@ const config = {
 };
 
 if (NodeUtils.isProduction()) {
+  config.devtool = 'eval';
   config.entry = './src/Root';
   config.mode = 'production';
   config.plugins.push(new MinifyPlugin());

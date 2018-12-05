@@ -31,7 +31,6 @@ class SearchView extends React.Component {
   }
 
   showPlace (key, routeId) {
-    console.log(key, routeId);
     fetch(`http://localhost:3060/api/v1/places/${routeId}`)
       .then(res => res.json())
       .then(json => {
@@ -39,7 +38,6 @@ class SearchView extends React.Component {
           place: json.body,
           featured: key,
           visible: true });
-        console.log(this.state.place[0].name);
       })
       .catch(() => {
         this.setState({ error: true });
@@ -58,7 +56,11 @@ class SearchView extends React.Component {
     let featured;
 
     for (let key in routes) {
-      routesArr.push(<div className="route" key={key} onClick={() => this.showPlace(key, routes[key].id)}><p>{routes[key].name}</p><p>{routes[key].description}</p></div>);
+      routesArr.push(
+        <div className="route" key={key} onClick={() => this.showPlace(key, routes[key].id)}>
+          <p>{routes[key].name}</p>
+          <p>{routes[key].description}</p>
+        </div>);
     }
 
     if (this.state.loading) {
@@ -70,7 +72,17 @@ class SearchView extends React.Component {
     if (!this.state.visible) {
       featured = <div></div>;
     } else {
-      featured = <div><h3>{routes[this.state.featured].name}</h3><p>{routes[this.state.featured].description}</p><h4>placename: {this.state.place[0].name}</h4><p>placedes: {this.state.place[0].description}</p><p>placeitem: {this.state.place[0].item}</p><div className="mapp"></div><LocationMap latitude={Number(this.state.place[0].latitude)} longitude={Number(this.state.place[0].longitude)} /><button onClick={(e) => this.goRoute(e)}>Do this route</button></div>;
+      featured = <div>
+        <h3>{routes[this.state.featured].name}</h3>
+        <p>{routes[this.state.featured].description}</p>
+        <h4>placename: {this.state.place[0].name}</h4>
+        <p>placedes: {this.state.place[0].description}</p>
+        <p>placeitem: {this.state.place[0].item}</p>
+        <div className="mapp">
+          <LocationMap latitude={Number(this.state.place[0].latitude)} longitude={Number(this.state.place[0].longitude)} />
+        </div>
+        <button onClick={(e) => this.goRoute(e)}>Do this route</button>
+      </div>;
     }
 
     if (this.state.routeView) {

@@ -13,7 +13,6 @@ router.get("/api/v1/routes", (req, res, next) => {
       console.log(results.error);
       res.status(404).send({ error: results.error });
     } else {
-      console.log(results.data);
       res.send({ body: results.data });
     }
   });
