@@ -1,12 +1,18 @@
 import React from "react";
+import RouteView from "./routeView";
+import LocationMap from "./locationMap";
 
 class SearchView extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
       routes: [],
+      place: undefined,
       error: false,
-      loading: true
+      loading: true,
+      visible: false,
+      featured: 0,
+      routeView: false
     };
   }
 
@@ -14,10 +20,9 @@ class SearchView extends React.Component {
     fetch("http://localhost:3060/api/v1/routes")
       .then(res => res.json())
       .then(json => {
-        this.setState({ 
+        this.setState({
           routes: json.body,
-          loading: false,
-          featured: 0
+          loading: false
         });
       })
       .catch(() => {
@@ -25,10 +30,25 @@ class SearchView extends React.Component {
       });
   }
 
-  showPlace (key, author) {
-    this.setState({
-      featured: key
-    });
+  showPlace (key, routeId) {
+    console.log(key, routeId);
+    fetch(`http://localhost:3060/api/v1/places/${routeId}`)
+      .then(res => res.json())
+      .then(json => {
+        this.setState({
+          place: json.body,
+          featured: key,
+          visible: true });
+        console.log(this.state.place[0].name);
+      })
+      .catch(() => {
+        this.setState({ error: true });
+      });
+  }
+
+  goRoute (e) {
+    e.preventDefault();
+    this.setState({ routeView: true });
   }
 
   render () {
@@ -38,15 +58,23 @@ class SearchView extends React.Component {
     let featured;
 
     for (let key in routes) {
-      routesArr.push(<div className="route" key={key} onClick={() => this.showPlace(key, routes[key].author)}><p>{routes[key].name}</p><p>{routes[key].description}</p></div>);
+      routesArr.push(<div className="route" key={key} onClick={() => this.showPlace(key, routes[key].id)}><p>{routes[key].name}</p><p>{routes[key].description}</p></div>);
     }
 
     if (this.state.loading) {
       showed = <div></div>;
+    } else {
+      showed = routesArr;
+    }
+
+    if (!this.state.visible) {
       featured = <div></div>;
     } else {
-      featured = <div><h3>{routes[this.state.featured].name}</h3><p>{routes[this.state.featured].description}</p></div>;
-      showed = routesArr;
+      featured = <div><h3>{routes[this.state.featured].name}</h3><p>{routes[this.state.featured].description}</p><h4>placename: {this.state.place[0].name}</h4><p>placedes: {this.state.place[0].description}</p><p>placeitem: {this.state.place[0].item}</p><div className="mapp"></div><LocationMap latitude={Number(this.state.place[0].latitude)} longitude={Number(this.state.place[0].longitude)} /><button onClick={(e) => this.goRoute(e)}>Do this route</button></div>;
+    }
+
+    if (this.state.routeView) {
+      return <RouteView/>;
     }
 
     return (

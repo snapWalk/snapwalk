@@ -19,6 +19,16 @@ router.get("/api/v1/routes", (req, res, next) => {
   });
 });
 
+router.get("/api/v1/places/:id", (req, res, next) => {
+  getData(`SELECT * FROM places WHERE route='${req.params.id}';`)
+    .then(results =>
+      res.send({ body: results.data })
+    )
+    .catch(error => {
+      res.status(404).send({ error: error });
+    });
+});
+
 router.post("/api/v1/routes", (req, res, next) => {
   getData(`INSERT INTO routes (name, description, author) VALUES ('${req.body.route.name}', '${req.body.route.description}', '${req.body.route.author}') RETURNING *;`)
     .then(routeResults => {

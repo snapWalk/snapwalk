@@ -6,9 +6,18 @@ const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const MinifyPlugin = require('babel-minify-webpack-plugin');
+const dotenv = require('dotenv');
 
 const CleanPlugin = require('./utils/clean-plugin');
 const NodeUtils = require('./src/services/common/node-service');
+
+// call dotenv and it will return an Object with a parsed key 
+const env = dotenv.config().parsed;
+// reduce it to a nice object, the same as before
+const envKeys = Object.keys(env).reduce((prev, next) => {
+  prev[`process.env.${next}`] = JSON.stringify(env[next]);
+  return prev;
+}, {});
 
 const appConfig = require('./config/config');
 
@@ -33,6 +42,7 @@ const config = {
       template: path.resolve(__dirname, 'src/index.html'),
       inject: 'body'
     }),
+    new webpack.DefinePlugin(envKeys),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
@@ -40,7 +50,11 @@ const config = {
       }
     })
   ],
+  node: {
+    fs: "empty"
+  },
   module: {
+    noParse: /(mapbox-gl)\.js$/,
     exprContextCritical: false, // Suppress 'The request of a dependency is an expression'
     rules: [
       {
