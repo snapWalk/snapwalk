@@ -35,9 +35,7 @@ router.post("/api/v1/routes", (req, res, next) => {
           req.body.place1.item
         }', '${parseInt(routeResults.data[0].id)}') RETURNING *;`
       )
-        .then(placeResults => {
-          res.send({ body: placeResults.data });
-        })
+        .then(placeResults => res.send({ body: placeResults.data }))
         .catch(error => {
           res.status(404).send({ error: error });
         });
