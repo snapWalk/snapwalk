@@ -1,4 +1,5 @@
 import React from "react";
+import SnapModal from "./snapmodal";
 import { Form, FormGroup, InputGroup, Button, FormControl } from "react-bootstrap";
 
 class CreateView extends React.Component {
@@ -32,7 +33,7 @@ class CreateView extends React.Component {
         "route": {
           "name": this.state.name,
           "description": this.state.description,
-          "author": 1
+          "author": this.props.userID
         },
         "place1": {
           "name": this.state.placeName,
@@ -55,6 +56,9 @@ class CreateView extends React.Component {
   }
 
   render () {
+    if (this.state.success) {
+      return <SnapModal/>;
+    }
     return (
       <div>
         <h2>Create your own route</h2>
