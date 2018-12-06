@@ -1,5 +1,5 @@
 import React from "react";
-import SnapModal from "./modal";
+import SnapModal from "./snapmodal";
 import { Form, FormGroup, InputGroup, Button, FormControl } from "react-bootstrap";
 
 class CreateView extends React.Component {
@@ -33,7 +33,7 @@ class CreateView extends React.Component {
         "route": {
           "name": this.state.name,
           "description": this.state.description,
-          "author": 2
+          "author": this.props.userID
         },
         "place1": {
           "name": this.state.placeName,

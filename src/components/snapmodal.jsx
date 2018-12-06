@@ -18,7 +18,9 @@ class SnapModal extends React.Component {
     return (
       this.state.homeView ? <Home/> : <div>
         <Modal.Dialog>
-          <Modal.Body><p>You have created a new route!</p></Modal.Body>
+          <Modal.Body>
+            <p>You have created a new route!</p>
+          </Modal.Body>
           <Modal.Footer>
             <Button onClick={() => this.goHome()}>Return</Button>
           </Modal.Footer>

@@ -1,7 +1,6 @@
 import React from "react";
 import CreateView from "./createView";
 import SearchView from "./searchView";
-import Login from "./login";
 import { Button } from "react-bootstrap";
 
 class Home extends React.Component {
@@ -27,11 +26,10 @@ class Home extends React.Component {
       return <SearchView/>;
     }
     if (this.state.createView) {
-      return <CreateView/>;
+      return <CreateView userID={this.props.userID} />;
     }
     if (!this.state.createView && !this.state.searchView) {
       home = <div><Button bsStyle="primary" onClick={() => this.goCreate()}>Create a new route</Button><Button bsStyle="primary" onClick={() => this.goSearch()}>Search for a route</Button>
-        <Login/>
       </div>;
     }
     return (

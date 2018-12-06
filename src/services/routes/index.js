@@ -10,10 +10,8 @@ router.get("/", (req, res, next) => {
 router.get("/api/v1/routes", (req, res, next) => {
   getData("SELECT * FROM routes;").then(results => {
     if (results.error) {
-      console.log(results.error);
       res.status(404).send({ error: results.error });
     } else {
-      console.log(results.data);
       res.send({ body: results.data });
     }
   });
@@ -37,7 +35,9 @@ router.post("/api/v1/routes", (req, res, next) => {
           req.body.place1.item
         }', '${parseInt(routeResults.data[0].id)}') RETURNING *;`
       )
-        .then(placeResults => res.send({ body: placeResults.data }))
+        .then(placeResults => {
+          res.send({ body: placeResults.data });
+        })
         .catch(error => {
           res.status(404).send({ error: error });
         });
