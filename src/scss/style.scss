@@ -9,7 +9,42 @@ code {
 .notification code {
   background: hsl(0, 0%, 90%)
 }
-h3 {
+h1 {
+  font-family: 'Monoton', cursive;
+}
+p {
+  font-family: 'Abril Fatface', cursive;
   font-size: 15px;
   color: teal
+}
+
+.home {
+  display: block;
+  width: 60%;
+  height: 500px;
+  border: 1px solid #F3703C;
+  border-radius: 10%;
+  margin: auto;
+  margin-top: 5%;
+}
+
+.homeBtns {
+ display: block;
+ border: 2px solid #F3703C;
+}
+
+.custom-btn {
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  background-color: #134B2B;
+  display: block;
+  width: 165px;
+  padding: 6px 12px;
+  margin-bottom: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  border: 2px solid #D4E0D7;
 }

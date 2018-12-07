@@ -6605,6 +6605,11 @@ react-dom@^16.6.3:
     prop-types "^15.6.2"
     scheduler "^0.11.2"
 
+react-flippy@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/react-flippy/-/react-flippy-0.1.2.tgz#8055c9be3f4c530831ef2920e16f005e61d18eec"
+  integrity sha512-ldShzh+XC3ts15DOwuYl9QJQ03bn6k6QcDwUHQcuui8l47vH5B7gxpBYLg3ybtj+0li/4Zc4UUr8VwdDX7G/bQ==
+
 react-google-login@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/react-google-login/-/react-google-login-4.0.0.tgz#3ed09de2158f35281353e3d40af2a0108c634385"

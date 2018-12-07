@@ -1,7 +1,7 @@
 import React from "react";
 import CreateView from "./createView";
-import SearchView from "./searchView";
-import { Button } from "react-bootstrap";
+import Search from "./search";
+require("../scss/style.scss");
 
 class Home extends React.Component {
   constructor (props) {
@@ -23,18 +23,26 @@ class Home extends React.Component {
   render () {
     let home;
     if (this.state.searchView) {
-      return <SearchView/>;
+      return <Search/>;
     }
     if (this.state.createView) {
       return <CreateView userID={this.props.userID} />;
     }
     if (!this.state.createView && !this.state.searchView) {
-      home = <div><Button bsStyle="primary" onClick={() => this.goCreate()}>Create a new route</Button><Button bsStyle="primary" onClick={() => this.goSearch()}>Search for a route</Button>
+      home = <div className="home">
+        <h1>SnapWalk</h1>
+        <div classID="homeBtns">
+          <div>
+            <button className="custom-btn" onClick={() => this.goCreate()}>Create a new route</button>
+          </div>
+          <div>
+            <button className="custom-btn" onClick={() => this.goSearch()}>Search for a route</button>
+          </div>
+        </div>
       </div>;
     }
     return (
       <div>
-        <h1>SnapWalk</h1>
         {home}
       </div>
     );

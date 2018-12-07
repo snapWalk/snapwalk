@@ -27,6 +27,7 @@
     "react": "^16.6.3",
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.6.3",
+    "react-flippy": "^0.1.2",
     "react-google-login": "^4.0.0",
     "react-map-gl": "^4.0.4",
     "react-redux": "^5.1.1",
