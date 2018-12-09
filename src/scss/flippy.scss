@@ -47,7 +47,7 @@
          -o-transform: rotateY(0deg);
             transform: rotateY(0deg);
 
-    background: transparent;
+    background: white;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,.2);
 
     -webkit-backface-visibility: hidden;
@@ -128,4 +128,16 @@
          -o-transform: rotateX(180deg);
             transform: rotateX(180deg);
             transform: rotateX(180deg);
+}
+
+.mapcontainer{
+display: inline-block
+}
+.mapp {
+    position: relative;
+    width: 200px;
+    height: 10%
+}
+.back {
+    background-color: aqua
 }

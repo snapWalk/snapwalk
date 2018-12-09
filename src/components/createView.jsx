@@ -1,6 +1,6 @@
 import React from "react";
 import SnapModal from "./snapmodal";
-import { Form, FormGroup, InputGroup, Button, FormControl } from "react-bootstrap";
+require("../scss/style.scss");
 
 class CreateView extends React.Component {
   constructor (props) {
@@ -61,38 +61,29 @@ class CreateView extends React.Component {
     }
     return (
       <div>
-        <h2>Create your own route</h2>
-        <Form>
-          <FormGroup>
-            <InputGroup>
-              <FormGroup className="col-md-4">
-                <h3>Route Name</h3>
-                <FormControl name="name" className="col-md-4" type="text" placeholder="route name" required onChange={e => this.updateInput(e)}></FormControl>
-                <h3>Description</h3>
-                <FormControl name="description" componentClass="textarea" placeholder="This route will take you to ..." onChange={e => this.updateInput(e)}/>
-              </FormGroup>
-            </InputGroup>
-            <hr/>
-            <InputGroup>
-              <FormGroup className="col-md-4">
-                <h3>Place 1</h3>
-                <FormControl name="placeName" className="col-md-4" type="text" required onChange={e => this.updateInput(e)}></FormControl>
-                <h3>Describe the task</h3>
-                <FormControl name="placeDescription" componentClass="textarea" placeholder="In this place, you need to do ... and find ..." required onChange={e => this.updateInput(e)}/>
-              </FormGroup>
-              <FormGroup>
-                <h3>Insert geolocation of this place!</h3>
-                <FormControl name="lat" inline="true" className="col-xs-3" type="text" placeholder="LAT" required onChange={e => this.updateInput(e)}></FormControl>
-                <FormControl name="lng" inline="true" className="col-xs-3" type="text" placeholder="LNG" required onChange={e => this.updateInput(e)}></FormControl>
-              </FormGroup>
-              <FormGroup className="col-md-4">
-                <h3>What item you need to find?</h3>
-                <FormControl name="item" className="col-md-4" type="text" placeholder="item name" required onChange={e => this.updateInput(e)}></FormControl>
-              </FormGroup>
-            </InputGroup>
-            <Button type="submit" onClick={e => this.addRoute(e)}>Submit</Button>
-          </FormGroup>
-        </Form>
+        <div className="create">
+          <h2>Create your own route</h2>
+          <form>
+            <div className="createroute">
+              <input name="name" className="form" type="text" placeholder="route name" required onChange={e => this.updateInput(e)}></input>
+              <br/>
+              <textarea rows="4" name="description" type="text" placeholder="this route will take you to ..." onChange={e => this.updateInput(e)}/>
+            </div>
+            <div className="createplace">
+              <input name="placeName" className="form" type="text" placeholder="place" required onChange={e => this.updateInput(e)}></input>
+              <br/>
+              <textarea rows="4" name="placeDescription" type="text" placeholder="describe the task" required onChange={e => this.updateInput(e)}/>
+              <br/>
+              <p>insert geolocation of this place!</p>
+              <input name="lat" inline="true" className="latlng" type="text" placeholder="lat" required onChange={e => this.updateInput(e)}></input>
+              <input name="lng" inline="true" className="latlng" type="text" placeholder="lng" required onChange={e => this.updateInput(e)}></input>
+              <br/>
+              <p>wat item should we look for?</p>
+              <input name="item" className="form" type="text" placeholder="item name" required onChange={e => this.updateInput(e)}></input>
+            </div>
+          </form>
+          <button className="custom-btn" type="submit" onClick={e => this.addRoute(e)}>Submit</button>
+        </div>
       </div>
 
     );

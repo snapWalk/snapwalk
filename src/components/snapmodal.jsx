@@ -1,6 +1,7 @@
 import React from "react";
 import Home from "./home";
 import { Modal, Button } from "react-bootstrap";
+require("../assets/background.jpg");
 
 class SnapModal extends React.Component {
   constructor (props) {
@@ -16,14 +17,10 @@ class SnapModal extends React.Component {
 
   render () {
     return (
-      this.state.homeView ? <Home/> : <div>
-        <Modal.Dialog>
-          <Modal.Body>
-            <p>You have created a new route!</p>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={() => this.goHome()}>Return</Button>
-          </Modal.Footer>
+      this.state.homeView ? <Home/> : <div className="modal">
+        <Modal.Dialog className="modcontent">
+          <p>You have created a new route!</p>
+          <Button onClick={() => this.goHome()}>return</Button>
         </Modal.Dialog>
       </div>
     );

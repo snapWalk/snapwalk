@@ -30,13 +30,13 @@ class Home extends React.Component {
     }
     if (!this.state.createView && !this.state.searchView) {
       home = <div className="home">
-        <h1>SnapWalk</h1>
-        <div classID="homeBtns">
+        <h1 classID="snapwalk">SnapWalk</h1>
+        <div className="homeBtns">
           <div>
-            <button className="custom-btn" onClick={() => this.goCreate()}>Create a new route</button>
+            <button className="custom-btn" onClick={() => this.goCreate()}>create</button>
           </div>
           <div>
-            <button className="custom-btn" onClick={() => this.goSearch()}>Search for a route</button>
+            <button className="custom-btn" onClick={() => this.goSearch()}>explore</button>
           </div>
         </div>
       </div>;

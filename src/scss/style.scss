@@ -1,50 +1,110 @@
 
 @import 'mixins';
 
+html, body {
+  background-color: #99B5CD;
+}
+
 code {
   font-size: 1.1rem;
-  color: hsl(0, 0%, 29%)
+  color: hsl(0, 0%, 29%);
 }
 
 .notification code {
   background: hsl(0, 0%, 90%)
 }
-h1 {
-  font-family: 'Monoton', cursive;
-}
-p {
-  font-family: 'Abril Fatface', cursive;
-  font-size: 15px;
-  color: teal
+
+.homeBtns {
+  margin-top: 20%;
 }
 
 .home {
+  background: url("../assets/background.jpg");
+  background-size: cover;
   display: block;
   width: 60%;
   height: 500px;
-  border: 1px solid #F3703C;
+  border: 8px solid white;
+  border-radius: 10%;
+  margin: auto;
+  margin-top: 5%;
+}
+.create {
+  background: url("../assets/background.jpg");
+  background-size: cover;
+  display: block;
+  width: 60%;
+  height: 700px;
+  border: 8px solid white;
   border-radius: 10%;
   margin: auto;
   margin-top: 5%;
 }
 
-.homeBtns {
- display: block;
- border: 2px solid #F3703C;
-}
-
 .custom-btn {
+  background: url("../assets/btnb.jpg");
   color: white;
   font-family: 'Raleway', sans-serif;
-  background-color: #134B2B;
   display: block;
   width: 165px;
-  padding: 6px 12px;
-  margin-bottom: 15px;
+  padding: 10px 20px;
+  margin-bottom: 30px;
   margin-left: auto;
   margin-right: auto;
-  font-size: 16px;
+  font-size: 23px;
   font-weight: 400;
   text-align: center;
-  border: 2px solid #D4E0D7;
+  border: 2px solid white;
+  border-radius: 20%;
+}
+
+h2 {
+  color: white;
+  font-family: 'Raleway';
+  text-align: center;
+
+}
+.createroute, .createplace {
+display: block;
+text-align: center;
+padding: 20px
+}
+::-webkit-input-placeholder {
+  text-align: center;
+  color: #99B5CD;
+  font-family: 'Raleway';
+}
+
+.latlng {
+  width: 35%
+}
+
+.form {
+  width: 70%
+}
+textarea {
+  width: 90%;
+  border: none;
+  border-radius: 20%;
+  margin-top: 10px
+}
+.modal {
+  display: block;
+  width: 60%;
+  height: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+  text-align: center;
+  border: 8px solid white;
+  border-radius: 20%;
+  background: url("../assets/backgr.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  font-family: 'Raleway', sans-serif;
+}
+.modcontent {
+  margin: auto;
+  background-color: rgba(0, 0, 255, 0.3);
 }

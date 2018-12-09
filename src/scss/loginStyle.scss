@@ -1,27 +1,36 @@
 
 @import 'mixins';
 
+
+h1 {
+    font-family: 'Monoton', cursive;
+    color: white;
+    text-align: center;
+    }
+
 p {
 font-family: 'Raleway', sans-serif;
+font-weight: 800;
+color: white;
 }
 
 .loginImage img {
-width: 100%;
+min-width: 100%;
+max-height: 100vh;
+margin: auto;
 }
 
-#loginB {
-position: relative;
+.loginContent {
 text-align: center;
 color: white;
-}
-.loginContent {
 position: absolute;
-top: 50%;
+top: 52%;
 left: 50%;
 transform: translate(-50%, -50%);
 }
 
 .google-login {
+    margin-top: 30px;
 margin-right: 0;
 font-size: 12px;
 }

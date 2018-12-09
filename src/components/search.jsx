@@ -11,6 +11,7 @@ class SearchView extends React.Component {
       routes: [],
       place: undefined,
       error: false,
+      loading: true,
       visible: false,
       featured: 0,
       routeView: false
@@ -22,7 +23,8 @@ class SearchView extends React.Component {
       .then(res => res.json())
       .then(json => {
         this.setState({
-          routes: json.body
+          routes: json.body,
+          loading: false
         });
       })
       .catch(() => {
@@ -52,46 +54,58 @@ class SearchView extends React.Component {
   render () {
     let routes = this.state.routes;
     let routesArr = [];
+    let showed;
     let featured;
 
     for (let key in routes) {
       routesArr.push(
-        <div>
-          <div>
-            <Flippy
-              flipOnHover={false}
-              flipOnClick={true}
-              flipDirection="horizontal"
-              //   ref={(r) => this.flippy = r }
-              style={{ width: "200px", height: "200px" }}
-            >
-              <FrontSide>
-                <div className="route" key={key} onClick={() => this.showPlace(key, routes[key].id)}>
-                  <p>{routes[key].name}</p>
-                  <p>{routes[key].description}</p>
-                </div>
-              </FrontSide>
-              <BackSide>
-          Backside! Map here!
-              </BackSide>
-            </Flippy>
-          </div>
+        <div className="route" key={key} onClick={() => this.showPlace(key, routes[key].id)}>
+          <p>{routes[key].name}</p>
+          <p>{routes[key].description}</p>
         </div>);
+    }
+
+    if (this.state.loading) {
+      showed = <div></div>;
+    } else {
+      showed = routesArr;
     }
 
     if (!this.state.visible) {
       featured = <div></div>;
     } else {
-      featured = <div>
-        <h3>{routes[this.state.featured].name}</h3>
-        <p>{routes[this.state.featured].description}</p>
-        <h4>placename: {this.state.place[0].name}</h4>
-        <p>placedes: {this.state.place[0].description}</p>
-        <p>placeitem: {this.state.place[0].item}</p>
-        <div className="mapp">
-          <LocationMap latitude={Number(this.state.place[0].latitude)} longitude={Number(this.state.place[0].longitude)} />
-        </div>
-        <button onClick={(e) => this.goRoute(e)}>Do this route</button>
+      featured =
+      <div>
+        <Flippy
+          flipOnHover={false}
+          flipOnClick={true}
+          flipDirection="horizontal"
+          // ref={(r) => this.flippy = r}
+          style={{ width: "600px", height: "250px" }}
+        >
+          <FrontSide style={{
+            backgroundColor: "red"
+          }}>
+            <div className="front">
+              <h2>This is the FFRRRROOONT</h2>
+              <h3>{routes[this.state.featured].name}</h3>
+              <p>{routes[this.state.featured].description}</p>
+            </div>
+          </FrontSide>
+          <BackSide>
+            <div className="back">
+              <div className="backtext">
+                <h2>This is the BBBBAAAACK</h2>
+                <h4>placename: {this.state.place[0].name}</h4>
+                <p>placedes: {this.state.place[0].description}</p>
+              </div>
+              <div className="mapp">
+                {/* <LocationMap latitude={Number(this.state.place[0].latitude)} longitude={Number(this.state.place[0].longitude)} /> */}
+              </div>
+              <button onClick={(e) => this.goRoute(e)}>Go</button>
+            </div>
+          </BackSide>
+        </Flippy>
       </div>;
     }
 
@@ -103,7 +117,7 @@ class SearchView extends React.Component {
       <div>
         <h2>Search for a route</h2>
         <div>{featured}</div>
-        <div>{routesArr}</div>
+        <div>{showed}</div>
       </div>
     );
   }

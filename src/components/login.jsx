@@ -33,7 +33,7 @@ class Login extends React.Component {
       return <Home userID={this.state.userID}/>;
     }
     return (
-      <div id="loginB">
+      <div>
         <div className="loginImage">
           <img id="backgroundIMG" src="http://www.chinesenzherald.co.nz/assets/Uploads/News/blog-30215/pexels-photo-1252983.jpeg"/>
         </div>
