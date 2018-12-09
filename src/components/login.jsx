@@ -39,7 +39,7 @@ class Login extends React.Component {
         </div>
         <div className="loginContent">
           <h1>SnapWalk</h1>
-          <p>Login to start your <br/> SnapWalk adventure!</p>
+          <p className="logintext">Login to start your <br/> SnapWalk adventure!</p>
           <GoogleLogin clientId="222454378359-4nglm1c1jqb54m9ntlbs2kfovf7kqru1.apps.googleusercontent.com"
             className="google-login"
             fetchBasicProfile={false}
