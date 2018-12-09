@@ -1,6 +1,6 @@
 import React from "react";
 import CreateView from "./createView";
-import Search from "./search";
+import SearchView from "./searchView";
 require("../scss/style.scss");
 
 class Home extends React.Component {
@@ -23,7 +23,7 @@ class Home extends React.Component {
   render () {
     let home;
     if (this.state.searchView) {
-      return <Search/>;
+      return <SearchView/>;
     }
     if (this.state.createView) {
       return <CreateView userID={this.props.userID} />;
