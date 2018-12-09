@@ -1,6 +1,7 @@
 import React from "react";
 import { GoogleLogin } from "react-google-login";
 import Home from "./home";
+require("../scss/loginStyle.scss");
 
 class Login extends React.Component {
   constructor (props) {
@@ -33,14 +34,19 @@ class Login extends React.Component {
     }
     return (
       <div>
-        <h1>SnapWalk</h1>
-        <p>Login to start your SnapWalk adventure!</p>
-        <GoogleLogin clientId="222454378359-4nglm1c1jqb54m9ntlbs2kfovf7kqru1.apps.googleusercontent.com"
-          className="google-login"
-          fetchBasicProfile={false}
-          onSuccess={(response) => this.responseGoogle(response)}
-          onFailure={(response) => this.responseGoogle(response)}
-          buttonText="Login With Google"/>
+        <div className="loginImage">
+          <img id="backgroundIMG" src="http://www.chinesenzherald.co.nz/assets/Uploads/News/blog-30215/pexels-photo-1252983.jpeg"/>
+        </div>
+        <div className="loginContent">
+          <h1>SnapWalk</h1>
+          <p className="logintext">Login to start your <br/> SnapWalk adventure!</p>
+          <GoogleLogin clientId="222454378359-4nglm1c1jqb54m9ntlbs2kfovf7kqru1.apps.googleusercontent.com"
+            className="google-login"
+            fetchBasicProfile={false}
+            onSuccess={(response) => this.responseGoogle(response)}
+            onFailure={(response) => this.responseGoogle(response)}
+            buttonText="Login With Google"/>
+        </div>
       </div>
     );
   }
