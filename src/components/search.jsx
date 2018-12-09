@@ -83,27 +83,21 @@ class SearchView extends React.Component {
           // ref={(r) => this.flippy = r}
           style={{ width: "600px", height: "250px" }}
         >
-          <FrontSide style={{
-            backgroundColor: "red"
-          }}>
-            <div className="front">
-              <h2>This is the FFRRRROOONT</h2>
-              <h3>{routes[this.state.featured].name}</h3>
-              <p>{routes[this.state.featured].description}</p>
-            </div>
+          <FrontSide className="frontCard">
+            <h2>This is the FFRRRROOONT</h2>
+            <h3>{routes[this.state.featured].name}</h3>
+            <p>{routes[this.state.featured].description}</p>
           </FrontSide>
-          <BackSide>
-            <div className="back">
-              <div className="backtext">
-                <h2>This is the BBBBAAAACK</h2>
-                <h4>placename: {this.state.place[0].name}</h4>
-                <p>placedes: {this.state.place[0].description}</p>
-              </div>
-              <div className="mapp">
-                {/* <LocationMap latitude={Number(this.state.place[0].latitude)} longitude={Number(this.state.place[0].longitude)} /> */}
-              </div>
-              <button onClick={(e) => this.goRoute(e)}>Go</button>
+          <BackSide className="backCard">
+            <div className="backtext">
+              <h2>This is the BBBBAAAACK</h2>
+              <h4>placename: {this.state.place[0].name}</h4>
+              <p>placedes: {this.state.place[0].description}</p>
             </div>
+            <div>
+              <LocationMap className="backmap" latitude={Number(this.state.place[0].latitude)} longitude={Number(this.state.place[0].longitude)} />
+            </div>
+            <button onClick={(e) => this.goRoute(e)}>Go</button>
           </BackSide>
         </Flippy>
       </div>;

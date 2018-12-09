@@ -104,7 +104,40 @@ textarea {
   color: white;
   font-family: 'Raleway', sans-serif;
 }
-.modcontent {
-  margin: auto;
-  background-color: rgba(0, 0, 255, 0.3);
+.modal-content {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  background: none;
+  -webkit-box-shadow: none;
+  border: none;
+  vertical-align: middle;
 }
+@media (min-width: 768px) {
+  .modal-content {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: none;
+    vertical-align: middle;
+  }
+}
+.modalP {
+  font-size: 20px;
+}
+.modalBtn {
+  background: #99B5CD;
+  border: 2px solid white;
+  padding: 7px 40px;
+  margin-top: 5%;
+  color: white;
+  font-size: 15px;
+}
+// .modalBtn :hover {
+//   color: #99B5CD;
+//   background: white;
+//   border: 2px solid #99B5CD;
+// }

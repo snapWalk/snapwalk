@@ -1,6 +1,19 @@
+@import 'mixins';
+
+.route {
+    border: 2px solid white;
+    border-radius: 1em;
+    width: 60%;
+    margin: auto;
+    margin-top: 2%;
+    text-align: center;
+}
+
 
 .flippy-container *
 {
+    margin: auto;
+    border-radius: 1em;
     box-sizing: border-box;
 }
 
@@ -130,14 +143,15 @@
             transform: rotateX(180deg);
 }
 
-.mapcontainer{
-display: inline-block
+.backCard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
-.mapp {
-    position: relative;
-    width: 200px;
-    height: 10%
+.backtext {
+    grid-column-start: 1;
 }
-.back {
-    background-color: aqua
+.backmap {
+    grid-column-start: 2;
+    width: 50px;
+    height: 50px
 }

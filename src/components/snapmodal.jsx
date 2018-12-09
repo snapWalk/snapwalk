@@ -18,9 +18,9 @@ class SnapModal extends React.Component {
   render () {
     return (
       this.state.homeView ? <Home/> : <div className="modal">
-        <Modal.Dialog className="modcontent">
-          <p>You have created a new route!</p>
-          <Button onClick={() => this.goHome()}>return</Button>
+        <Modal.Dialog>
+          <p className="modalP">You have created a new route!</p>
+          <Button className="modalBtn" onClick={() => this.goHome()}>return</Button>
         </Modal.Dialog>
       </div>
     );
