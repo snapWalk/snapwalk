@@ -4,7 +4,18 @@
 html, body {
   background-color: #99B5CD;
 }
-
+.snapwalk, p {
+  font-family: 'Monoton', cursive;
+  color: white;
+  text-align: center;
+  text-shadow: 2px 2px black;
+  background: rgba(0, 0, 0, 0.7);
+  width: fit-content;
+  margin: auto;
+  margin-top: 5%;
+  padding: 3px 10px;
+  border-radius: 0.2em;
+}
 code {
   font-size: 1.1rem;
   color: hsl(0, 0%, 29%);
@@ -19,7 +30,7 @@ code {
 }
 
 .home {
-  background: url("../assets/background.jpg");
+  background: url("http://mappinglondon.co.uk/wp-content/uploads/2011/12/ucl_map1.png");
   background-size: cover;
   display: block;
   width: 60%;
@@ -30,7 +41,7 @@ code {
   margin-top: 5%;
 }
 .create {
-  background: url("../assets/background.jpg");
+  background: url("http://mappinglondon.co.uk/wp-content/uploads/2011/12/ucl_map1.png");
   background-size: cover;
   display: block;
   width: 60%;
@@ -41,8 +52,8 @@ code {
   margin-top: 5%;
 }
 
-.custom-btn {
-  background: url("../assets/btnb.jpg");
+.custom-btn, .modalBtn {
+  background: rgba(0, 0, 0, 0.7);
   color: white;
   font-family: 'Raleway', sans-serif;
   display: block;
@@ -51,18 +62,22 @@ code {
   margin-bottom: 30px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 10%;
   font-size: 23px;
   font-weight: 400;
   text-align: center;
-  border: 2px solid white;
-  border-radius: 20%;
+  border: 1px solid white;
+  border-radius: 1em;
 }
 
 h2 {
   color: white;
   font-family: 'Raleway';
   text-align: center;
-
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 0.2em;
+  width: 90%;
+  margin: auto;
 }
 .createroute, .createplace {
 display: block;
@@ -73,20 +88,26 @@ padding: 20px
   text-align: center;
   color: #99B5CD;
   font-family: 'Raleway';
+  vertical-align: middle;
 }
 
 .latlng {
-  width: 35%
+  width: 35%;
+  border: 0.5px solid black;
+  border-radius: 0.2em;
 }
 
 .form {
-  width: 70%
+  width: 70%;
+  border: 0.5px solid black;
+  border-radius: 0.2em;
 }
 textarea {
   width: 90%;
   border: none;
-  border-radius: 20%;
-  margin-top: 10px
+  margin-top: 10px;
+  border: 0.5px solid black;
+  border-radius: 0.2em;
 }
 .modal {
   display: block;
@@ -98,7 +119,7 @@ textarea {
   text-align: center;
   border: 8px solid white;
   border-radius: 20%;
-  background: url("../assets/backgr.jpg");
+  background: url("http://mappinglondon.co.uk/wp-content/uploads/2011/12/ucl_map1.png");
   background-size: cover;
   background-repeat: no-repeat;
   color: white;
@@ -128,16 +149,38 @@ textarea {
 .modalP {
   font-size: 20px;
 }
-.modalBtn {
-  background: #99B5CD;
-  border: 2px solid white;
-  padding: 7px 40px;
-  margin-top: 5%;
-  color: white;
-  font-size: 15px;
+.route-name, .place-name {
+  font-family: 'Raleway', sans-serif;
+  background: -webkit-linear-gradient(#eee, #994B61);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  text-align: center;
+  width: 100%;
+  font-size: 45px;
+  margin-top: auto;
+  padding: 15px;
 }
-// .modalBtn :hover {
-//   color: #99B5CD;
-//   background: white;
-//   border: 2px solid #99B5CD;
-// }
+.route-descr, .place-descr {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    color: white;
+    text-align: center;
+    color: black;
+    font-size: 20px;
+    text-shadow: none;
+    background: none;
+}
+
+.searchtitle {
+  color: white;
+  font-family: 'Raleway';
+  font-size: 45px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 0.2em;
+  width: 35%;
+  margin: auto;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}

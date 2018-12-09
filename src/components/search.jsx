@@ -60,8 +60,8 @@ class SearchView extends React.Component {
     for (let key in routes) {
       routesArr.push(
         <div className="route" key={key} onClick={() => this.showPlace(key, routes[key].id)}>
-          <p>{routes[key].name}</p>
-          <p>{routes[key].description}</p>
+          <h2>{routes[key].name}</h2>
+          <p className="routesP">{routes[key].description}</p>
         </div>);
     }
 
@@ -75,31 +75,26 @@ class SearchView extends React.Component {
       featured = <div></div>;
     } else {
       featured =
-      <div>
+      <div className="featured-grid">
         <Flippy
+          classname="left"
           flipOnHover={false}
           flipOnClick={true}
           flipDirection="horizontal"
-          // ref={(r) => this.flippy = r}
-          style={{ width: "600px", height: "250px" }}
         >
           <FrontSide className="frontCard">
-            <h2>This is the FFRRRROOONT</h2>
-            <h3>{routes[this.state.featured].name}</h3>
-            <p>{routes[this.state.featured].description}</p>
+            <h3 className="route-name">{routes[this.state.featured].name}</h3>
+            <p className="route-descr">{routes[this.state.featured].description}</p>
           </FrontSide>
           <BackSide className="backCard">
-            <div className="backtext">
-              <h2>This is the BBBBAAAACK</h2>
-              <h4>placename: {this.state.place[0].name}</h4>
-              <p>placedes: {this.state.place[0].description}</p>
-            </div>
-            <div>
-              <LocationMap className="backmap" latitude={Number(this.state.place[0].latitude)} longitude={Number(this.state.place[0].longitude)} />
-            </div>
-            <button onClick={(e) => this.goRoute(e)}>Go</button>
+            <h3 className="place-name"> {this.state.place[0].name}</h3>
+            <p className="place-descr"> {this.state.place[0].description}</p>
+            <button className="go-btn" onClick={(e) => this.goRoute(e)}>Go</button>
           </BackSide>
         </Flippy>
+        <div className="right">
+          <LocationMap className="backmap" latitude={Number(this.state.place[0].latitude)} longitude={Number(this.state.place[0].longitude)} />
+        </div>
       </div>;
     }
 
@@ -109,7 +104,7 @@ class SearchView extends React.Component {
 
     return (
       <div>
-        <h2>Search for a route</h2>
+        <h2 className="searchtitle">Search for a route</h2>
         <div>{featured}</div>
         <div>{showed}</div>
       </div>

@@ -30,7 +30,7 @@ class Home extends React.Component {
     }
     if (!this.state.createView && !this.state.searchView) {
       home = <div className="home">
-        <h1 classID="snapwalk">SnapWalk</h1>
+        <h1 className="snapwalk">SnapWalk</h1>
         <div className="homeBtns">
           <div>
             <button className="custom-btn" onClick={() => this.goCreate()}>create</button>
