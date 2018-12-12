@@ -2,7 +2,7 @@ import React from "react";
 import RouteView from "./routeView";
 import LocationMap from "./locationMap";
 import Flippy, { FrontSide, BackSide } from "react-flippy";
-require("../scss/flippy.scss");
+require("../scss/flipcard.scss");
 
 class SearchView extends React.Component {
   constructor (props) {
